@@ -1,1 +1,56 @@
 /*Archivo de estilos. MAIN.CSS*/
+
+.formato {
+        padding: 100px;
+      }
+      .uno {
+        background-color: #333;
+      }
+      .dos {
+        background-color: #ca4929;
+      }
+      .dos .recuadro {
+        background-color: #0e4c5b;
+        color: white ;
+      }
+      .dos .blanco {
+        color: white;
+      }
+      .tres {
+        background-color: white;
+        padding-bottom: 10px;
+      }
+      .tres .cuadro {
+        background-color: #f7b231;
+        color: white;
+        padding-top: -5px;
+      }
+      .cuatro {
+        background-color: #f9b538;
+        padding-top: 50px;
+      }
+      .cinco {
+        background-color: #0e4c5b;
+      }
+      .cinco h2 {
+        color: white; 
+      }
+      .seis {
+        background-color: #a7b38f;
+      }
+      .siete {
+
+      }
+      .ocho {
+        background-image: url(http://www.turimexico.com/wp-content/uploads/2015/06/tecolutla1.jpg);
+      }
+      h2.head {
+        color: white;
+      }
+      .navbar-brand {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        margin:0 auto;
+      }
