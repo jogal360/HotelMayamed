@@ -1,56 +1,89 @@
 /*Archivo de estilos. MAIN.CSS*/
 
-.formato {
+@import 'https://fonts.googleapis.com/css?family=Lobster';
+     @import 'https://fonts.googleapis.com/css?family=PT+Sans+Caption';
+      body {
+        font-family: 'PT Sans Caption', sans-serif;
+      }
+      .gris {
+        color: #b0a17a;
+      }
+      .formato {
         padding: 100px;
       }
-      .uno {
-        background-color: #333;
+      .cursiva {
+        font-family: 'Lobster', cursive;
       }
-      .dos {
-        background-color: #ca4929;
-      }
-      .dos .recuadro {
-        background-color: #0e4c5b;
-        color: white ;
-      }
-      .dos .blanco {
+
+      /*colores background*/
+      .color-naranja {
+        background-color: #f7b231;
         color: white;
       }
-      .tres {
+      
+      /*CSS para las secciones*/
+      .carrusel {
+        background-color: #333;
+      }
+      .informacion {
+        background-color: #ca4929;
+      }
+      .informacion .recuadro {
+        background-color: #0e4c5b;
+        color: white;
+        padding: 10px;
+      }
+      .informacion .blanco {
+        color: white;
+      }
+      .habitaciones {
         background-color: white;
         padding-bottom: 10px;
       }
-      .tres .cuadro {
-        background-color: #f7b231;
-        color: white;
-        padding-top: -5px;
+      .habitaciones .imagenes {
+        padding-top: 5px;
       }
-      .cuatro {
-        background-color: #f9b538;
-        padding-top: 50px;
-      }
-      .cinco {
+      .servicios {
         background-color: #0e4c5b;
+        color: white;
       }
-      .cinco h2 {
+      .servicios h2 {
         color: white; 
       }
-      .seis {
+      .galeria {
         background-color: #a7b38f;
       }
-      .siete {
-
-      }
-      .ocho {
-        background-image: url(http://www.turimexico.com/wp-content/uploads/2015/06/tecolutla1.jpg);
+      .contacto {
+        padding-bottom: 15px;
       }
       h2.head {
         color: white;
       }
-      .navbar-brand {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        text-align: center;
-        margin:0 auto;
+      .flex-parent {
+        display: -ms-flex;
+        display: -webkit-flex;
+        display: flex;
+      }
+      .flex-child{
+        display: -ms-flex;
+        display: -webkit-flex;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      @media (min-width: 768px) {
+        .navbar-nav {
+          width: 100%;
+          text-align: center;
+          margin: 5px;
+          padding: 5px;
+          padding-right: 30px;
+        }
+        .navbar-nav > li {
+          float: none;
+          display: inline-block;
+        }
+        .navbar-nav > li.navbar-right {
+          float: right !important;
+        }
       }
