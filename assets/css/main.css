@@ -24,6 +24,8 @@
       /*CSS para las secciones*/
       .carrusel {
         background-color: #333;
+        padding-top: 90px;
+        padding-bottom: 10px;
       }
       .informacion {
         background-color: #ca4929;
@@ -71,6 +73,13 @@
         justify-content: center;
         flex-direction: column;
       }
+      /*codigo de carrusel*/
+      .carousel-inner > .item > img,
+      .carousel-inner > .item > a > img {
+        width: 70%;
+        margin: auto;
+      }
+
       @media (min-width: 768px) {
         .navbar-nav {
           width: 100%;
