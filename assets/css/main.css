@@ -15,6 +15,12 @@
         font-family: 'Lobster', cursive;
       }
 
+      /*Logo del navbar*/
+      .logo-nav {
+        width: 60px;
+        height: 60px;
+      }
+
       /*colores background*/
       .color-naranja {
         background-color: #f7b231;
@@ -84,15 +90,24 @@
         .navbar-nav {
           width: 100%;
           text-align: center;
-          margin: 5px;
-          padding: 5px;
+          /*margin: 5px;
+          padding-top: : 5px;*/
           padding-right: 30px;
         }
         .navbar-nav > li {
           float: none;
           display: inline-block;
+          padding-bottom: 0;
+        }
+        .navbar-nav > li > a {
+          padding-top: 17px;
+          padding-bottom: 0;
+        }
+        .navbar-nav > li > .logo {
+          padding-top: 0 !important;
         }
         .navbar-nav > li.navbar-right {
           float: right !important;
         }
+
       }
