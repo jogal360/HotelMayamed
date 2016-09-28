@@ -86,6 +86,12 @@
         margin: auto;
       }
 
+      @media (min-width: 300px) {
+        .fondo {
+          padding-bottom: 55px;
+        }
+      }
+
       @media (min-width: 768px) {
         .navbar-nav {
           width: 100%;
