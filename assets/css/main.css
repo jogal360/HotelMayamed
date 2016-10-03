@@ -109,5 +109,13 @@
         .navbar-nav > li.navbar-right {
           float: right !important;
         }
+        .no-desktop {
+          display: none !important;
+        }
+      }
 
+      @media (max-width: 768px) {
+        .no-phone {
+          display: none !important;
+        }
       }
