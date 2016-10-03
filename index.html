@@ -261,7 +261,7 @@
 	  <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- API google maps -->
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM"></script>
     </script>
     <script type="text/javascript">
       var marker = null;
@@ -275,9 +275,10 @@
       }
 
       function inicializar_mapa() {
+
         var mapOptions = {
           /*center: new google.maps.LatLng(37.774707, -3.795573),*/
-          center: new google.maps.LatLng(20.481564, -97.013209),
+          center: {lat: 20.481564, lng: -97.013209},
           zoom: 17,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           styles: [
