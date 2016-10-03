@@ -313,6 +313,7 @@
         /*marker.setIcon('https://dl.dropboxusercontent.com/u/20056281/Iconos/male-2.png');*/
         marker.setIcon('assets/img/ubicacion/ub.png');
         google.maps.event.addListener(marker, 'click', funcionClick);
+        google.maps.event.addDomListener(window, 'load', inicializar_mapa);
       }
     </script>
     </div>
