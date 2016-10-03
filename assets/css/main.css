@@ -86,6 +86,11 @@
         margin: auto;
       }
 
+      #mapa_div {
+       height: 100% !important;
+       position: absolute;
+      }
+
       @media (min-width: 768px) {
         .navbar-nav {
           width: 100%;

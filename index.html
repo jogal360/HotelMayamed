@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Archivo main.css -->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    
   </head>
-  <body>
+  <body onload="inicializar_mapa()">
     <div class="container-fluid">
     <!-- Inicio de barra de navegación -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -251,9 +252,7 @@
       <div class="col-lg-12 text-center">
         <h2>UBICACIÓN</h2>
       </div>
-      <div class="col-lg-12 col-md-12 text-center embed-responsive embed-responsive-16by9">
-        <!-- <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.6010724375374!2d-97.01539718557385!3d20.48156368629733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85dbb4041dd68da7%3A0x79871eb2b660d40!2sHotel+Mayamed!5e1!3m2!1ses-419!2smx!4v1474306735761" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-      </div>
+        <div id="mapa_div" style="width:100%; height:100%"></div>
     </section>
     <!-- Fin de ubicación -->
     <script src="assets/js/main.js"></script>
@@ -261,6 +260,60 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	  <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- API google maps -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM"></script>
+    </script>
+    <script type="text/javascript">
+      var marker = null;
+
+      function funcionClick() {
+        if (marker.getAnimation() != null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
+
+      function inicializar_mapa() {
+        var mapOptions = {
+          /*center: new google.maps.LatLng(37.774707, -3.795573),*/
+          center: new google.maps.LatLng(20.481564, -97.013209),
+          zoom: 17,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          styles: [
+              {"stylers": [{ "hue": "#f9b538" }]},
+              {
+                "featureType": "road",
+                "elementType": "labels",
+                "stylers": [{"visibility": "off"}]
+              },
+              {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [{"lightness": 100},
+                      {"visibility": "simplified"}]
+              }
+          ]
+        };
+
+        var map = new google.maps.Map(document.getElementById("mapa_div"),
+            mapOptions);
+
+        /*var pos = new google.maps.LatLng(37.774807, -3.795573);*/
+        var pos = new google.maps.LatLng(20.481564, -97.013209);
+
+          marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+            title:"¡Aquí está el Hotel Mayamed!",
+            animation: google.maps.Animation.DROP
+          }); 
+
+        /*marker.setIcon('https://dl.dropboxusercontent.com/u/20056281/Iconos/male-2.png');*/
+        marker.setIcon('assets/img/ubicacion/ub.png');
+        google.maps.event.addListener(marker, 'click', funcionClick);
+      }
+    </script>
     </div>
   </body>
 </html>
