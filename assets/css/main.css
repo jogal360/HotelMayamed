@@ -64,21 +64,16 @@
       .contacto {
         padding-bottom: 15px;
       }
+      .footer {
+        padding: 100px;
+      }
       h2.head {
         color: white;
       }
-      .flex-parent {
-        display: -ms-flex;
-        display: -webkit-flex;
-        display: flex;
+      .pad-bot {
+        padding-bottom: 10px;
       }
-      .flex-child{
-        display: -ms-flex;
-        display: -webkit-flex;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-      }
+
       /*codigo de carrusel*/
       .carousel-inner > .item > img,
       .carousel-inner > .item > a > img {
@@ -122,5 +117,8 @@
       @media (max-width: 768px) {
         .no-phone {
           display: none !important;
+        }
+        .a-b {
+          padding-bottom: 5px;
         }
       }
