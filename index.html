@@ -23,18 +23,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand no-desktop" href="#top">Hotel Mayamed</a>     
+          <a class="navbar-brand no-desktop page-scroll" href="#top">Hotel Mayamed</a>     
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="no-desktop"><a href="#top">Inicio</a></li>
-            <li class="navbar-left"><a href="#">Habitaciones</a></li>
-            <li class="navbar-left"><a href="#">Reservación</a></li>
-            <li class="navbar-left"><a href="#">Servicios</a></li>
-            <li class="no-phone"><a class="logo " href="#"><img class="logo-nav" src="assets/img/logo.png"></a></li>
-            <li class="navbar-right"><a href="#">Contacto</a></li>
-            <li class="navbar-right"><a href="#">Ubicación</a></li>
-            <li class="navbar-right"><a href="#">Galería</a></li>
+            <li class="no-desktop"><a class="page-scroll" href="#top">Inicio</a></li>
+            <li class="navbar-left"><a class="page-scroll" href="#habitaciones">Habitaciones</a></li>
+            <li class="navbar-left"><a class="page-scroll" href="#">Reservación</a></li>
+            <li class="navbar-left"><a class="page-scroll" href="#">Servicios</a></li>
+            <li class="no-phone"><a class="logo page-scroll" href="#"><img class="logo-nav" src="assets/img/logo.png"></a></li>
+            <li class="navbar-right"><a class="page-scroll" href="#">Contacto</a></li>
+            <li class="navbar-right"><a class="page-scroll" href="#">Ubicación</a></li>
+            <li class="navbar-right"><a class="page-scroll" href="#">Galería</a></li>
           </ul>
         </div>
       </nav>
@@ -322,9 +322,6 @@
         marker.setIcon('assets/img/ubicacion/ub.png');
         google.maps.event.addListener(marker, 'click', funcionClick);
         google.maps.event.addDomListener(window, 'load', inicializar_mapa);
-        google.maps.event.addListener(myMap, 'tilesloaded', function(){
-          document.getElementById('#mapa_div').style.position = 'fixed';
-        });
       }
     </script>
     </div>
