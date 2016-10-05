@@ -102,6 +102,25 @@
         padding-bottom: 15px;
       }
 
+      #scrollUp {
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        position: fixed;
+        display: none;
+        background: rgba(123, 123, 123, 0.65) url(../img/arriba.png) no-repeat 50% 48%;
+        -webkit-transition: all 250ms linear;
+        -moz-transition: all 250ms linear;
+        transition: all 250ms linear; 
+      }
+      #scrollUp:hover { 
+        background-color: #29aaca; 
+      }
+
       @media (min-width: 768px) {
         .navbar-nav {
           width: 100%;
