@@ -10,8 +10,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Archivo main.css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-    
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">    
   </head>
   <body onload="inicializar_mapa()">
     <div class="container-fluid">
@@ -27,20 +26,33 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="no-desktop"><a href="#top">Inicio</a></li>
-            <li class="navbar-left"><a href="#">Habitaciones</a></li>
-            <li class="navbar-left"><a href="#">Reservación</a></li>
-            <li class="navbar-left"><a href="#">Servicios</a></li>
-            <li class="no-phone"><a class="logo " href="#"><img class="logo-nav" src="assets/img/logo.png"></a></li>
-            <li class="navbar-right"><a href="#">Contacto</a></li>
-            <li class="navbar-right"><a href="#">Ubicación</a></li>
-            <li class="navbar-right"><a href="#">Galería</a></li>
+            <li class="navbar-left page-scroll">
+              <a class="page-scroll" href="#habitaciones">Habitaciones</a>
+            </li>
+            <li class="navbar-left">
+              <a class="page-scroll" href="#">Reservación</a>
+            </li>
+            <li class="navbar-left">
+              <a class="page-scroll" href="#servicios">Servicios</a>
+            </li>
+            <li>
+              <a class="logo page-scroll" href="#top"><img class="logo-nav" src="assets/img/logo.png"></a>
+            </li>
+            <li class="navbar-right">
+              <a class="page-scroll" href="#contacto">Contacto</a>
+            </li>
+            <li class="navbar-right">
+              <a class="page-scroll" href="#ubicacion">Ubicación</a>
+            </li>
+            <li class="navbar-right">
+              <a class="page-scroll" href="#galeria">Galería</a>
+            </li>
           </ul>
         </div>
       </nav>
     <!-- Fin de barra de navegación -->
     <!-- Inicio de carrusel -->
-    <section class="carrusel row">
+    <section id="top" class="carrusel row top-section">
       <div class="col-lg-12 text-center">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
@@ -82,7 +94,7 @@
     </section>
     <!-- Fin de carrusel -->
     <!-- Inicio de informacion básica -->
-    <section class="informacion row">
+    <section id="informacion" class="informacion row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center">
         <h2 class="head cursiva">Un espacio en el paraíso de Tecolutla...</h2>
       </div>
@@ -102,7 +114,7 @@
     </section>
     <!-- Fin  de informacion -->
     <!-- Inicio de habitaciones -->
-    <section class="habitaciones row">
+    <section id="habitaciones" class="habitaciones row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center color-naranja">
         <h2>HABITACIONES</h2>
       </div>
@@ -137,7 +149,7 @@
     </section>
     <!-- Fin de habitaciones -->
     <!-- Inicio de servicios -->
-    <section class="servicios row">
+    <section id="servicios" class="servicios row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
         <h2>SERVICIOS</h2>
       </div>
@@ -170,7 +182,7 @@
     </section>
     <!-- Fin de servicios -->
     <!-- Inicio de galeria -->
-    <section class="galeria row">
+    <section id="galeria" class="galeria row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center">
         <h2>GALERIA</h2>
       </div>
@@ -206,7 +218,7 @@
     </section>
     <!-- Fin de galeria -->
     <!-- Inicio de contacto -->
-    <section class="contacto row color-naranja">
+    <section id="contacto" class="contacto row color-naranja">
       <div class="col-lg-12 text-center">
         <h2>CONTACTO</h2>
       </div>
@@ -249,7 +261,7 @@
     </section>
     <!-- Fin de contacto -->
     <!-- Inicio de ubicación -->
-    <section class="ubicacion row">
+    <section id="ubicacion" class="ubicacion row">
       <div class="col-lg-12 text-center">
         <h2>UBICACIÓN</h2>
       </div>
