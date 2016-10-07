@@ -15,6 +15,12 @@
         font-family: 'Lobster', cursive;
       }
 
+      /*Logo del navbar*/
+      .logo-nav {
+        width: 60px;
+        height: 60px;
+      }
+
       /*colores background*/
       .color-naranja {
         background-color: #f7b231;
@@ -24,6 +30,8 @@
       /*CSS para las secciones*/
       .carrusel {
         background-color: #333;
+        padding-top: 90px;
+        padding-bottom: 10px;
       }
       .informacion {
         background-color: #ca4929;
@@ -71,19 +79,48 @@
         justify-content: center;
         flex-direction: column;
       }
+      /*codigo de carrusel*/
+      .carousel-inner > .item > img,
+      .carousel-inner > .item > a > img {
+        width: 70%;
+        margin: auto;
+      }
+
+      #mapa_div {
+       height: 100% !important;
+       position: absolute;
+      }
+
       @media (min-width: 768px) {
         .navbar-nav {
           width: 100%;
           text-align: center;
-          margin: 5px;
-          padding: 5px;
+          /*margin: 5px;
+          padding-top: : 5px;*/
           padding-right: 30px;
         }
         .navbar-nav > li {
           float: none;
           display: inline-block;
+          padding-bottom: 0;
+        }
+        .navbar-nav > li > a {
+          padding-top: 17px;
+          padding-bottom: 0;
+        }
+        .navbar-nav > li > .logo {
+          padding-top: 0 !important;
         }
         .navbar-nav > li.navbar-right {
           float: right !important;
+        }
+        .no-desktop {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .no-phone {
+          display: none !important;
         }
       }
