@@ -36,7 +36,7 @@
       scrollwheel: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: [
-        {"stylers": [{ "hue": "#f9b538" }]},
+        {"stylers": [{ "hue": "#0097ff" }]},
         {
           "featureType": "road",
           "elementType": "labels",
