@@ -3,66 +3,69 @@
   <head>
 	  <meta charset="UTF-8">
 	  <title>Hotel MayaMed</title>
+    <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
+    <!-- Vista -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Archivo main.css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">    
   </head>
   <body>
     <div class="container-fluid">
     <!-- Inicio de barra de navegación -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>    
-        </div>
-        <div class="navbar-collapse collapse ">
-          <ul class="nav navbar-nav">
-            <li class="navbar-left"><a href="#">Habitaciones</a></li>
-            <li class="navbar-left"><a href="#">Reservación</a></li>
-            <li class="navbar-left"><a href="#">Servicios</a></li>
-            <li><a class="logo" href="#"><img class="logo-nav" src="assets/img/logo.png"></a></li>
-            <li class="navbar-right"><a href="#">Contacto</a></li>
-            <li class="navbar-right"><a href="#">Ubicación</a></li>
-            <li class="navbar-right"><a href="#">Galería</a></li>
-          </ul>
-        </div>
-      </nav>
-    <!-- Fin de barra de navegación -->
-    <!-- Inicio de carrusel -->
-    <section class="carrusel row">
-      <div class="col-lg-12 text-center">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-          </ol>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand no-desktop" href="#top">Hotel Mayamed</a>     
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="navbar-left"><a class="page-scroll" href="#top">Inicio</a></li>
+          <li class="navbar-left"><a class="page-scroll" href="#habitaciones">Habitaciones</a></li>
+          <li class="navbar-left"><a class="page-scroll" href="#servicios">Servicios</a></li>
+          <li class="no-phone"><a class="logo page-scroll" href="#top"><img class="logo-nav" src="assets/img/logo.png"></a></li>
+          <li class="navbar-right no-phone"><a class="page-scroll" href="#ubicacion">Ubicación</a></li>
+          <li class="navbar-right no-phone"><a class="page-scroll" href="#contacto">Contacto</a></li>
+          <li class="navbar-right no-phone"><a class="page-scroll" href="#galeria">Galería</a></li>
+          <li class="no-desktop"><a class="page-scroll" href="#galeria">Galería</a></li>
+          <li class="no-desktop"><a class="page-scroll" href="#contacto">Contacto</a></li>
+          <li class="no-desktop"><a class="page-scroll" href="#ubicacion">Ubicación</a></li>
+        </ul>
+      </div>
+    </nav>
+      <!-- Inicio de carrusel -->
+      <section id="top" class="carrusel row top-section">
+        <div class="col-lg-12 text-center">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <img src="http://www.w3schools.com/bootstrap/img_chania.jpg" alt="Chania" width="460" height="345">
+              <img src="assets/img/carrusel/c1.jpg" alt="Chania" width="460" height="345">
             </div>
 
             <div class="item">
-              <img src="http://www.w3schools.com/bootstrap/img_chania2.jpg" alt="Chania" width="460" height="345">
+              <img src="assets/img/carrusel/c2.jpg" alt="Chania" width="460" height="345">
             </div>
     
             <div class="item">
-              <img src="http://www.w3schools.com/bootstrap/img_flower.jpg" alt="Flower" width="460" height="345">
+              <img src="assets/img/carrusel/c3.jpg" alt="Flower" width="460" height="345">
             </div>
 
             <div class="item">
-              <img src="http://www.w3schools.com/bootstrap/img_flower2.jpg" alt="Flower" width="460" height="345">
+              <img src="assets/img/carrusel/c4.jpg" alt="Flower" width="460" height="345">
             </div>
           </div>
           <!-- Left and right controls -->
@@ -79,11 +82,11 @@
     </section>
     <!-- Fin de carrusel -->
     <!-- Inicio de informacion básica -->
-    <section class="informacion row">
+    <section id="informacion" class="informacion row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center">
         <h2 class="head cursiva">Un espacio en el paraíso de Tecolutla...</h2>
       </div>
-      <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="col-lg-12 col-md-12 col-sm-12 a-b">
         <div class="col-lg-6 col-md-6 col-sm-6 text-center blanco">
           <label class="gris">Amplias habitaciones.</label><br>
           <label>Calidad, atención y excelencia</label><br>
@@ -99,9 +102,9 @@
     </section>
     <!-- Fin  de informacion -->
     <!-- Inicio de habitaciones -->
-    <section class="habitaciones row">
+    <section id="habitaciones" class="habitaciones row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center color-naranja">
-        <h2>HABITACIONES</h2>
+        <h2 class="pad-bot-10">HABITACIONES</h2>
       </div>
       <div class="col-lg-12 col-md-12 text-center">
         <div class="col-lg-4 col-md-4 col-sm-4">
@@ -122,93 +125,110 @@
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 imagenes">
         <div class="col-lg-4 col-md-4 col-sm-4">
-          <img class="img-responsive" src="http://www.petitpalaceplazamalaga.com/uploads/galeriahabitaciones/petit-palace-hotel-plaza-malaga-habitacion-002.jpg">
+          <img class="img-responsive img-thumbnail" src="assets/img/habitaciones/h1.jpg">
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
-          <img class="img-responsive" src="http://www.petitpalacearanabilbaohotel.com/uploads/galeriahabitaciones/habitacion-triple-hotel-arana-bilbao.jpg">
+          <img class="img-responsive img-thumbnail" src="assets/img/habitaciones/h2.jpg">
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
-          <img class="img-responsive" src="http://www.hotelaranea.com/files/hotel-aranea-barcelona/hotel-gbb-aranea-barcelona-habitacion-triple-002.jpg">
+          <img class="img-responsive img-thumbnail" src="assets/img/habitaciones/h3.jpg">
         </div>
       </div>
     </section>
     <!-- Fin de habitaciones -->
     <!-- Inicio de servicios -->
-    <section class="servicios row">
+    <section id="servicios" class="servicios row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-        <h2>SERVICIOS</h2>
+        <h2 class="pad-bot-10">SERVICIOS</h2>
       </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-bot-20">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center pad-bot-15">
           <img class="img-responsive" src="assets/img/servicios/s1.png">
           <label>Alberca familiar</label>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center pad-bot-15">
           <img class="img-responsive" src="assets/img/servicios/s2.png">
           <label>Asoleadero</label>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center pad-bot-15">
           <img class="img-responsive" src="assets/img/servicios/s3.png">
           <label>Recepción 24 horas</label>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center pad-bot-15">
           <img class="img-responsive" src="assets/img/servicios/s4.png">
           <label>Estacionamiento privado</label>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center pad-bot-15">
           <img class="img-responsive" src="assets/img/servicios/s5.png">
           <label>Restaurante</label>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-center">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center pad-bot-15">
           <img class="img-responsive" src="assets/img/servicios/s6.png">
           <label>TV con cable</label>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center pad-bot-15">
+          <img class="img-responsive" src="assets/img/servicios/s6.png">
+          <label>Conexión WiFi</label>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center pad-bot-15">
+          <img class="img-responsive" src="assets/img/servicios/s6.png">
+          <label>A/A</label>
+        </div>
+        <div class="col-lg-3 col-md-3 col-md-offset-3 col-sm-4 col-xs-6 text-center pad-bot-15">
+          <img class="img-responsive" src="assets/img/servicios/s6.png">
+          <label>Ventilador</label>
+        </div>
+        <div class="col-lg-3 col-md-3 col-md-offset-0 col-sm-4 col-xs-6 col-sm-offset-4 text-center pad-bot-15">
+          <img class="img-responsive" src="assets/img/servicios/s6.png">
+          <label>Agua caliente</label>
         </div>
       </div>
     </section>
     <!-- Fin de servicios -->
     <!-- Inicio de galeria -->
-    <section class="galeria row">
+    <section id="galeria" class="galeria row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center">
         <h2>GALERIA</h2>
       </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-bot-15">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pad-bot-20">
           <img class="img-responsive img-thumbnail" src="assets/img/galeria/img1.jpg">
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pad-bot-20">
           <img class="img-responsive img-thumbnail" src="assets/img/galeria/img2.jpg">
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pad-bot-20">
           <img class="img-responsive img-thumbnail" src="assets/img/galeria/img3.jpg">
         </div>  
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pad-bot-15">
           <img class="img-responsive img-thumbnail" src="assets/img/galeria/img4.jpg">
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pad-bot-15">
           <img class="img-responsive img-thumbnail" src="assets/img/galeria/img5.jpg">
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pad-bot-15">
           <img class="img-responsive img-thumbnail" src="assets/img/galeria/img6.jpg">
         </div>  
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pad-bot-15">
           <img class="img-responsive img-thumbnail" src="assets/img/galeria/img7.jpg">
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pad-bot-15">
           <img class="img-responsive img-thumbnail" src="assets/img/galeria/img8.jpg">
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-6 col-xs-offset-3 pad-bot-15">
           <img class="img-responsive img-thumbnail" src="assets/img/galeria/img9.jpg">
         </div>  
       </div>
     </section>
     <!-- Fin de galeria -->
     <!-- Inicio de contacto -->
-    <section class="contacto row color-naranja">
+    <section id="contacto" class="contacto row color-naranja">
       <div class="col-lg-12 text-center">
         <h2>CONTACTO</h2>
       </div>
-      <div class="col-lg-12 col-md-12">
-        <div class="col-lg-7 col-md-7">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-2 col-md-2"></div>
+        <div class="col-lg-4 col-md-5 col-sm-7 col-xs-12 pad-bot-10">
           <form role="form">
             <div class="form-group">
               <label for="ejemplo_email_1">Tu nombre</label>
@@ -229,7 +249,7 @@
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
         </div>
-        <div class="col-lg-5 col-md-5">
+        <div class="col-lg-4 col-md-3 col-sm-5 col-xs-12">
           <label>Ubicado en: </label><br>
           <label>Av. Juárez s/n esquina con calle 16 de septiembre, Tecolutla, Veracruz</label>
           <br><br>
@@ -239,27 +259,41 @@
           <label>-México D.F.: 0155 55 353380, 55 1041 1697</label>
           <br><br>
           <label>Email:</label><br>
-          <label>hector@hotelmayamed.com.mx</label><br>
-          <label>hector@ruizmed.com.mx</label>
+          <label><a href="mailto:hector@hotelmayamed.com.mx">hector@hotelmayamed.com.mx</a></label><br>
+          <label><a href="mailto:hector@ruizmed.com.mx">hector@ruizmed.com.mx</a></label>
         </div>
+        <div class="col-lg-2 col-md-2"></div>
       </div>
     </section>
     <!-- Fin de contacto -->
     <!-- Inicio de ubicación -->
-    <section class="ubicacion row">
+    <section id="ubicacion" class="ubicacion row">
       <div class="col-lg-12 text-center">
         <h2>UBICACIÓN</h2>
       </div>
-      <div class="col-lg-12 col-md-12 text-center embed-responsive embed-responsive-16by9">
-        <!-- <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.6010724375374!2d-97.01539718557385!3d20.48156368629733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85dbb4041dd68da7%3A0x79871eb2b660d40!2sHotel+Mayamed!5e1!3m2!1ses-419!2smx!4v1474306735761" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-      </div>
+        <div id="map"></div>
     </section>
     <!-- Fin de ubicación -->
-    <script src="assets/js/main.js"></script>
+    <footer class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-7 col-md-7 col-sm-7">
+          <label>Dirección:</label> Av. Juárez s/n esquina con calle 16 de septiembre, Tecolutla, Veracruz
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5">
+          Hotel Mayamed &copy; | Todos los derechos reservados | <a href="">Aviso de privacidad</a>
+        </div>
+      </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	  <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- API google maps -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM"></script>
+    </script> 
+    <!-- Archivo JS principal -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <a class="page-scroll" style="display: inline-block; position: fixed; z-index: 2147483647;" title="" href="#top" id="scrollUp"></a>
     </div>
   </body>
 </html>
