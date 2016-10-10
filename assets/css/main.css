@@ -98,6 +98,9 @@
       .pad-bot-15 {
         padding-bottom: 15px;
       }
+      .pad-bot-20 {
+        padding-bottom: 20px;
+      }
 
       #scrollUp {
         bottom: 30px;
