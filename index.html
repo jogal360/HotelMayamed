@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Archivo main.css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">    
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> 
   </head>
   <body>
     <div class="container-fluid">
@@ -110,17 +111,17 @@
         <div class="col-lg-4 col-md-4 col-sm-4">
           <h3>Sencilla</h3>
           <h3>$000</h3>
-          <button type="button" class="btn btn-primary btn-lg">Reservar</button>
+          <button type="button" class="btn btn-primary btn-lg reserva">Reservar</button>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <h3>Doble</h3>
           <h3>$000</h3>
-          <button type="button" class="btn btn-primary btn-lg">Reservar</button>
+          <button type="button" class="btn btn-primary btn-lg reserva">Reservar</button>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <h3>Triple</h3>
           <h3>$000</h3>
-          <button type="button" class="btn btn-primary btn-lg">Reservar</button>
+          <button type="button" class="btn btn-primary btn-lg reserva">Reservar</button>
         </div>
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 imagenes">
@@ -283,6 +284,40 @@
           Hotel Mayamed &copy; | Todos los derechos reservados | <a href="">Aviso de privacidad</a>
         </div>
       </div>
+    </footer>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Reservación de habitaciones</h4>
+        </div>
+        <div class="modal-body">
+          <p>Por favor, introduzca la información necesaria para la reservación</p>
+          <div>
+            <form role="form">
+            <div class="form-group">
+              <label for="ejemplo_email_1">Tu nombre</label>
+              <input type="text" class="form-control" id="ejemplo_email_1" placeholder="Introduce tu nombre">
+            </div>
+            <div class="form-group">
+              <label for="ejemplo_password_1">Tu email</label>
+              <input type="mail" class="form-control" id="ejemplo_password_1" placeholder="Introduce tu email">
+            </div>
+            <div class="form-group">
+              <label for="ejemplo_password_1">Check In</label>
+              <input type="text" class="form-control" id="datepicker" placeholder="">
+            </div>
+            <button type="submit" class="btn btn-default">Enviar</button>
+          </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	  <!-- Latest compiled and minified JavaScript -->
@@ -292,6 +327,7 @@
     </script> 
     <!-- Archivo JS principal -->
     <script src="assets/js/main.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <a class="page-scroll" style="display: inline-block; position: fixed; z-index: 2147483647;" title="" href="#top" id="scrollUp"></a>
     </div>

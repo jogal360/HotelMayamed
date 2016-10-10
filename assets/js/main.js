@@ -25,6 +25,16 @@
     $(".nav li").removeClass('active'); 
   });
 
+  //Ventana modal
+  $('.reserva').click(function() {
+  	$('#myModal').modal('show');
+  });
+  $('#datepicker').click(function() {
+  	$(this).datepicker({
+  		minDate: -0,
+  	});
+  });
+
   // Generador para el mapa del API de Google Maps
   function initMap() {
   	var location   = new google.maps.LatLng(20.481564, -97.013209);
