@@ -1,5 +1,25 @@
 /*Archivo javascript*/
 
+//Atributos de Datepicker para mostrarlo en español
+$.datepicker.regional['es'] = {
+  closeText: 'Cerrar',
+  prevText: '<Ant',
+  nextText: 'Sig>',
+  currentText: 'Hoy',
+  monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+  monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+  dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+  dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+  weekHeader: 'Sm',
+  dateFormat: 'dd/mm/yy',
+  firstDay: 1,
+  isRTL: false,
+  showMonthAfterYear: false,
+  yearSuffix: ''
+};
+$.datepicker.setDefaults($.datepicker.regional['es']);
+
 (function($) {
   "use strict"; // Start of use strict
 
@@ -31,11 +51,23 @@
   	$('#myModal').modal('show');
     $('#res-tipo-hab').val(tipo);
   });
-  $('#datepicker').click(function() {
+
+  $('#myModal').on('hidden.bs.modal', function () {
+  	$(this)
+      .find("input,textarea,select")
+      .val('')
+      .end();
+  });
+
+  $('#datepicker').datepicker({
+  	minDate: -0,
+  });
+
+  /*$('#datepicker').blur(function() {
   	$(this).datepicker({
   		minDate: -0,
   	});
-  });
+  });*/
 
   // Generador para el mapa del API de Google Maps
   function initMap() {
