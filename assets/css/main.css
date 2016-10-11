@@ -107,6 +107,11 @@
       .pad-bot-20 {
         padding-bottom: 20px;
       }
+      /*Padding lateral*/
+      .mar-sides-05 {
+        margin-left: 08px;
+        margin-right: 08px;
+      }
 
       #scrollUp {
         bottom: 30px;
@@ -167,5 +172,9 @@
         }
         .a-b {
           padding-bottom: 5px;
+        }
+        .mar-sides-05 {
+          margin-left: 00px;
+          margin-right: 00px;
         }
       }
