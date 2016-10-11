@@ -111,7 +111,7 @@
         <div class="col-lg-4 col-md-4 col-sm-4">
           <h3>Sencilla</h3>
           <h3>$000</h3>
-          <button type="button" class="btn btn-primary btn-lg reserva">Reservar</button>
+          <button type="button" tipo="Sencilla" class="btn btn-primary btn-lg reserva">Reservar</button>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <h3>Doble</h3>
@@ -295,7 +295,7 @@
         <div class="modal-body">
           <p>Por favor, introduzca la información necesaria para la reservación</p>
           <div>
-            <form role="form">
+            <form role="form" >
             <div class="form-group">
               <label for="ejemplo_email_1">Tu nombre</label>
               <input type="text" class="form-control" id="ejemplo_email_1" placeholder="Introduce tu nombre">
@@ -305,7 +305,11 @@
               <input type="mail" class="form-control" id="ejemplo_password_1" placeholder="Introduce tu email">
             </div>
             <div class="form-group">
-              <label for="ejemplo_password_1">Check In</label>
+              <label for="ejemplo_password_1">Tipo de habitacion</label>
+              <input type="mail" class="form-control" id="res-tipo-hab" placeholder="" disabled>
+            </div>
+            <div class="form-group">
+              <label for="ejemplo_password_1">Llegada</label>
               <input type="text" class="form-control" id="datepicker" placeholder="">
             </div>
             <button type="submit" class="btn btn-default">Enviar</button>

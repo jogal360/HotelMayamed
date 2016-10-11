@@ -27,7 +27,9 @@
 
   //Ventana modal
   $('.reserva').click(function() {
+    var tipo = $(this).attr("tipo");
   	$('#myModal').modal('show');
+    $('#res-tipo-hab').val(tipo);
   });
   $('#datepicker').click(function() {
   	$(this).datepicker({
