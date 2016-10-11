@@ -30,8 +30,12 @@
       /*CSS para las secciones*/
       .carrusel {
         background-color: #333;
-        padding-top: 90px;
-        padding-bottom: 10px;
+        padding-top: 60px;
+        padding-bottom: 0px;
+      }
+      .carrusel > .carousel {
+        margin: 0;
+        padding: 0;
       }
       .informacion {
         background-color: #ca4929;
@@ -77,7 +81,7 @@
       /*codigo de carrusel*/
       .carousel-inner > .item > img,
       .carousel-inner > .item > a > img {
-        width: 70%;
+        width: 100%;
         margin: auto;
       }
 
