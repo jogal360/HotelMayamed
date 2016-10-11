@@ -131,6 +131,8 @@
         padding: 10px;
       }
 
+      #ui-datepicker-div {z-index:9999 !important}
+
       @media (min-width: 768px) {
         .navbar-nav {
           width: 100%;
