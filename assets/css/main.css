@@ -26,6 +26,9 @@
         background-color: #f7b231;
         color: white;
       }
+      .color-naranja > h2 {
+        padding-bottom: 10px;
+      }
       
       /*CSS para las secciones*/
       .carrusel {
@@ -92,6 +95,9 @@
         opacity: 0.8 !important;
       }
 
+      .pad-bot-05 {
+        padding-bottom: 05px;
+      }
       .pad-bot-10 {
         padding-bottom: 10px;
       }
@@ -100,6 +106,11 @@
       }
       .pad-bot-20 {
         padding-bottom: 20px;
+      }
+      /*Padding lateral*/
+      .mar-sides-05 {
+        margin-left: 08px;
+        margin-right: 08px;
       }
 
       #scrollUp {
@@ -161,5 +172,9 @@
         }
         .a-b {
           padding-bottom: 5px;
+        }
+        .mar-sides-05 {
+          margin-left: 00px;
+          margin-right: 00px;
         }
       }
