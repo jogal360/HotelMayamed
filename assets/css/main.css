@@ -96,6 +96,14 @@
       .atractivos {
         position: static;
       }
+      .car-atrac {
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .car-atrac h2 {
+        text-shadow: 3px 3px 2px #000 !important;
+        color: #fff;
+      } 
       /* Contacto */
       .contacto {
         padding-bottom: 15px;
@@ -200,6 +208,17 @@
         .no-desktop {
           display: none !important;
         }
+        .car-atrac {
+          padding-left: 60px;
+          padding-right: 60px;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .car-atrac {
+          padding-left: 80px;
+          padding-right: 80px;
+        }
       }
 
       @media (max-width: 768px) {
@@ -212,6 +231,10 @@
         .mar-sides-05 {
           margin-left: 00px;
           margin-right: 00px;
+        }
+        .car-atrac {
+          padding-left: 30px;
+          padding-right: 30px;
         }
       }
 
