@@ -97,8 +97,8 @@
         position: static;
       }
       .car-atrac {
-        padding-left: 60px;
-        padding-right: 60px;
+        padding-left: 90px;
+        padding-right: 90px;
       }
       .car-atrac h2 {
         text-shadow: 3px 3px 2px #000 !important;
@@ -209,15 +209,8 @@
           display: none !important;
         }
         .car-atrac {
-          padding-left: 60px;
-          padding-right: 60px;
-        }
-      }
-
-      @media (min-width: 992px) {
-        .car-atrac {
-          padding-left: 80px;
-          padding-right: 80px;
+          padding-left: 90px;
+          padding-right: 90px;
         }
       }
 
@@ -233,8 +226,8 @@
           margin-right: 00px;
         }
         .car-atrac {
-          padding-left: 30px;
-          padding-right: 30px;
+          padding-left: 90px;
+          padding-right: 90px;
         }
       }
 
