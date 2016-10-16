@@ -82,7 +82,7 @@
         color: white; 
       }
       .servicios .label {
-        font-size: 12px !important;
+        /*font-size: 12px !important;*/
       }
       /* Galeria*/
       .galeria {
@@ -246,8 +246,15 @@
 
       @media (max-width: 400px) {
         .label {
-          font-size-adjust: 0.30;
+          font-size-adjust: 0.20;
         }
+      }
+
+      @media (max-width: 350px) {
+      .label {
+          font-size-adjust: 0.10;
+          padding-right: 6px !important;
+        } 
       }
 
 
