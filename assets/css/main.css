@@ -16,8 +16,12 @@
 
       /*Logo del navbar*/
       .logo-nav {
-        width: 60px;
-        height: 60px;
+        height: 70px;
+        position: absolute;
+        right: 0px;
+        left: -3px; 
+        top: -5px;
+        opacity: 1;
       }
 
       /*colores background*/
@@ -49,7 +53,7 @@
       /*CSS para las secciones*/
       .carrusel {
         background-color: #333;
-        padding-top: 60px;
+        padding-top: 50px;
         padding-bottom: 0px;
       }
       .carrusel > .carousel {
@@ -163,7 +167,7 @@
       .pad-bot-20 {
         padding-bottom: 20px;
       }
-      
+
       /*Padding lateral*/
       .mar-sides-05 {
         margin-left: 00px;
@@ -195,7 +199,7 @@
       }
 
       .navbar {
-        opacity: 0.9;
+        
       }
 
       @media (min-width: 768px) {
