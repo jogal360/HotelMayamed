@@ -209,8 +209,26 @@
           display: none !important;
         }
         .car-atrac {
+<<<<<<< HEAD
           padding-left: 90px;
           padding-right: 90px;
+=======
+          padding-left: 60px;
+          padding-right: 60px;
+        }
+        .servicios .label {
+          font-size: 20px !important;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .car-atrac {
+          padding-left: 350px;
+          padding-right: 350px;  
+        }
+        .seccion-servicios {
+          width: 75%;
+>>>>>>> experimental
         }
       }
 
@@ -239,8 +257,15 @@
 
       @media (max-width: 400px) {
         .label {
-          font-size-adjust: 0.30;
+          font-size-adjust: 0.20;
         }
+      }
+
+      @media (max-width: 350px) {
+      .label {
+          font-size-adjust: 0.10;
+          padding-right: 6px !important;
+        } 
       }
 
 
