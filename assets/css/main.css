@@ -219,11 +219,18 @@
 
       @media (min-width: 992px) {
         .car-atrac {
-          padding-left: 350px;
-          padding-right: 350px;  
+          padding-left: 150px;
+          padding-right: 150px;  
         }
         .seccion-servicios {
           width: 75%;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .car-atrac {
+          padding-left: 250px;
+          padding-right: 250px;  
         }
       }
 
@@ -248,19 +255,28 @@
         .label {
           font-size-adjust: 0.40;
         }
+        .txt-atrac-car {
+          font-size: 20px;
+        }
       }
 
       @media (max-width: 400px) {
         .label {
           font-size-adjust: 0.20;
         }
+        .txt-atrac-car {
+          font-size: 17px;
+        }
       }
 
       @media (max-width: 350px) {
-      .label {
+        .label {
           font-size-adjust: 0.10;
           padding-right: 6px !important;
-        } 
+        }
+        .txt-atrac-car {
+          font-size: 15px;
+        }
       }
 
 
