@@ -136,6 +136,21 @@
         opacity: 0.8 !important;
       }
 
+      /*Padding Top*/
+      .pad-top-05 {
+        padding-top: 05px;
+      }
+      .pad-top-10 {
+        padding-top: 10px;
+      }
+      .pad-top-15 {
+        padding-top: 15px;
+      }
+      .pad-top-20 {
+        padding-top: 20px;
+      }
+
+      /*Padding Bottom*/
       .pad-bot-05 {
         padding-bottom: 05px;
       }
@@ -148,6 +163,7 @@
       .pad-bot-20 {
         padding-bottom: 20px;
       }
+      
       /*Padding lateral*/
       .mar-sides-05 {
         margin-left: 00px;
