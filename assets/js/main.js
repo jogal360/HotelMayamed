@@ -12,6 +12,25 @@
     event.preventDefault();
   });
 
+  //Para cambiar de tamaño el logo del hotel
+  $(document).scroll(function() {
+  	var valor = 50;
+    var targetOffset = $('.navbar').offset().top -valor;
+    var tar = $('.logo-hotel');
+    var velocidad = 10;
+    if(targetOffset >= valor) {
+      $(tar).animate({
+      	right: -40,
+      	height: "70px",
+      },velocidad);
+    } else {
+    	$(tar).animate({
+      	right: -80,
+      	height: "140px",
+      },velocidad);
+    }
+  });
+
   // Para cerrar el menu al dar tap (Vista movil)
   $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
