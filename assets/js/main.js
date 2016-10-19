@@ -63,9 +63,16 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   	minDate: -0,
   });
 
-  $('.datepicker-salida').datepicker({
-  	minDate: -1,
+  $('.datepicker').change(function() {
+  	var checkin = $(this).val();
+  	$('.datepicker-salida').val(checkin);
   });
+
+  $('.datepicker-salida').datepicker({
+  	minDate: -0,
+  });
+  
+
 
   // Generador para el mapa del API de Google Maps
   function initMap() {
