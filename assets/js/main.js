@@ -23,6 +23,24 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 (function($) {
   "use strict"; // Start of use strict
 
+  $.ajax({
+    type: "POST",
+    url: "assets/controlador/controlador-precios.php",
+    success: function(datos) {
+      var json=$.parseJSON(datos);
+      if(json.respuesta=='bien') {
+        $('#sen').html(json.habSen);
+        $('#dob').html(json.habDob);
+        $('#tri').html(json.habTri);
+      } else {
+        console.log("Error");
+      }
+    },
+  });
+
+  
+
+
   // jQuery for page scrolling feature - requires jQuery Easing plugin
   $('a.page-scroll').bind('click', function(event) {
   	var $anchor = $(this);
