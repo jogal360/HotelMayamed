@@ -22,10 +22,10 @@
   /*PRECIOS DE HABITACIONES*/
   DEFINE('A_A','150'); //Habitación sencilla - Temp. Alta
   DEFINE('A_B','100'); //Habitación sencilla - Temp. Baja
-  DEFINE('B_A','250'); //Habitación doble - Temp. Alta
-  DEFINE('B_B','200'); //Habitación doble - Temp. Baja
-  DEFINE('C_A','350'); //Habitación triple - Temp. Alta
-  DEFINE('C_B','300'); //Habitación triple - Temp. Baja
+  DEFINE('B_A','250'); //Habitación doble    - Temp. Alta
+  DEFINE('B_B','200'); //Habitación doble    - Temp. Baja
+  DEFINE('C_A','350'); //Habitación triple   - Temp. Alta
+  DEFINE('C_B','300'); //Habitación triple   - Temp. Baja
 
   /*DIAS DE SEMANA DE VERANO*///Julio
   DEFINE('SEM_VER_VIE1','01-07');
@@ -60,7 +60,7 @@
   DEFINE('SEM_VER_SAB5','30-07');
   DEFINE('SEM_VER_DOM5','31-07');
 
-  /*DIAS DE SEMANA DE INVIERNO*/
+  /*--- DIAS DE SEMANA DE INVIERNO ---*/
   DEFINE('SEM_INV_JUE1','01-12');
   DEFINE('SEM_INV_VIE1','02-12');
   DEFINE('SEM_INV_SAB1','03-12');

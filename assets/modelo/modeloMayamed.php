@@ -44,7 +44,7 @@
       /*Configuración para México*/
       date_default_timezone_set("America/Mexico_City");
       /*Obtención de datos de fecha de HOY*/
-      $dia = date("d-m-Y");
+      $dia = "31-12-2016";// = date("d-m-Y");
       $año = date("Y");
       /*SEMANA SANTA*/
       $semanaSanta = date("d-M-Y", easter_date($año));
@@ -83,7 +83,7 @@
         case $semanaSantaVie:
         case $semanaSantaSab:
         case $semanaSantaDom2:
-        
+
         //Verano
         case $semanaVeranoVie1:
         case $semanaVeranoSab1:
@@ -150,13 +150,13 @@
         case $semanaInviernoVie5:
         case $semanaInviernoSab5:
           //Respuesta de temporada alta
-          $respuesta = array("respuesta" => 'bien', "habSen" => A_A, "habDob" => B_A, "habTri" =>$dia);
+          $respuesta = array("respuesta" => 'bien', "habSen" => A_A, "habDob" => B_A, "habTri" => C_A);
           echo json_encode($respuesta);
           break;
 
         //Temporada baja  
         default:
-          $respuesta = array("respuesta" => 'bien', "habSen" => A_B, "habDob" => B_B, "habTri" =>C_B);
+          $respuesta = array("respuesta" => 'bien', "habSen" => A_B, "habDob" => B_B, "habTri" => C_B);
           echo json_encode($respuesta);
           break;
       }
