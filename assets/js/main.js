@@ -38,7 +38,28 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     },
   });
 
-  
+  $('#guardarReservacion').click(function(e) {
+    e.preventDefault();
+    if(!$(this).hasClass('disabled')) {
+      var dataString = $('#myForm').serialize();
+      alert("Datos serializados: "+dataString);
+      $.ajax({
+        type: "POST",
+        url: "assets/controlador/controlador-registrar.php",
+        data: dataString,
+        beforeSend: function() {
+          $('.modal-body').html('<div class="text-center"><img src="assets/img/loading.gif"/></div>');
+
+        },
+        success: function(data) {
+          alert(data);
+        }
+      });
+    } else {
+      alert("NO TIENE");
+    }
+  });
+
 
 
   // jQuery for page scrolling feature - requires jQuery Easing plugin
@@ -67,7 +88,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   $('.reserva').click(function() {
     var tipo = $(this).attr("tipo");
   	$('#myModal').modal('show');
-    $('#res-tipo-hab').val(tipo);
+    $('#inputTipoHab').val(tipo);
   });
 
   //Datepicker para 

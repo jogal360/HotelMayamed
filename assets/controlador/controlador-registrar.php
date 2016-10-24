@@ -8,16 +8,24 @@
       el Modelo o en la Vista
   */
 
-  #Se hace vínculo con el archivo del modelo
-  require_once('../modelo/modelo-reservacion.php');
+  if($_POST) {
+    #Se hace vínculo con el archivo del modelo
+    require_once('../modelo/modeloMayamed.php');
 
-  #Se recuperan los datos
-  $nom = base64_decode($_POST['nom']);
-  $app = base64_decode($_POST['app']);
+    #Se recuperan los datos
+    $nom = $_POST['inputNombre'];
+    $app = $_POST['inputCorreo'];
 
-  #Se genera un objeto del modelo
-  $objeto = new ModeloReservacion();
-  $mensaje = $objeto->insertar($nom,$app);
-  $objeto->cerrar();
+    #Se genera un objeto del modelo
+    $objeto = new ModeloMayamed();
+    $mensaje = $objeto->insertar($nom,$app);
+    $objeto->cerrar();
+  }
+  
+  
+
+  
+
+  
 
 ?>
