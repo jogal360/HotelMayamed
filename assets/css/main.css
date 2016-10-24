@@ -134,7 +134,7 @@
       .carousel-inner > .item > a > img {
         width: 100%;
         margin: auto;
-        /*height: 600px;*/
+        height: 850px;
       }
 
       #map {
