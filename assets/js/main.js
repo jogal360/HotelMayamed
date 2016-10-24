@@ -59,17 +59,24 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       .end();
   });
 
+  //Datepicker para 
   $('.datepicker').datepicker({
-  	minDate: -0,
+  	minDate: 0,
+    onSelect: function(dateValue, inst) {
+      $('.datepicker-salida').datepicker();
+      var date2 = $(this).datepicker('getDate','+1d');
+      $('.datepicker-salida').datepicker('destroy');
+      date2.setDate(date2.getDate() + 1);
+      $('.datepicker-salida').datepicker({
+        minDate: date2,
+      });
+    }
   });
 
-  $('.datepicker').change(function() {
-  	var checkin = $(this).val();
-  	$('.datepicker-salida').val(checkin);
-  });
 
-  $('.datepicker-salida').datepicker({
-  	minDate: -0,
+  //Validación
+  $('#myForm').validator({
+    focus: false,
   });
   
 

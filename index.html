@@ -295,14 +295,15 @@
         <div class="modal-body">
           <p>Por favor, introduzca la información necesaria para la reservación</p>
           <div>
-            <form role="form" >
+            <form id="myForm" role="form" data-toggle="validator">
             <div class="form-group">
-              <label for="ejemplo_email_1">Tu nombre</label>
-              <input type="text" class="form-control" id="ejemplo_email_1" placeholder="Introduce tu nombre">
+              <label for="inputName">Tu nombre</label>
+              <input type="text" class="form-control" id="inputName" placeholder="Introduce tu nombre" required>
             </div>
             <div class="form-group">
               <label for="ejemplo_password_1">Tu email</label>
-              <input type="mail" class="form-control" id="ejemplo_password_1" placeholder="Introduce tu email">
+              <input type="email" class="form-control" id="ejemplo_password_1" placeholder="Introduce tu email" required data-error="Introduce un correo correcto">
+              <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
               <label for="ejemplo_password_1">Tipo de habitacion</label>
@@ -311,17 +312,17 @@
             <div class="form-group">
               <label for="ejemplo_password_1">Fecha de llegada y salida</label>
               <div class="input-group">
-                <input type="text" class="form-control datepicker" placeholder="">
+                <input type="text" class="form-control datepicker" placeholder="" required>
                 <span class="input-group-addon">-</span>
-                <input type="text" class="form-control datepicker-salida" placeholder="">
-                </div>
+                <input type="text" class="form-control datepicker-salida" placeholder="" required>
+              </div>
             </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -335,8 +336,10 @@
     </script> 
     <!-- Archivo JS principal -->
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-    <script src="assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    <script src="assets/js/main.js"></script>
     <a class="page-scroll" style="display: inline-block; position: fixed; z-index: 2147483647;" title="" href="#top" id="scrollUp"></a>
     </div>
   </body>
