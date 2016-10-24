@@ -52,13 +52,6 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     $('#res-tipo-hab').val(tipo);
   });
 
-  $('#myModal').on('hidden.bs.modal', function () {
-  	$(this)
-      .find("input,textarea,select")
-      .val('')
-      .end();
-  });
-
   //Datepicker para 
   $('.datepicker').datepicker({
   	minDate: 0,
@@ -77,6 +70,17 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   //Validación
   $('#myForm').validator({
     focus: false,
+  });
+
+  //Funcion que desencadena metodos al cerrar la ventana modal
+  $('#myModal').on('hidden.bs.modal', function () {
+    $(this)
+      .find("input,textarea,select")
+      .val('')
+      .find(".form-group")
+      .removeClass("has-error")
+      .end();
+    $('.form-group').removeClass('has-error has-danger');
   });
   
 
