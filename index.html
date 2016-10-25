@@ -298,11 +298,11 @@
             <form id="myForm" role="form" method="POST" data-toggle="validator">
             <div class="form-group">
               <label for="inputName">Tu nombre</label>
-              <input type="text" class="form-control" name="inputNombre" placeholder="Introduce tu nombre" required>
+              <input type="text" class="form-control formu" name="inputNombre" placeholder="Introduce tu nombre" required>
             </div>
             <div class="form-group">
               <label for="ejemplo_password_1">Tu email</label>
-              <input type="email" class="form-control" name="inputCorreo" placeholder="Introduce tu email" required data-error="Introduce un correo correcto">
+              <input type="email" class="form-control formu" name="inputCorreo" placeholder="Introduce tu email" required data-error="Introduce un correo correcto">
               <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
@@ -312,12 +312,12 @@
             <div class="form-group">
               <label for="ejemplo_password_1">Fecha de llegada y salida</label>
               <div class="input-group">
-                <input type="text" class="form-control datepicker" name="checkin" placeholder="" required>
+                <input type="text" class="form-control datepicker formu" name="checkin" placeholder="" required>
                 <span class="input-group-addon">-</span>
-                <input type="text" class="form-control datepicker-salida" name="checkout"placeholder="" required>
+                <input type="text" class="form-control datepicker-salida formu" name="checkout"placeholder="" required>
               </div>
             </div>
-            <button id="guardarReservacion" class="btn btn-default">Enviar</button>
+            <button type="submit" id="guardarReservacion" class="btn btn-default">Enviar</button>
           </form>
           </div>
         </div>

@@ -23,11 +23,16 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 (function($) {
   "use strict"; // Start of use strict
 
+  //Validación
+  $('#myForm').validator({
+    focus: false,
+  });
+
   $.ajax({
     type: "POST",
     url: "assets/controlador/controlador-precios.php",
     success: function(datos) {
-      var json=$.parseJSON(datos);
+      var json=JSON.parse(datos);
       if(json.respuesta=='bien') {
         $('#sen').html(json.habSen);
         $('#dob').html(json.habDob);
@@ -48,11 +53,15 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
         url: "assets/controlador/controlador-registrar.php",
         data: dataString,
         beforeSend: function() {
-          $('.modal-body').html('<div class="text-center"><img src="assets/img/loading.gif"/></div>');
-
+          //$('.modal-body').html('<div class="text-center"><img src="assets/img/loading.gif"/></div>');
+          $('.formu').prop('disabled', true);
         },
         success: function(data) {
-          alert(data);
+          var json=JSON.parse(data);
+          if(json.respuesta=='bien') {
+            alert(json.res);
+            $('#myModal').modal('hide');
+          }
         }
       });
     } else {
@@ -103,12 +112,6 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
         minDate: date2,
       });
     }
-  });
-
-
-  //Validación
-  $('#myForm').validator({
-    focus: false,
   });
 
   //Funcion que desencadena metodos al cerrar la ventana modal

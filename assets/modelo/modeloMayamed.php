@@ -32,11 +32,19 @@
     }
     
     #Método para registrar reservaciones
-    public function insertar($nombre,$apellido) {
-      $sql = "INSERT INTO ejemplo VALUES ('$nombre','$apellido')";
+    public function insertar($nom,$ema,$hab,$checkin,$checkout) {
+      date_default_timezone_set("America/Mexico_City");
+      $fecha = date("d-m-Y");
+      $hora = date("h:i A");
+      $sql = "INSERT INTO t_reservacion VALUES (null,'$nom','$ema','$hab','$checkin','$checkout','$fecha','$hora')";
       $res = $this->mysqli->query($sql);
-      $respuesta = array("respuesta" => 'bien', "res" => 'Registro exitoso');
-      echo json_encode($respuesta);
+      if($res) {
+        $respuesta = array("respuesta" => 'bien', "res" => 'Registro exitoso');
+        echo json_encode($respuesta);
+      } else {
+        $respuesta = array("respuesta" => 'mal', "res" => 'Registro no completado');
+        echo json_encode($respuesta);
+      }
     }
 
     #Método para mostrar los precios de las habitaciones
@@ -44,7 +52,7 @@
       /*Configuración para México*/
       date_default_timezone_set("America/Mexico_City");
       /*Obtención de datos de fecha de HOY*/
-      $dia = "31-12-2016";// = date("d-m-Y");
+      $dia = "31-11-2016";// = date("d-m-Y");
       $año = date("Y");
       /*SEMANA SANTA*/
       $semanaSanta = date("d-M-Y", easter_date($año));
