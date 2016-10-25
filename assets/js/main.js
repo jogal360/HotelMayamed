@@ -12,7 +12,7 @@ $.datepicker.regional['es'] = {
   dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
   dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
   weekHeader: 'Sm',
-  dateFormat: 'dd/mm/yy',
+  dateFormat: 'dd-mm-yy',
   firstDay: 1,
   isRTL: false,
   showMonthAfterYear: false,
@@ -24,9 +24,9 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   "use strict"; // Start of use strict
 
   //Validación
-  $('#myForm').validator({
+  /*$('#myForm').validator({
     focus: false,
-  });
+  });*/
 
   $.ajax({
     type: "POST",
@@ -43,7 +43,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     },
   });
 
-  $('#guardarReservacion').click(function() {
+  /*$('#guardarReservacion').click(function() {
     if(!$(this).hasClass('disabled')) {
       var dataString = $('#myForm').serialize();
       alert("Datos serializados: "+dataString);
@@ -65,6 +65,61 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       });
     } else {
       alert("NO TIENE");
+    }
+  });*/
+
+  $('#myForm').formValidation({
+    framework: 'bootstrap',
+    icon: {
+      valid: 'glyphicon glyphicon-ok',
+      invalid: 'glyphicon glyphicon-remove',
+      validating: 'glyphicon glyphicon-refresh'
+    },
+    fields: {
+      inputNombre: {
+        validators: {
+          notEmpty: {
+            message: 'El nombre es obligatorio'
+          },
+          stringLength: {
+            min: 1,
+            max: 50,
+            message: 'Escribe un nombre correcto'
+          }
+        }
+      },
+      inputCorreo: {
+        validators: {
+          notEmpty: {
+            message: 'El correo es obligatorio'
+          },
+          emailAddress: {
+            message: 'No es un correo válido'
+          }
+        }
+      },
+      checkin: {
+        validators: {
+          notEmpty: {
+            message: 'El dia de llegada es obligatorio'
+          },
+          date: {
+            format: 'DD-MM-YYYY',
+            message: 'Ingresa una fecha correcta'
+          }
+        }
+      },
+      checkout: {
+        validators: {
+          notEmpty: {
+            message: 'El dia de salida es obligatorio'
+          },
+          date: {
+            format: 'DD-MM-YYYY',
+            message: 'Ingresa una fecha correcta'
+          }
+        }
+      }
     }
   });
 
