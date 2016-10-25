@@ -290,41 +290,49 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Reservación de habitaciones</h4>
+          <h4 class="modal-title">Reservar habitación</h4>
         </div>
         <div class="modal-body">
-          <p>Por favor, introduzca la información necesaria para la reservación</p>
-          <div>
-            <form id="myForm" role="form" method="POST" data-toggle="validator">
-            <div class="form-group">
-              <label for="inputName">Tu nombre</label>
-              <input type="text" class="form-control formu" name="inputNombre" placeholder="Introduce tu nombre" required>
+          <div id="p1">
+            <p>Por favor, introduzca la información necesaria para la reservación</p>
+            <div>
+              <form id="myForm" role="form" method="POST" data-toggle="validator">
+                <div class="form-group">
+                  <label for="inputName">Tu nombre</label>
+                  <input type="text" class="form-control formu" name="inputNombre" placeholder="Introduce tu nombre" required>
+                </div>
+                <div class="form-group">
+                  <label for="ejemplo_password_1">Tu email</label>
+                  <input type="email" class="form-control formu" name="inputCorreo" placeholder="Introduce tu email" required data-error="Introduce un correo correcto">
+                  <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="inputTipoHab" id="inputTipoHab" placeholder="" >
+                <div class="form-group">
+                  <label for="ejemplo_password_1">Fecha de llegada y salida</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control datepicker formu" name="checkin" placeholder="" required>
+                    <span class="input-group-addon">-</span>
+                    <input type="text" class="form-control datepicker-salida formu" name="checkout" placeholder="" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="">Número de personas</label>
+                  <select id="personas" class="form-control" required>
+                  </select>
+                </div>
+                <button type="submit" id="guardarReservacion" class="btn btn-default">Enviar</button>
+              </form>
             </div>
-            <div class="form-group">
-              <label for="ejemplo_password_1">Tu email</label>
-              <input type="email" class="form-control formu" name="inputCorreo" placeholder="Introduce tu email" required data-error="Introduce un correo correcto">
-              <div class="help-block with-errors"></div>
-            </div>
-            <div class="form-group">
-              <label for="ejemplo_password_1">Tipo de habitacion</label>
-              <input type="mail" class="form-control" name="inputTipoHab" id="inputTipoHab" placeholder="" disabled>
-            </div>
-            <div class="form-group">
-              <label for="ejemplo_password_1">Fecha de llegada y salida</label>
-              <div class="input-group">
-                <input type="text" class="form-control datepicker formu" name="checkin" placeholder="" required>
-                <span class="input-group-addon">-</span>
-                <input type="text" class="form-control datepicker-salida formu" name="checkout"placeholder="" required>
-              </div>
-            </div>
-            <button type="submit" id="guardarReservacion" class="btn btn-default">Enviar</button>
-          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <div id="p2" class="ocultarId">
+
         </div>
-      </div><!-- /.modal-content -->
+      </div>
+    </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

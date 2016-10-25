@@ -16,7 +16,7 @@
   /*Datos de conexión*/
   DEFINE('SERVIDOR','localhost');
   DEFINE('USUARIO','root');
-  DEFINE('PASSWORD','');
+  DEFINE('PASSWORD','1234');
   DEFINE('BASE','hotelmayamed');
 
   /*PRECIOS DE HABITACIONES*/

@@ -43,8 +43,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     },
   });
 
-  $('#guardarReservacion').click(function(e) {
-    e.preventDefault();
+  $('#guardarReservacion').click(function() {
     if(!$(this).hasClass('disabled')) {
       var dataString = $('#myForm').serialize();
       alert("Datos serializados: "+dataString);
@@ -96,6 +95,33 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   //Ventana modal
   $('.reserva').click(function() {
     var tipo = $(this).attr("tipo");
+    $('#personas')
+      .find('option')
+      .remove()
+      .end();
+    switch(tipo) {
+      case 'Sencilla':
+        $("<option value='0'>Selecciona...</option>").appendTo("#personas");
+        $("<option value='1'>1 persona</option>").appendTo("#personas");
+        $("<option value='2'>2 personas</option>").appendTo("#personas");
+        break;
+      case 'Doble':
+        $("<option value='0'>Selecciona...</option>").appendTo("#personas");
+        $("<option value='1'>1 persona</option>").appendTo("#personas");
+        $("<option value='2'>2 personas</option>").appendTo("#personas");
+        $("<option value='3'>3 personas</option>").appendTo("#personas");
+        $("<option value='4'>4 personas</option>").appendTo("#personas");
+        break;
+      case 'Triple':
+        $("<option value='0'>Selecciona...</option>").appendTo("#personas");
+        $("<option value='1'>1 persona</option>").appendTo("#personas");
+        $("<option value='2'>2 personas</option>").appendTo("#personas");
+        $("<option value='3'>3 personas</option>").appendTo("#personas");
+        $("<option value='4'>4 personas</option>").appendTo("#personas");
+        $("<option value='5'>5 personas</option>").appendTo("#personas");
+        $("<option value='6'>6 personas</option>").appendTo("#personas");
+        break;
+    }
   	$('#myModal').modal('show');
     $('#inputTipoHab').val(tipo);
   });
