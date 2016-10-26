@@ -32,11 +32,11 @@
     }
     
     #Método para registrar reservaciones
-    public function insertar($nom,$ema,$hab,$checkin,$checkout) {
+    public function insertar($nom,$ema,$hab,$perso,$checkin,$checkout) {
       date_default_timezone_set("America/Mexico_City");
       $fecha = date("d-m-Y");
       $hora = date("h:i A");
-      $sql = "INSERT INTO t_reservacion VALUES (null,'$nom','$ema','$hab','$checkin','$checkout','$fecha','$hora')";
+      $sql = "INSERT INTO t_reservacion VALUES (null,'$nom','$ema','$hab','$perso','$checkin','$checkout','$fecha','$hora')";
       $res = $this->mysqli->query($sql);
       if($res) {
         $respuesta = array("respuesta" => 'bien', "res" => 'Registro exitoso');

@@ -131,6 +131,10 @@
         padding: 10px;
       }
 
+      div.error {
+        color: red;
+      }
+
       #ui-datepicker-div {z-index:9999 !important}
 
       @media (min-width: 768px) {

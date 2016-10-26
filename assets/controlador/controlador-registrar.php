@@ -18,10 +18,11 @@
     $hab      = $_POST['inputTipoHab'];
     $checkin  = $_POST['checkin'];
     $checkout = $_POST['checkout'];
+    $perso    = $_POST['personas'];
 
     #Se genera un objeto del modelo
     $objeto = new ModeloMayamed();
-    $mensaje = $objeto->insertar($nom,$ema,$hab,$checkin,$checkout);
+    $mensaje = $objeto->insertar($nom,$ema,$hab,$perso,$checkin,$checkout);
     $objeto->cerrar();
   }
   

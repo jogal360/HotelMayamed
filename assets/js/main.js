@@ -77,43 +77,44 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   );
 
   $('#myForm').validate({
-    rules: {
-      inputNombre: {
-        required: true
-      },
-      inputCorreo: {
-        required: true
-      },
-      inputTipoHab: {
-        required: true
-      },
-      checkin: {
-        required: true,
-        dateMex: true
-      },
-      checkout: {
-        required: true
-      },
-      personas: {
-        required: true
-      }
+    errorElement: 'div',
+    rules: { 
+      inputNombre: {required: true},
+      inputCorreo: {required: true},
+      inputTipoHab: {required: true},
+      checkin: {required: true, dateMex: true},
+      checkout: {required: true, dateMex: true},
+      personas: {required: true}
     },
     messages: {
-      inputNombre: {
-        required: "Llena la información"
-      },
-      inputCorreo: {
-        required: "Llena el campo",
-        email: "Introduce un correo válido"
-      },
-      checkin: {
-
-      }
+      inputNombre: {required: "Llena la información"},
+      inputCorreo: {required: "Llena el campo", email: "Introduce un correo válido"},
+      checkin: {required: "Llena el campo", dateMex: "Introduce una fecha válida"},
+      checkout: {required: "Llena el campo", dateMex: "Introduce una fecha válida"},
+      personas: {required: "Selecciona la cantidad de personas",}
     },
     submitHandler: function (form) {
-      var formData = $(form).serialize();
-      alert(formData);
-      return false;
+      var dataString = $(form).serialize();
+      //alert(dataString);
+      $.ajax({
+        type: "POST",
+        url: "assets/controlador/controlador-registrar.php",
+        data: dataString,
+        beforeSend: function() {
+          //$('.modal-body').html('<div class="text-center"><img src="assets/img/loading.gif"/></div>');
+          $('.formu').prop('disabled', true);
+        },
+        success: function(data) {
+          //alert("SUCCESS");
+          var json=JSON.parse(data);
+          if(json.respuesta=='bien') {
+            alert(json.res);
+            $('#myModal').modal('hide');
+          } else {
+            console.log("error");
+          }
+        }
+      });
     }
   });
 
@@ -197,6 +198,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       .removeClass("has-error")
       .end();
     $('.form-group').removeClass('has-error has-danger');
+    $('div.error').remove();
   });
   
 
