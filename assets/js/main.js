@@ -68,13 +68,14 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     }
   });*/
 
-  $('#myForm').formValidation({
-    framework: 'bootstrap',
-    icon: {
-      valid: 'glyphicon glyphicon-ok',
-      invalid: 'glyphicon glyphicon-remove',
-      validating: 'glyphicon glyphicon-refresh'
-    },
+  $('#myForm')
+    .formValidation({
+      framework: 'bootstrap',
+      icon: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+      },
     fields: {
       inputNombre: {
         validators: {
@@ -103,9 +104,9 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           notEmpty: {
             message: 'El dia de llegada es obligatorio'
           },
-          date: {
-            format: 'DD-MM-YYYY',
-            message: 'Ingresa una fecha correcta'
+          regexp: {
+            regexp: /^\d{2}\-\d{2}\-\d{4}$/,
+            message: 'El formato de fecha es: dd/mm/yyy'
           }
         }
       },
@@ -114,13 +115,46 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           notEmpty: {
             message: 'El dia de salida es obligatorio'
           },
-          date: {
-            format: 'DD-MM-YYYY',
-            message: 'Ingresa una fecha correcta'
+          regexp: {
+            regexp: /^\d{2}\-\d{2}\-\d{4}$/,
+            message: 'El formato de fecha es: dd/mm/yyy'
+          }
+        }
+      },
+      personas: {
+        validators: {
+          notEmpty: {
+            message: 'La selección del número de personas es obligatorio'
           }
         }
       }
     }
+  })
+  .on('prevalidate.form.fv', function(e) {
+    alert("Bien");
+  })
+  .on('success.form.fv', function(e) {
+    e.preventDefault();
+    var $form = $(e.target);
+    fv = $form.data('#myForm');
+    var dataString = $('#myForm').serialize();
+    alert("Datos serializados: "+dataString);
+    $.ajax({
+      type: "POST",
+      url: "assets/controlador/controlador-registrar.php",
+      data: dataString,
+      beforeSend: function() {
+        //$('.modal-body').html('<div class="text-center"><img src="assets/img/loading.gif"/></div>');
+        $('.formu').prop('disabled', true);
+      },
+      success: function(data) {
+        var json=JSON.parse(data);
+        if(json.respuesta=='bien') {
+          alert(json.res);
+          $('#myModal').modal('hide');
+        }
+      }
+    });
   });
 
 
@@ -156,19 +190,19 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       .end();
     switch(tipo) {
       case 'Sencilla':
-        $("<option value='0'>Selecciona...</option>").appendTo("#personas");
+        $("<option value=''>Selecciona...</option>").appendTo("#personas");
         $("<option value='1'>1 persona</option>").appendTo("#personas");
         $("<option value='2'>2 personas</option>").appendTo("#personas");
         break;
       case 'Doble':
-        $("<option value='0'>Selecciona...</option>").appendTo("#personas");
+        $("<option value=''>Selecciona...</option>").appendTo("#personas");
         $("<option value='1'>1 persona</option>").appendTo("#personas");
         $("<option value='2'>2 personas</option>").appendTo("#personas");
         $("<option value='3'>3 personas</option>").appendTo("#personas");
         $("<option value='4'>4 personas</option>").appendTo("#personas");
         break;
       case 'Triple':
-        $("<option value='0'>Selecciona...</option>").appendTo("#personas");
+        $("<option value=''>Selecciona...</option>").appendTo("#personas");
         $("<option value='1'>1 persona</option>").appendTo("#personas");
         $("<option value='2'>2 personas</option>").appendTo("#personas");
         $("<option value='3'>3 personas</option>").appendTo("#personas");
