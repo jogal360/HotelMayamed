@@ -12,7 +12,7 @@ $.datepicker.regional['es'] = {
   dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
   dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
   weekHeader: 'Sm',
-  dateFormat: 'dd-mm-yy',
+  dateFormat: 'dd/mm/yy',
   firstDay: 1,
   isRTL: false,
   showMonthAfterYear: false,
@@ -68,95 +68,54 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     }
   });*/
 
-  $('#myForm')
-    .formValidation({
-      framework: 'bootstrap',
-      icon: {
-        valid: 'glyphicon glyphicon-ok',
-        invalid: 'glyphicon glyphicon-remove',
-        validating: 'glyphicon glyphicon-refresh'
-      },
-    fields: {
+  $.validator.addMethod(
+    "dateMex",
+    function(value, element) {
+      return value.match(/^\d\d?\/\d\d?\/\d\d\d\d$/);
+    },
+    "dd/mm/yyy"
+  );
+
+  $('#myForm').validate({
+    rules: {
       inputNombre: {
-        validators: {
-          notEmpty: {
-            message: 'El nombre es obligatorio'
-          },
-          stringLength: {
-            min: 1,
-            max: 50,
-            message: 'Escribe un nombre correcto'
-          }
-        }
+        required: true
       },
       inputCorreo: {
-        validators: {
-          notEmpty: {
-            message: 'El correo es obligatorio'
-          },
-          emailAddress: {
-            message: 'No es un correo válido'
-          }
-        }
+        required: true
+      },
+      inputTipoHab: {
+        required: true
       },
       checkin: {
-        validators: {
-          notEmpty: {
-            message: 'El dia de llegada es obligatorio'
-          },
-          regexp: {
-            regexp: /^\d{2}\-\d{2}\-\d{4}$/,
-            message: 'El formato de fecha es: dd/mm/yyy'
-          }
-        }
+        required: true,
+        dateMex: true
       },
       checkout: {
-        validators: {
-          notEmpty: {
-            message: 'El dia de salida es obligatorio'
-          },
-          regexp: {
-            regexp: /^\d{2}\-\d{2}\-\d{4}$/,
-            message: 'El formato de fecha es: dd/mm/yyy'
-          }
-        }
+        required: true
       },
       personas: {
-        validators: {
-          notEmpty: {
-            message: 'La selección del número de personas es obligatorio'
-          }
-        }
+        required: true
       }
-    }
-  })
-  .on('prevalidate.form.fv', function(e) {
-    alert("Bien");
-  })
-  .on('success.form.fv', function(e) {
-    e.preventDefault();
-    var $form = $(e.target);
-    fv = $form.data('#myForm');
-    var dataString = $('#myForm').serialize();
-    alert("Datos serializados: "+dataString);
-    $.ajax({
-      type: "POST",
-      url: "assets/controlador/controlador-registrar.php",
-      data: dataString,
-      beforeSend: function() {
-        //$('.modal-body').html('<div class="text-center"><img src="assets/img/loading.gif"/></div>');
-        $('.formu').prop('disabled', true);
+    },
+    messages: {
+      inputNombre: {
+        required: "Llena la información"
       },
-      success: function(data) {
-        var json=JSON.parse(data);
-        if(json.respuesta=='bien') {
-          alert(json.res);
-          $('#myModal').modal('hide');
-        }
-      }
-    });
-  });
+      inputCorreo: {
+        required: "Llena el campo",
+        email: "Introduce un correo válido"
+      },
+      checkin: {
 
+      }
+    },
+    submitHandler: function (form) {
+      var formData = $(form).serialize();
+      alert(formData);
+      return false;
+    }
+  });
 
 
   // jQuery for page scrolling feature - requires jQuery Easing plugin
