@@ -23,11 +23,6 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 (function($) {
   "use strict"; // Start of use strict
 
-  //Validación
-  /*$('#myForm').validator({
-    focus: false,
-  });*/
-
   $.ajax({
     type: "POST",
     url: "assets/controlador/controlador-precios.php",
@@ -38,35 +33,10 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
         $('#dob').html(json.habDob);
         $('#tri').html(json.habTri);
       } else {
-        console.log("Error");
+        console.log("Error-precios");
       }
     },
   });
-
-  /*$('#guardarReservacion').click(function() {
-    if(!$(this).hasClass('disabled')) {
-      var dataString = $('#myForm').serialize();
-      alert("Datos serializados: "+dataString);
-      $.ajax({
-        type: "POST",
-        url: "assets/controlador/controlador-registrar.php",
-        data: dataString,
-        beforeSend: function() {
-          //$('.modal-body').html('<div class="text-center"><img src="assets/img/loading.gif"/></div>');
-          $('.formu').prop('disabled', true);
-        },
-        success: function(data) {
-          var json=JSON.parse(data);
-          if(json.respuesta=='bien') {
-            alert(json.res);
-            $('#myModal').modal('hide');
-          }
-        }
-      });
-    } else {
-      alert("NO TIENE");
-    }
-  });*/
 
   $.validator.addMethod(
     "dateMex",
@@ -108,10 +78,14 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           //alert("SUCCESS");
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
-            alert(json.res);
             $('#myModal').modal('hide');
+            swal({ 
+              title: "Registro correcto!", 
+              text: "Te hemos enviado un email con los datos de tu reservación.", 
+              type: "success"
+            });
           } else {
-            console.log("error");
+            console.log("Error: "+json.error);
           }
         }
       });
@@ -199,6 +173,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       .end();
     $('.form-group').removeClass('has-error has-danger');
     $('div.error').remove();
+
   });
   
 

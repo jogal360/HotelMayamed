@@ -52,7 +52,7 @@
       /*Configuración para México*/
       date_default_timezone_set("America/Mexico_City");
       /*Obtención de datos de fecha de HOY*/
-      $dia = "31-11-2016";// = date("d-m-Y");
+      $dia = date("d-m-Y");
       $año = date("Y");
       /*SEMANA SANTA*/
       $semanaSanta = date("d-M-Y", easter_date($año));
