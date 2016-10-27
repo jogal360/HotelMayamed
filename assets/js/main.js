@@ -27,6 +27,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     type: "POST",
     url: "assets/controlador/controlador-precios.php",
     success: function(datos) {
+      alert(datos)
       var json=JSON.parse(datos);
       if(json.respuesta=='bien') {
         $('#sen').html(json.habSen);
@@ -65,17 +66,17 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     },
     submitHandler: function (form) {
       var dataString = $(form).serialize();
-      //alert(dataString);
+      alert(dataString);
       $.ajax({
         type: "POST",
         url: "assets/controlador/controlador-registrar.php",
         data: dataString,
         beforeSend: function() {
-          //$('.modal-body').html('<div class="text-center"><img src="assets/img/loading.gif"/></div>');
+          alert("Enviando");
           $('.formu').prop('disabled', true);
         },
         success: function(data) {
-          //alert("SUCCESS");
+          alert("Recibido: "+data);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
             $('#myModal').modal('hide');
@@ -87,6 +88,10 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           } else {
             console.log("Error: "+json.error);
           }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          alert(xhr.status);
+          alert(thrownError);
         }
       });
     }

@@ -42,31 +42,42 @@
         /*$respuesta = array("respuesta" => 'bien', "res" => 'Registro exitoso');
         echo json_encode($respuesta);*/
         #Envío de correo para cliente
-        require 'PHPMailerAutoload.php';
+        require '../PHPMailer-master/PHPMailerAutoload.php';
         $mail = new PHPMailer;
         $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = ' smtp.gmail.com';                      // Specify main and backup SMTP servers
+        //$mail->SMTPDebug = 2;
+        /*$mail->Host = 'smtp.gmail.com';                      // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = 'axelmontes92@gmail.com';                 // SMTP username
         $mail->Password = 'pandemiux64';                           // SMTP password
-        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 587;   
+        $mail->SMTPSecure = "tls";
+        $mail->Port = 587;*/
+        $mail->Host = 'mail.granteocalli.com.mx';                      // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'test@granteocalli.com.mx';                 // SMTP username
+        $mail->Password = 'Test@2016';                           // SMTP password
+        $mail->SMTPSecure = "tls";
+        $mail->Port = 587;
 
-        $mail->setFrom('from@example.com', 'Mailer');
+        $mail->setFrom('test@granteocalli.com.mx', 'Hotel Mayamed');
 
-        $mail->addAddress('$ema');               // Name is optional
+        $mail->addAddress($ema, $nom);               // Name is optional
         
         $mail->Subject = 'Confirmación de reservación, Hotel Mayamed';
         $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        //$mail->IsHTML(true);
+        //$mail->CharSet = 'UTF-8';
 
         if($mail->send()) {
           /*echo 'Message has been sent';*/
           $respuesta = array("respuesta" => 'bien', "res" => 'Registro exitoso');
           echo json_encode($respuesta);
         } else {
-          echo 'Message could not be sent.';
-          echo 'Mailer Error: ' . $mail->ErrorInfo; 
+          $respuesta = array("respuesta" => 'mal', "res" => 'Error en mail: '. $mail->ErrorInfo);
+          echo json_encode($respuesta);
+          /*echo 'Message could not be sent.';
+          echo 'Mailer Error: ' . $mail->ErrorInfo;*/ 
         }
       } else {
         $respuesta = array("respuesta" => 'mal', "res" => 'Registro no completado');
