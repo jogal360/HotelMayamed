@@ -34,6 +34,7 @@
     #Método para registrar reservaciones
     public function insertar($nom,$ema,$hab,$perso,$checkin,$checkout) {
       date_default_timezone_set("America/Mexico_City");
+      header('Content-Type: text/html; charset=UTF-8');
       $fecha = date("d-m-Y");
       $hora = date("h:i A");
       $sql = "INSERT INTO t_reservacion VALUES (null,'$nom','$ema','$hab','$perso','$checkin','$checkout','$fecha','$hora')";
@@ -42,22 +43,22 @@
         /*$respuesta = array("respuesta" => 'bien', "res" => 'Registro exitoso');
         echo json_encode($respuesta);*/
         #Envío de correo para cliente
-        require '../PHPMailer-master/PHPMailerAutoload.php';
-        $mail = new PHPMailer;
+        /*require '../PHPMailer-master/PHPMailerAutoload.php';
+        $mail = new PHPMailer();
         $mail->isSMTP();                                      // Set mailer to use SMTP
-        //$mail->SMTPDebug = 2;
+        $mail->SMTPDebug = 2;*/
         /*$mail->Host = 'smtp.gmail.com';                      // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = 'axelmontes92@gmail.com';                 // SMTP username
         $mail->Password = 'pandemiux64';                           // SMTP password
         $mail->SMTPSecure = "tls";
         $mail->Port = 587;*/
-        $mail->Host = 'mail.granteocalli.com.mx';                      // Specify main and backup SMTP servers
+        /*$mail->Host = 'mail.granteocalli.com.mx';                      // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = 'test@granteocalli.com.mx';                 // SMTP username
         $mail->Password = 'Test@2016';                           // SMTP password
-        $mail->SMTPSecure = "tls";
-        $mail->Port = 587;
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587; //587;
 
         $mail->setFrom('test@granteocalli.com.mx', 'Hotel Mayamed');
 
@@ -71,15 +72,116 @@
 
         if($mail->send()) {
           /*echo 'Message has been sent';*/
-          $respuesta = array("respuesta" => 'bien', "res" => 'Registro exitoso');
+         /* $respuesta = array("respuesta" => 'bien', "res" => 'Registro exitoso');
           echo json_encode($respuesta);
         } else {
           $respuesta = array("respuesta" => 'mal', "res" => 'Error en mail: '. $mail->ErrorInfo);
-          echo json_encode($respuesta);
+          echo json_encode($respuesta);/
           /*echo 'Message could not be sent.';
           echo 'Mailer Error: ' . $mail->ErrorInfo;*/ 
+          //---------------------------------------------------------------------------------------------------
+          $to = $ema;
+          $subject = 'Reservación registrada, Hotel Mayamed';
+          $message = '
+          <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+            <head>
+              <meta name="viewport" content="width=device-width" />
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            </head>
+            <body style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100% !important; height: 100%; line-height: 1.6; background-color: #f6f6f6; margin: 0; padding: 0;" bgcolor="#f6f6f6">
+              <table class="body-wrap" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; background-color: #f6f6f6; margin: 0; padding: 0;" bgcolor="#f6f6f6">
+  <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+    <td style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0;" valign="top"></td>
+    <td class="container" width="600" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; display: block !important; max-width: 600px !important; clear: both !important; width: 100% !important; margin: 0 auto; padding: 0;" valign="top">
+      <div class="content" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; max-width: 600px; display: block; margin: 0 auto; padding: 10px;">
+        <table class="main" width="100%" cellpadding="0" cellspacing="0" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; border-radius: 3px; background-color: #fff; margin: 0; padding: 0; border: 1px solid #e9e9e9;" bgcolor="#fff">
+          <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+            <td class="content-wrap aligncenter" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 20px;" align="center" valign="top">
+              <table width="100%" cellpadding="0" cellspacing="0" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                  <td class="content-block" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+                    <img src="http://www.hotelmayamed.com.mx/logo.png" width="110" height="100">
+                    <!-- <h1 style="font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; box-sizing: border-box; font-size: 22px !important; color: #000; line-height: 1.2; font-weight: 600 !important; margin: 20px 0 5px; padding: 0;">$33.98 Paid</h1> -->
+                  </td>
+                </tr>
+                <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                  <td class="content-block" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+                    <h2 style="font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; box-sizing: border-box; font-size: 18px !important; color: #000; line-height: 1.2; font-weight: 600 !important; margin: 20px 0 5px; padding: 0;">Tu reservación está registrada.</h2>
+                    <h5>Entre los dias '.$checkin.' y '.$checkout.' te sentirás como en casa.</h5>
+                  </td>
+                </tr>
+                <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                  <td class="content-block" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 10px;" valign="top">
+                    <table class="invoice" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; text-align: left; width: 100% !important; margin: 40px auto; padding: 0;">
+                      <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                        <td style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">
+                          <b>Cliente:</b> '.$nom.'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
+                          <b>Correo:</b> '.$ema.'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
+                          <b>Fecha:</b> '.$fecha.'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
+                          <b>Personas:</b> '.$perso.'
+                        </td>
+                      </tr>
+                      <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                        <td style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">
+                          <table class="invoice-items" cellpadding="0" cellspacing="0" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; margin: 0; padding: 0;">
+                            <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                              <td style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">Habitación Sencilla</td>
+                              <td class="alignright" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" align="right" valign="top">$ 100</td>
+                            </tr>
+                            <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                              <td style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">Cantidad de noches a pagar</td>
+                              <td class="alignright" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" align="right" valign="top">2</td>
+                            </tr>
+                            <tr class="total" style="font-family:"Helvetica Neu","Helvetic", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                              <td class="alignright" width="80%" style="font-family:"Helvetica Neue" "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" align="right" valign="top">Total a pagar:</td>
+                              <td class="alignright" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" align="right" valign="top">$ 200.00 MXN</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                  <td class="content-block" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+                    Métodos y formas de pago
+                  </td>
+                </tr>
+                <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+                  <td class="content-block" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+                    Hotel Mayamed, Avenida Juárez (s/n) esquina con calle 16 de Septiembre. Tecolutla, Veracruz. México
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <div class="footer" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; clear: both; color: #999; margin: 0; padding: 20px;">
+          <table width="100%" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+            <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
+              <td class="aligncenter content-block" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 12px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;" align="center" valign="top">¿Tienes alguna pregunta? Contáctanos a  <a href="mailto:hola@hotelmayamed.com.mx" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 12px; color: #999; text-decoration: underline; margin: 0; padding: 0;">hola@hotelmayamed.com.mx</a></td>
+            </tr>
+          </table>
+        </div></div>
+    </td>
+    <td style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0;" valign="top"></td>
+  </tr>
+</table>
+</body>
+</html>
+
+          ';
+          //$from = "From: Hotel Mayamed <test@granteocalli.com.mx>";
+          // Always set content-type when sending HTML email
+          $headers = "MIME-Version: 1.0" . "\r\n";
+          $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+          $headers .= "From: Hotel Mayamed <test@granteocalli.com.mx>";
+          mail($to,$subject,$message,$headers);
+          $respuesta = array("respuesta" => 'bien', "res" => 'Registro exitoso');
+          echo json_encode($respuesta);
         }
-      } else {
+      else {
         $respuesta = array("respuesta" => 'mal', "res" => 'Registro no completado');
         echo json_encode($respuesta);
       }
