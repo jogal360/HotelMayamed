@@ -20,10 +20,12 @@
     $checkout = $_POST['checkout'];
     $perso    = $_POST['personas'];
 
-    #Se genera un objeto del modelo
+    #Se genera un objeto del modelo y se ejecuta la funcion
     $objeto = new ModeloMayamed();
     $mensaje = $objeto->insertar($nom,$ema,$hab,$perso,$checkin,$checkout);
     $objeto->cerrar();
+  } else {
+    header('Location: ../');
   }
   
   

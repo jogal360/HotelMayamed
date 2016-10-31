@@ -34,7 +34,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
         $('#dob').html(json.habDob);
         $('#tri').html(json.habTri);
       } else {
-        console.log("Error-precios");
+        console.log("Error: No se pueden mostrar los precios de habitación");
       }
     },
   });
@@ -66,7 +66,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     },
     submitHandler: function (form) {
       var dataString = $(form).serialize();
-      alert(dataString);
+      //alert(dataString);
       $.ajax({
         type: "POST",
         url: "assets/controlador/controlador-registrar.php",

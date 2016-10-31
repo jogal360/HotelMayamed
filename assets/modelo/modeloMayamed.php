@@ -1,10 +1,10 @@
 <?php
 
   /*
-    ARCHIVO: modelo-reservacion.php
+    ARCHIVO: modeloMayamed.php
     CREACIÓN: 17/10/16
-    MODIFICACIÓN: 17/10/16
-    DESCRIPCIÓN: El Modelo representa la información con la que trabaja el sitio.
+    MODIFICACIÓN: 31/10/16
+    DESCRIPCIÓN: Modelo principal del sitio, donde se procesa el costo de las habitaciones y se registra las reservaciones.
   */
 
   #Se hace vínculo con el archivo de conexión
@@ -33,17 +33,20 @@
     
     #Método para registrar reservaciones
     public function insertar($nom,$ema,$hab,$perso,$checkin,$checkout) {
-      date_default_timezone_set("America/Mexico_City");
-      header('Content-Type: text/html; charset=UTF-8');
-      $fecha = date("d-m-Y");
-      $hora = date("h:i A");
-      $sql = "INSERT INTO t_reservacion VALUES (null,'$nom','$ema','$hab','$perso','$checkin','$checkout','$fecha','$hora')";
+      date_default_timezone_set("America/Mexico_City"); //Configuramos date() para México
+      header('Content-Type: text/html; charset=UTF-8'); //Usamos UTF-8
+      $fecha = date("d-m-Y"); //Obtención de la fecha actual.
+      $hora = date("h:i A");  //Obtención de la hora actual.
+      $sql = "INSERT INTO t_reservacion VALUES (null,'$nom','$ema','$hab','$perso','$checkin','$checkout','$fecha','$hora')"; //Sentencia SQL para registrar la reservación
       $res = $this->mysqli->query($sql);
-      if($res) {
+      if($res) { //Si el registro ha sido exitoso entonces se procede al envio de los correos.
+        //Funciones para cambiar diagonal por guion intermedio
         $fecI = str_replace("/", "-", $checkin);
         $fecF = str_replace("/", "-", $checkout);
+        //Funcion para sacar los dias que se hospedará el cliente
         $dias = (strtotime($fecI)-strtotime($fecF))/86400;
         $dias   = abs($dias); $dias = floor($dias);
+        //Abrimos una sesión y obtenemos el precio de la habitación (viene de la funcion de pŕecios)
         session_start();
         switch ($hab) {
           case 'Sencilla':
@@ -59,8 +62,9 @@
             $costoUnitario = "ERROR";
             break;
         }
+        //Generación del costo total.
         $costoTotal = ($dias*$costoUnitario);
-        /*-----------*/
+        //Generación del correo del cliete
         $to = $ema;
         $subject = utf8_decode('Reservación registrada, Hotel Mayamed');
         $message = '
@@ -155,7 +159,7 @@
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= "From: Hotel Mayamed <test@granteocalli.com.mx>";
-        if(mail($to,$subject,$message,$headers)) {
+        if(mail($to,$subject,$message,$headers)) { //Si se envia, entonces pasamos al correo del lic
           $to = "yeyden_13111992@hotmail.com"; //Correo al cual llegará una copia de la reservación 
           $subject = utf8_decode("Nueva reservación, Hotel Mayamed");
           $message = '
@@ -216,12 +220,15 @@
       $semanaSantaDom2 = date('d-m-Y',$semanaSantaDom2);
       /*---*/
       /*SEMANA DE VERANO*/
-      $verano = array(SEM_VER_VIE1."-".$año, SEM_VER_SAB1."-".$año, SEM_VER_DOM1."-".$año, SEM_VER_LUN1."-".$año, SEM_VER_MAR1."-".$año, SEM_VER_MIE1."-".$año, SEM_VER_JUE1."-".$año, SEM_VER_VIE2."-".$año, SEM_VER_SAB2."-".$año, SEM_VER_DOM2."-".$año, SEM_VER_LUN2."-".$año, SEM_VER_MAR2."-".$año, SEM_VER_MIE2."-".$año, SEM_VER_JUE2."-".$año, SEM_VER_VIE3."-".$año, SEM_VER_SAB3."-".$año, SEM_VER_DOM3."-".$año, SEM_VER_LUN3."-".$año, SEM_VER_MAR3."-".$año, SEM_VER_MIE3."-".$año, SEM_VER_JUE3."-".$año, SEM_VER_VIE4."-".$año, SEM_VER_SAB4."-".$año, SEM_VER_DOM4."-".$año, SEM_VER_LUN4."-".$año, SEM_VER_MAR4."-".$año, SEM_VER_MIE4."-".$año, SEM_VER_JUE4."-".$año, SEM_VER_VIE5."-".$año, SEM_VER_SAB5."-".$año, SEM_VER_DOM5."-".$año);
-      list($semanaVeranoVie1, $semanaVeranoSab1, $semanaVeranoDom1, $semanaVeranoLun1, $semanaVeranoMar1, $semanaVeranoMie1, $semanaVeranoJue1, $semanaVeranoVie2, $semanaVeranoSab2, $semanaVeranoDom2, $semanaVeranoLun2, $semanaVeranoMar2, $semanaVeranoMie2, $semanaVeranoJue2, $semanaVeranoVie3, $semanaVeranoSab3, $semanaVeranoDom3, $semanaVeranoLun3, $semanaVeranoMar3, $semanaVeranoMie3, $semanaVeranoJue3, $semanaVeranoVie4, $semanaVeranoSab4, $semanaVeranoDom4, $semanaVeranoLun4, $semanaVeranoMar4, $semanaVeranoMie4, $semanaVeranoJue4, $semanaVeranoVie5, $semanaVeranoSab5, $semanaVeranoDom5) = $verano;
+      $verano = array(SEM_VER_LUN1."-".$año, SEM_VER_MAR1."-".$año, SEM_VER_MIE1."-".$año, SEM_VER_JUE1."-".$año, SEM_VER_VIE1."-".$año, SEM_VER_SAB1."-".$año, SEM_VER_DOM1."-".$año, SEM_VER_LUN2."-".$año, SEM_VER_MAR2."-".$año, SEM_VER_MIE2."-".$año, SEM_VER_JUE2."-".$año, SEM_VER_VIE2."-".$año, SEM_VER_SAB2."-".$año, SEM_VER_DOM2."-".$año, SEM_VER_LUN3."-".$año, SEM_VER_MAR3."-".$año, SEM_VER_MIE3."-".$año, SEM_VER_JUE3."-".$año, SEM_VER_VIE3."-".$año, SEM_VER_SAB3."-".$año, SEM_VER_DOM3."-".$año, SEM_VER_LUN4."-".$año, SEM_VER_MAR4."-".$año, SEM_VER_MIE4."-".$año, SEM_VER_JUE4."-".$año, SEM_VER_VIE4."-".$año, SEM_VER_SAB4."-".$año, SEM_VER_DOM4."-".$año, SEM_VER_LUN5."-".$año, SEM_VER_MAR5."-".$año, SEM_VER_MIE5."-".$año, SEM_VER_JUE5."-".$año, SEM_VER_VIE5."-".$año, SEM_VER_SAB5."-".$año, SEM_VER_DOM5."-".$año, SEM_VER_LUN6."-".$año, SEM_VER_MAR6."-".$año, SEM_VER_MIE6."-".$año, SEM_VER_JUE6."-".$año, SEM_VER_VIE6."-".$año, SEM_VER_SAB6."-".$año, SEM_VER_DOM6."-".$año);
+
+      list($semanaVeranoLun1, $semanaVeranoMar1, $semanaVeranoMie1, $semanaVeranoJue1, $semanaVeranoVie1,  $semanaVeranoSab1, $semanaVeranoDom1, $semanaVeranoLun2, $semanaVeranoMar2, $semanaVeranoMie2, $semanaVeranoJue2, $semanaVeranoVie2, $semanaVeranoSab2, $semanaVeranoDom2, $semanaVeranoLun3, $semanaVeranoMar3, $semanaVeranoMie3, $semanaVeranoJue3, $semanaVeranoVie3, $semanaVeranoSab3, $semanaVeranoDom3, $semanaVeranoLun4, $semanaVeranoMar4, $semanaVeranoMie4, $semanaVeranoJue4, $semanaVeranoVie4, $semanaVeranoSab4, $semanaVeranoDom4, $semanaVeranoLun5, $semanaVeranoMar5, $semanaVeranoMie5, $semanaVeranoJue5, $semanaVeranoVie5, $semanaVeranoSab5, $semanaVeranoDom5, $semanaVeranoLun6, $semanaVeranoMar6, $semanaVeranoMie6, $semanaVeranoJue6, $semanaVeranoVie6, $semanaVeranoSab6, $semanaVeranoDom6) = $verano;
       /*---*/
+
       /*SEMANA DE INVIERNO*/
-      $invierno = array(SEM_INV_JUE1."-".$año, SEM_INV_VIE1."-".$año, SEM_INV_SAB1."-".$año, SEM_INV_DOM1."-".$año, SEM_INV_LUN1."-".$año, SEM_INV_MAR1."-".$año, SEM_INV_MIE1."-".$año, SEM_INV_JUE2."-".$año, SEM_INV_VIE2."-".$año, SEM_INV_SAB2."-".$año, SEM_INV_DOM2."-".$año, SEM_INV_LUN2."-".$año, SEM_INV_MAR2."-".$año, SEM_INV_MIE2."-".$año, SEM_INV_JUE3."-".$año, SEM_INV_VIE3."-".$año, SEM_INV_SAB3."-".$año, SEM_INV_DOM3."-".$año, SEM_INV_LUN3."-".$año, SEM_INV_MAR3."-".$año, SEM_INV_MIE3."-".$año, SEM_INV_JUE4."-".$año, SEM_INV_VIE4."-".$año,SEM_INV_SAB4."-".$año, SEM_INV_DOM4."-".$año, SEM_INV_LUN4."-".$año, SEM_INV_MAR4."-".$año, SEM_INV_MIE4."-".$año, SEM_INV_JUE5."-".$año, SEM_INV_VIE5."-".$año,SEM_INV_SAB5."-".$año);
-      list($semanaInviernoJue1,$semanaInviernoVie1,$semanaInviernoSab1,$semanaInviernoDom1,$semanaInviernoLun1,$semanaInviernoMar1,$semanaInviernoMie1,$semanaInviernoJue2,$semanaInviernoVie2,$semanaInviernoSab2,$semanaInviernoDom2,$semanaInviernoLun2,$semanaInviernoMar2,$semanaInviernoMie2,$semanaInviernoJue3,$semanaInviernoVie3,$semanaInviernoSab3,$semanaInviernoDom3,$semanaInviernoLun3,$semanaInviernoMar3,$semanaInviernoMie3,$semanaInviernoJue4,$semanaInviernoVie4,$semanaInviernoSab4,$semanaInviernoDom4,$semanaInviernoLun4,$semanaInviernoMar4,$semanaInviernoMie4,$semanaInviernoJue5,$semanaInviernoVie5,$semanaInviernoSab5) = $invierno;
+      $invierno = array(SEM_INV_LUN1."-".$año, SEM_INV_MAR1."-".$año, SEM_INV_MIE1."-".$año, SEM_INV_JUE1."-".$año, SEM_INV_VIE1."-".$año, SEM_INV_SAB1."-".$año, SEM_INV_DOM1."-".$año, SEM_INV_LUN2."-".$año, SEM_INV_MAR2."-".$año, SEM_INV_MIE2."-".$año, SEM_INV_JUE2."-".$año, SEM_INV_VIE2."-".$año, SEM_INV_SAB2."-".$año, SEM_INV_DOM2."-".$año, SEM_INV_LUN3."-".$año, SEM_INV_MAR3."-".$año, SEM_INV_MIE3."-".$año, SEM_INV_JUE3."-".$año, SEM_INV_VIE3."-".$año, SEM_INV_SAB3."-".$año, SEM_INV_DOM3."-".$año, SEM_INV_LUN4."-".$año, SEM_INV_MAR4."-".$año, SEM_INV_MIE4."-".$año, SEM_INV_JUE4."-".$año, SEM_INV_VIE4."-".$año, SEM_INV_SAB4."-".$año, SEM_INV_DOM4."-".$año, SEM_INV_LUN5."-".$año, SEM_INV_MAR5."-".$año, SEM_INV_MIE5."-".$año, SEM_INV_JUE5."-".$año, SEM_INV_VIE5."-".$año, SEM_INV_SAB5."-".$año, SEM_INV_DOM5."-".$año, SEM_INV_LUN6."-".$año, SEM_INV_MAR6."-".$año, SEM_INV_MIE6."-".$año, SEM_INV_JUE6."-".$año, SEM_INV_VIE6."-".$año, SEM_INV_SAB6."-".$año, SEM_INV_DOM6."-".$año);
+
+      list($semanaInviernoLun1, $semanaInviernoMar1, $semanaInviernoMie1, $semanaInviernoJue1, $semanaInviernoVie1, $semanaInviernoSab1, $semanaInviernoDom1, $semanaInviernoLun2, $semanaInviernoMar2, $semanaInviernoMie2, $semanaInviernoJue2, $semanaInviernoVie2, $semanaInviernoSab2, $semanaInviernoDom2, $semanaInviernoLun3, $semanaInviernoMar3, $semanaInviernoMie3, $semanaInviernoJue3, $semanaInviernoVie3, $semanaInviernoSab3, $semanaInviernoDom3, $semanaInviernoLun4, $semanaInviernoMar4, $semanaInviernoMie4, $semanaInviernoJue4, $semanaInviernoVie4, $semanaInviernoSab4, $semanaInviernoDom4, $semanaInviernoLun5, $semanaInviernoMar5, $semanaInviernoMie5, $semanaInviernoJue5, $semanaInviernoVie5, $semanaInviernoSab5, $semanaInviernoDom5, $semanaInviernoLun6, $semanaInviernoMar6, $semanaInviernoMie6, $semanaInviernoJue6, $semanaInviernoVie6, $semanaInviernoSab6, $semanaInviernoDom6) = $invierno;
       /*---*/
       switch ($dia) {
         //Semana santa
@@ -235,70 +242,92 @@
         case $semanaSantaDom2:
 
         //Verano
-        case $semanaVeranoVie1:
-        case $semanaVeranoSab1:
-        case $semanaVeranoDom1:
         case $semanaVeranoLun1:
         case $semanaVeranoMar1:
         case $semanaVeranoMie1:
         case $semanaVeranoJue1:
-        case $semanaVeranoVie2:
-        case $semanaVeranoSab2:
-        case $semanaVeranoDom2:
+        case $semanaVeranoVie1:
+        case $semanaVeranoSab1:
+        case $semanaVeranoDom1:
         case $semanaVeranoLun2:
         case $semanaVeranoMar2:
         case $semanaVeranoMie2:
         case $semanaVeranoJue2:
-        case $semanaVeranoVie3:
-        case $semanaVeranoSab3:
-        case $semanaVeranoDom3:
+        case $semanaVeranoVie2:
+        case $semanaVeranoSab2:
+        case $semanaVeranoDom2:
         case $semanaVeranoLun3:
         case $semanaVeranoMar3:
         case $semanaVeranoMie3:
         case $semanaVeranoJue3:
-        case $semanaVeranoVie4:
-        case $semanaVeranoSab4:
-        case $semanaVeranoDom4:
+        case $semanaVeranoVie3:
+        case $semanaVeranoSab3:
+        case $semanaVeranoDom3:
         case $semanaVeranoLun4:
         case $semanaVeranoMar4:
         case $semanaVeranoMie4:
-        case $semanaVeranoJue4:
+        case $semanaVeranoJue3:
+        case $semanaVeranoVie4:
+        case $semanaVeranoSab4:
+        case $semanaVeranoDom4:
+        case $semanaVeranoLun5:
+        case $semanaVeranoMar5:
+        case $semanaVeranoMie5:
+        case $semanaVeranoJue5:
         case $semanaVeranoVie5:
         case $semanaVeranoSab5:
         case $semanaVeranoDom5:
+        case $semanaVeranoLun6:
+        case $semanaVeranoMar6:
+        case $semanaVeranoMie6:
+        case $semanaVeranoJue6:
+        case $semanaVeranoVie6:
+        case $semanaVeranoSab6:
+        case $semanaVeranoDom6:
 
         //Invierno
+        case $semanaInviernoLun1:
+        case $semanaInviernoMar1:
+        case $semanaInviernoMie1:
         case $semanaInviernoJue1:
         case $semanaInviernoVie1:
         case $semanaInviernoSab1:
         case $semanaInviernoDom1:
-        case $semanaInviernoLun1:
-        case $semanaInviernoMar1:
-        case $semanaInviernoMie1:
+        case $semanaInviernoLun2:
+        case $semanaInviernoMar2:
+        case $semanaInviernoMie2:
         case $semanaInviernoJue2: 
         case $semanaInviernoVie2:
         case $semanaInviernoSab2:
         case $semanaInviernoDom2:
-        case $semanaInviernoLun2:
-        case $semanaInviernoMar2:
-        case $semanaInviernoMie2:
+        case $semanaInviernoLun3:
+        case $semanaInviernoMar3:
+        case $semanaInviernoMie3:
         case $semanaInviernoJue3:
         case $semanaInviernoVie3:
         case $semanaInviernoSab3:
         case $semanaInviernoDom3:
-        case $semanaInviernoLun3:
-        case $semanaInviernoMar3:
-        case $semanaInviernoMie3:
+        case $semanaInviernoLun4:
+        case $semanaInviernoMar4:
+        case $semanaInviernoMie4:
         case $semanaInviernoJue4:
         case $semanaInviernoVie4:
         case $semanaInviernoSab4:
         case $semanaInviernoDom4:
-        case $semanaInviernoLun4:
-        case $semanaInviernoMar4:
-        case $semanaInviernoMie4:
+        case $semanaInviernoLun5:
+        case $semanaInviernoMar5:
+        case $semanaInviernoMie5:
         case $semanaInviernoJue5:
         case $semanaInviernoVie5:
         case $semanaInviernoSab5:
+        case $semanaInviernoDom5:
+        case $semanaInviernoLun6:
+        case $semanaInviernoMar6:
+        case $semanaInviernoMie6:
+        case $semanaInviernoJue6:
+        case $semanaInviernoVie6:
+        case $semanaInviernoSab6:
+        case $semanaInviernoDom6:
           //Respuesta de temporada alta
           session_start();
           $_SESSION['sencilla'] = A_A;

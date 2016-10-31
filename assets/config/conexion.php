@@ -1,16 +1,23 @@
 <?php
 
+  /*
+    ARCHIVO: conexion.php
+    CREACIÓN: 17/10/16
+    MODIFICACIÓN: 31/10/16
+    DESCRIPCIÓN: Esta clase conecta con la base de datos.
+  */
+
   //Llamamos el archivo config.php
   include('config.php');
 
   class Conexion {
   	#Atributos
-  	private $_connection;
-  	private static $_instance; 
-  	private $_host     = SERVIDOR;
-  	private $_username = USUARIO;
-  	private $_password = PASSWORD;
-  	private $_database = BASE;
+  	private $_connection;           //Variable de conexion
+  	private static $_instance;      //Variable de la instancia a usar
+  	private $_host     = SERVIDOR;  //Variable del servidor
+  	private $_username = USUARIO;   //Variable del usuario
+  	private $_password = PASSWORD;  //Variable de la contraseña
+  	private $_database = BASE;      //Variable de la base de datos
 
     #Método para generar instancia (Si no hay instancia, crea una; sino retorna la que ya existente).
   	public static function getInstance() {
@@ -33,7 +40,7 @@
       }
     }
 
-    #Método para evitar la clonación de la conexión
+    #Método para evitar la clonación de la conexión (Patrón Singleton)
     private function __clone() { }
 
     #Método para obtener la conexión mysqli
