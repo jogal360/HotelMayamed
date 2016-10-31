@@ -44,6 +44,16 @@
     $(".nav li").removeClass('active'); 
   });
 
+  //Cambiar el color de imagenes SVG
+  $('svg').mouseenter(function() {
+    $(this).find("path, line, polyline, text, rect").attr("stroke", "#0e4c5b");
+    $(this).find(".svg-fill").attr("fill", "#0e4c5b");
+  });
+  $('svg').mouseleave(function() {
+    $(this).find("path, line, polyline, text, rect").attr("stroke", "#A8B28E");
+    $(this).find(".svg-fill").attr("fill", "#A8B28E");
+  });
+
   // Generador para el mapa del API de Google Maps
   function initMap() {
   	var location   = new google.maps.LatLng(20.481564, -97.013209);
