@@ -54,6 +54,97 @@
     $(this).find(".svg-fill").attr("fill", "#A8B28E");
   });
 
+  //Creación de SVG
+    //Alberca
+    var s = Snap("#svg-alberca");
+    var tux = Snap.load("../assets/img/servicios/svg/iconos servicios-01.svg",
+      function ( loadedFragment ) {
+        s.append( loadedFragment );
+      } 
+    );
+
+    //Asoleadero
+    var s2 = Snap("#svg-asoleadero");
+    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-02.svg",
+      function ( loadedFragment ) {
+        s2.append( loadedFragment );
+      } 
+    );
+
+    //Recepcion
+    var s3 = Snap("#svg-recepcion");
+    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-03.svg",
+      function ( loadedFragment ) {
+        s3.append( loadedFragment );
+      } 
+    );
+
+    //A/A
+    var s4 = Snap("#svg-aa");
+    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-10.svg",
+      function ( loadedFragment ) {
+        s4.append( loadedFragment );
+      } 
+    );
+
+    //Restaurante
+    var s5 = Snap("#svg-restaurante");
+    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-05.svg",
+      function ( loadedFragment ) {
+        s5.append( loadedFragment );
+      } 
+    );
+
+    //TV
+    var s6 = Snap("#svg-tv");
+    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-06.svg",
+      function ( loadedFragment ) {
+        s6.append( loadedFragment );
+      } 
+    );
+
+    //WiFi
+    var s7 = Snap("#svg-wifi");
+    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-09.svg",
+      function ( loadedFragment ) {
+        s7.append( loadedFragment );
+      } 
+    );
+
+    //
+    var s8 = Snap("#svg-ventilador");
+    var g8 = s8.group();
+    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-11.svg",
+      function ( loadedFragment ) {
+        g8.append( loadedFragment );
+        g8.hover( hoverovers8, hoverouts8 );
+      });
+    var hoverovers8 = function() { g8.animate({ transform: 's2r45,50,55' }, 1000, mina.bounce ) };
+    var hoverouts8 = function() { g8.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
+
+    //
+    var s9 = Snap("#svg-estacionamiento");
+    var g9 = s9.group();
+    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-04.svg",
+      function ( loadedFragment ) {
+        g9.append( loadedFragment );
+        g9.hover( hoverovers9, hoverouts9 );
+      });
+    var hoverovers9 = function() { g9.animate({ transform: 's2r45,50,55' }, 1000, mina.bounce ) };
+    var hoverouts9 = function() { g9.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
+
+    //Agua caliente
+    var s10 = Snap("#svg-agua");
+    var g10 = s10.group();
+    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-12.svg",
+      function ( loadedFragment ) {
+        g10.append( loadedFragment );
+        g10.hover( hoverovers10, hoverouts10 );
+      });
+    var hoverovers10 = function() { g10.animate({ transform: 's2r45,50,55' }, 1000, mina.bounce ) };
+    var hoverouts10 = function() { g10.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
+
+
   // Generador para el mapa del API de Google Maps
   function initMap() {
   	var location   = new google.maps.LatLng(20.481564, -97.013209);
