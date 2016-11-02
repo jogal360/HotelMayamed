@@ -57,59 +57,80 @@
   //Creación de SVG
     //Alberca
     var s = Snap("#svg-alberca");
+    var g = s.group();
     var tux = Snap.load("../assets/img/servicios/svg/iconos servicios-01.svg",
       function ( loadedFragment ) {
-        s.append( loadedFragment );
-      } 
-    );
+        g.append( loadedFragment );
+        g.hover( hoverovers, hoverouts );
+      });
+    var hoverovers = function() { g.animate({ transform: 's2r45,50,55' }, 1000, mina.bounce ) };
+    var hoverouts = function() { g.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
 
     //Asoleadero
     var s2 = Snap("#svg-asoleadero");
+    var g2 = s2.group();
     var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-02.svg",
       function ( loadedFragment ) {
-        s2.append( loadedFragment );
-      } 
-    );
+        g2.append( loadedFragment );
+        g2.hover( hoverovers2, hoverouts2 );
+      });
+    var hoverovers2 = function() { g2.animate({ transform: 's2r45,50,55' }, 1000, mina.bounce ) };
+    var hoverouts2 = function() { g2.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
 
     //Recepcion
     var s3 = Snap("#svg-recepcion");
+    var g3 = s3.group();
     var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-03.svg",
       function ( loadedFragment ) {
-        s3.append( loadedFragment );
-      } 
-    );
+        g3.append( loadedFragment );
+        g3.hover( hoverovers3, hoverouts3 );
+      });
+    var hoverovers3 = function() { g3.animate({ transform: 's2r45,50,55' }, 1000, mina.bounce ) };
+    var hoverouts3 = function() { g3.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
 
     //A/A
     var s4 = Snap("#svg-aa");
+    var g4 = s4.group();
     var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-10.svg",
       function ( loadedFragment ) {
-        s4.append( loadedFragment );
-      } 
-    );
+        g4.append( loadedFragment );
+        g4.hover( hoverovers4, hoverouts4 );
+      });
+    var hoverovers4 = function() { g4.animate({ transform: 's2r45,50,55' }, 1000, mina.bounce ) };
+    var hoverouts4 = function() { g4.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
 
     //Restaurante
     var s5 = Snap("#svg-restaurante");
+    var g5 = s5.group();
     var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-05.svg",
       function ( loadedFragment ) {
-        s5.append( loadedFragment );
-      } 
-    );
+        g5.append( loadedFragment );
+        g5.hover( hoverovers5, hoverouts5 );
+      });
+    var hoverovers5 = function() { g5.animate({ transform: 's2r45,50,55' }, 1000, mina.bounce ) };
+    var hoverouts5 = function() { g5.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
 
     //TV
     var s6 = Snap("#svg-tv");
+    var g6 = s6.group();
     var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-06.svg",
       function ( loadedFragment ) {
-        s6.append( loadedFragment );
-      } 
-    );
+        g6.append( loadedFragment );
+        g6.hover( hoverovers6, hoverouts6 );
+      });
+    var hoverovers6 = function() { g6.animate({ transform: 's2r45,50,55' }, 1000, mina.bounce ) };
+    var hoverouts6 = function() { g6.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
 
     //WiFi
     var s7 = Snap("#svg-wifi");
+    var g7 = s7.group();
     var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-09.svg",
       function ( loadedFragment ) {
-        s7.append( loadedFragment );
-      } 
-    );
+        g7.append( loadedFragment );
+        g7.hover( hoverovers7, hoverouts7 );
+      });
+    var hoverovers7 = function() { g7.animate({ transform: 's2r45,50,55' }, 1000, mina.bounce ) };
+    var hoverouts7 = function() { g7.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
 
     //
     var s8 = Snap("#svg-ventilador");
