@@ -208,6 +208,14 @@
      
 
       /*@media (min-width: 768px) {
+
+      div.error {
+        color: red;
+      }
+
+      #ui-datepicker-div {z-index:9999 !important}
+
+      @media (min-width: 768px) {
         .navbar-nav {
           width: 100%;
           text-align: center;
