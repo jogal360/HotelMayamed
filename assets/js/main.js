@@ -153,7 +153,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //Alberca
     var s = Snap("#svg-alberca");
     var g = s.group();
-    var tux = Snap.load("../assets/img/servicios/svg/iconos servicios-01.svg",
+    var tux = Snap.load("assets/img/servicios/svg/servicios-01.svg",
       function ( loadedFragment ) {
         g.append( loadedFragment );
         g.hover( hoverovers, hoverouts );
@@ -164,7 +164,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //Asoleadero
     var s2 = Snap("#svg-asoleadero");
     var g2 = s2.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-02.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-02.svg",
       function ( loadedFragment ) {
         g2.append( loadedFragment );
         g2.hover( hoverovers2, hoverouts2 );
@@ -175,7 +175,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //Recepcion
     var s3 = Snap("#svg-recepcion");
     var g3 = s3.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-03.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-03.svg",
       function ( loadedFragment ) {
         g3.append( loadedFragment );
         g3.hover( hoverovers3, hoverouts3 );
@@ -186,7 +186,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //A/A
     var s4 = Snap("#svg-aa");
     var g4 = s4.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-10.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-10.svg",
       function ( loadedFragment ) {
         g4.append( loadedFragment );
         g4.hover( hoverovers4, hoverouts4 );
@@ -197,7 +197,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //Restaurante
     var s5 = Snap("#svg-restaurante");
     var g5 = s5.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-05.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-05.svg",
       function ( loadedFragment ) {
         g5.append( loadedFragment );
         g5.hover( hoverovers5, hoverouts5 );
@@ -208,7 +208,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //TV
     var s6 = Snap("#svg-tv");
     var g6 = s6.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-06.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-06.svg",
       function ( loadedFragment ) {
         g6.append( loadedFragment );
         g6.hover( hoverovers6, hoverouts6 );
@@ -219,7 +219,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //WiFi
     var s7 = Snap("#svg-wifi");
     var g7 = s7.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-09.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-09.svg",
       function ( loadedFragment ) {
         g7.append( loadedFragment );
         g7.hover( hoverovers7, hoverouts7 );
@@ -230,7 +230,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //
     var s8 = Snap("#svg-ventilador");
     var g8 = s8.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-11.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-11.svg",
       function ( loadedFragment ) {
         g8.append( loadedFragment );
         g8.hover( hoverovers8, hoverouts8 );
@@ -241,7 +241,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //
     var s9 = Snap("#svg-estacionamiento");
     var g9 = s9.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-04.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-04.svg",
       function ( loadedFragment ) {
         g9.append( loadedFragment );
         g9.hover( hoverovers9, hoverouts9 );
@@ -252,7 +252,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //Agua caliente
     var s10 = Snap("#svg-agua");
     var g10 = s10.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-12.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-12.svg",
       function ( loadedFragment ) {
         g10.append( loadedFragment );
         g10.hover( hoverovers10, hoverouts10 );
