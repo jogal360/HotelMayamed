@@ -98,7 +98,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   });
 
 
-  // jQuery for page scrolling feature - requires jQuery Easing plugin
+  // jQuery scroll
   $('a.page-scroll').bind('click', function(event) {
   	var $anchor = $(this);
     $('html, body').stop().animate({
@@ -112,17 +112,20 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   	var valor = 50;
     var targetOffset = $('.navbar').offset().top -valor;
     var tar = $('.logo-hotel');
+    var scrollUp = $('#scrollUp');
     var velocidad = 10;
     if(targetOffset >= valor) {
       $(tar).animate({
       	right: -40,
       	height: "70px",
       },velocidad);
+      $(scrollUp).css("display",'inline-block');
     } else {
     	$(tar).animate({
       	right: -80,
       	height: "140px",
       },velocidad);
+      $(scrollUp).css("display",'none');
     }
   });
 
