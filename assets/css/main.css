@@ -130,12 +130,20 @@
       }
 
       /*codigo de carrusel*/
-      .carousel-inner > .item > img,
-      .carousel-inner > .item > a > img {
+      .carousel-inner > .item > img.primerCarrusel,
+      .carousel-inner > .item > a > img.primerCarrusel {
         width: 100%;
         margin: auto;
-        height: 850px;
+        height: 600px;
       }
+
+      .carousel-inner > .item > img.segundoCarrusel,
+      .carousel-inner > .item > a > img.segundoCarrusel {
+        width: 100%;
+        margin: auto;
+        height: auto;
+      }
+
 
       #map {
         width: 100%;
@@ -283,8 +291,11 @@
           padding-left: 50px !important;
         }
         .car-atrac {
-          padding-left: 60px;
-          padding-right: 60px;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .responder {
+          width: 50%;
         }
         .servicios .label {
           font-size: 20px !important;
@@ -293,8 +304,8 @@
 
       @media (min-width: 992px) {
         .car-atrac {
-          padding-left: 150px;
-          padding-right: 150px;  
+          padding-left: 100px;
+          padding-right: 100px;  
         }
         .seccion-servicios {
           width: 75%;

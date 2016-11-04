@@ -13,5 +13,5 @@
     #Se genera un objeto del modelo y se ejecuta la funcion
     $objeto = new ModeloMayamed();
     $objeto->mostrarPrecios();
-  
+
 ?>

@@ -8,7 +8,6 @@
       el Modelo o en la Vista
   */
 
-  if($_POST) {
     #Se hace vínculo con el archivo del modelo
     require_once('../modelo/modeloMayamed.php');
 
@@ -23,15 +22,6 @@
     #Se genera un objeto del modelo y se ejecuta la funcion
     $objeto = new ModeloMayamed();
     $mensaje = $objeto->insertar($nom,$ema,$hab,$perso,$checkin,$checkout);
-    $objeto->cerrar();
-  } else {
-    header('Location: ../');
-  }
-  
-  
-
-  
-
-  
+    $objeto->cerrar();  
 
 ?>
