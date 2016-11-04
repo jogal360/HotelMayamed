@@ -20,8 +20,11 @@ $.datepicker.regional['es'] = {
 };
 $.datepicker.setDefaults($.datepicker.regional['es']);
 
+
 (function($) {
   "use strict"; // Start of use strict
+
+  $('#scrollUp').css("display",'none');
 
   $.ajax({
     type: "POST",
@@ -128,6 +131,63 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       $(scrollUp).css("display",'none');
     }
   });
+
+  //Animación
+  $('#inf-uno').css('opacity', 0);
+  $('#inf-dos').css('opacity', 0);
+  $('#hab1').css('opacity', 0);
+  $('#hab2').css('opacity', 0);
+  $('#hab3').css('opacity', 0);
+  $('#svg-alberca').css('opacity', 0);
+  $('#svg-asoleadero').css('opacity', 0);
+  $('#svg-recepcion').css('opacity', 0);
+  $('#svg-aa').css('opacity', 0);
+  $('#svg-restaurante').css('opacity', 0);
+  $('#svg-tv').css('opacity', 0);
+  $('#svg-wifi').css('opacity', 0);
+  $('#svg-ventilador').css('opacity', 0);
+  $('#svg-estacionamiento').css('opacity', 0);
+  $('#svg-agua').css('opacity', 0);
+  $('#gal1').css('opacity', 0);
+  $('#gal2').css('opacity', 0);
+  $('#gal3').css('opacity', 0);
+  $('#contacto-uno').css('opacity', 0);
+
+  $(".informacion").waypoint(function() {
+     $("#inf-uno").addClass('fadeInLeft');
+     $("#inf-dos").addClass('fadeInUp');
+  }, { offset: '80%'});
+
+  $("#habitaciones").waypoint(function() {
+     $("#hab1").addClass('fadeInLeft');
+     $("#hab2").addClass('fadeInUp');
+     $("#hab3").addClass('fadeInRight');
+  }, { offset: '12%'});
+
+  $(".servicios").waypoint(function() {
+     $("#svg-alberca").addClass('fadeInLeft');
+     $("#svg-asoleadero").addClass('fadeInLeft');
+     $("#svg-recepcion").addClass('fadeInRight');
+     $("#svg-aa").addClass('fadeInRight');
+     $("#svg-restaurante").addClass('fadeInLeft');
+     $("#svg-tv").addClass('fadeInLeft');
+     $("#svg-wifi").addClass('fadeInRight');
+     $("#svg-ventilador").addClass('fadeInRight');
+     $("#svg-estacionamiento").addClass('fadeInUp');
+     $("#svg-agua").addClass('fadeInUp');
+  }, { offset: '15%'});
+
+  $(".galeria").waypoint(function() {
+    $('#gal1').addClass('fadeInLeft');
+    $('#gal2').addClass('fadeInUp');
+    $('#gal3').addClass('fadeInRight');
+  }, { offset: '50%'});
+
+  $(".contacto").waypoint(function() {
+    $('#contacto-uno').addClass('fadeInRight');
+  }, { offset: '50%'});
+
+
 
   // Para cerrar el menu al dar tap (Vista movil)
   $('.navbar-collapse ul li a').click(function() {
