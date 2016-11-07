@@ -348,6 +348,30 @@
           break;
       }
     }
+
+    #Método para enviar correo por medio de contacto
+    public function enviarCorreoContacto($datos) {
+      //var_dump($datos);
+      $to = "axelmontes92@gmail.com"; //Correo al cual llegará
+      $subject = utf8_decode("Nuevo mensaje de contacto, Hotel Mayamed");
+      $message = '
+        Se ha recibido un nuevo mensaje de contacto<br>
+        <b>Nombre:</b> '.$datos[0].'<br>
+        <b>Correo:</b> '.$datos[1].'<br>
+        <b>Asunto:</b> '.$datos[2].'<br>
+        <b>Mensaje:</b> '.$datos[3].'<br>
+      ';
+      $headers = "MIME-Version: 1.0" . "\r\n";
+      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+      $headers .= "From: Hotel Mayamed <test@granteocalli.com.mx>";
+      if(mail($to,$subject,$message,$headers)) {
+        $respuesta = array("respuesta" => 'bien', "res" => 'Registro exitoso');
+        echo json_encode($respuesta);
+      } else {
+        $respuesta = array("respuesta" => 'mal', "res" => 'Envio de segundo correo no posible');
+        echo json_encode($respuesta);
+      }
+    }
   }
 
 ?>

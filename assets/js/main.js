@@ -100,6 +100,53 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     }
   });
 
+  $('#frmContacto').validate({
+    errorElement: 'div',
+    rules: { 
+      inNombre: {required: true},
+      inEmail: {required: true},
+      inAsunto: {required: true},
+      inMensaje: {required: true}
+    },
+    messages: {
+      inNombre: {required: "Llena la información"},
+      inEmail: {required: "Llena el campo", email: "Introduce un correo válido"},
+      inAsunto: {required: "Llena la información"},
+      inMensaje: {required: "Llena la información"}
+    },
+    submitHandler: function (form) {
+      var dataString = $(form).serialize();
+      alert(dataString);
+      $.ajax({
+        type: "POST",
+        url: "assets/controlador/controlador-contacto.php",
+        data: dataString,
+        beforeSend: function() {
+          //alert("Enviando");
+          $('.formu').prop('disabled', true);
+        },
+        success: function(data) {
+          //alert("Recibido: "+data);
+          var json=JSON.parse(data);
+          if(json.respuesta=='bien') {
+            $('#myModal').modal('hide');
+            swal({ 
+              title: "Mensaje enviado!", 
+              text: "Gracias por tu mensaje.", 
+              type: "success"
+            });
+          } else {
+            console.log("Error: "+json.error);
+          }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          alert(xhr.status);
+          alert(thrownError);
+        }
+      });
+    }
+  });
+
 
   // jQuery scroll
   $('a.page-scroll').bind('click', function(event) {
