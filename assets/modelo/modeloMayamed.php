@@ -38,12 +38,12 @@
       header('Content-Type: text/html; charset=UTF-8'); //Usamos UTF-8
       $fecha = date("d-m-Y"); //Obtención de la fecha actual.
       $hora = date("h:i A");  //Obtención de la hora actual.
-      $sql = "INSERT INTO t_reservacion VALUES (null,'$datos[0]','$datos[1]','$datos[2]','$datos[3]','$datos[4]','$datos[5]','$fecha','$hora')"; //Sentencia SQL para registrar la reservación
+      $sql = "INSERT INTO t_reservacion VALUES (null,'$datos[0]','$datos[1]','$datos[2]','$datos[5]','$datos[3]','$datos[4]','$fecha','$hora')"; //Sentencia SQL para registrar la reservación
       $res = $this->mysqli->query($sql);
       if($res) { //Si el registro ha sido exitoso entonces se procede al envio de los correos.
         //Funciones para cambiar diagonal por guion intermedio
-        $fecI = str_replace("/", "-", $datos[4]);
-        $fecF = str_replace("/", "-", $datos[5]);
+        $fecI = str_replace("/", "-", $datos[3]);
+        $fecF = str_replace("/", "-", $datos[4]);
         //Funcion para sacar los dias que se hospedará el cliente
         $dias = (strtotime($fecI)-strtotime($fecF))/86400;
         $dias   = abs($dias); $dias = floor($dias);
@@ -93,7 +93,7 @@
                           <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
                             <td class="content-block" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
                               <h2 style="font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; box-sizing: border-box; font-size: 18px !important; color: #000; line-height: 1.2; font-weight: 600 !important; margin: 20px 0 5px; padding: 0;">Tu reservación está registrada.</h2>
-                              <h5>Entre los dias '.$datos[4].' y '.$datos[5].' te sentirás como en casa.</h5>
+                              <h5>Entre los dias '.$datos[3].' y '.$datos[4].' te sentirás como en casa.</h5>
                             </td>
                           </tr>
                           <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
@@ -104,7 +104,7 @@
                                     <b>Cliente:</b> '.$datos[0].'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
                                     <b>Correo:</b> '.$datos[1].'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
                                     <b>Fecha:</b> '.$fecha.'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
-                                    <b>Personas:</b> '.$datos[3].'
+                                    <b>Personas:</b> '.$datos[5].'
                                   </td>
                                 </tr>
                                 <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
@@ -168,9 +168,9 @@
             <b>Nombre:</b> '.$datos[0].'<br>
             <b>Correo:</b> '.$datos[1].'<br>
             <b>Tipo de habitación:</b> '.$datos[2].'<br>
-            <b>Personas:</b> '.$datos[3].'<br>
-            <b>Entrada:</b> '.$datos[4].'<br>
-            <b>Salida:</b> '.$datos[5].'<br>
+            <b>Personas:</b> '.$datos[5].'<br>
+            <b>Entrada:</b> '.$datos[3].'<br>
+            <b>Salida:</b> '.$datos[4].'<br>
             <b>Dias:</b> '.$dias.'<br>
             <b>Monto a pagar:</b> $'.$costoTotal.'
           ';

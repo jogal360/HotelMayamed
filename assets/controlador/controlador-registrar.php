@@ -16,6 +16,7 @@
     foreach ($_POST as $clave=>$valor) {
       $datos[] = $valor;
     }
+    //var_dump($datos);
 
     #Se genera un objeto del modelo y se ejecuta la funcion
     $objeto = new ModeloMayamed();
