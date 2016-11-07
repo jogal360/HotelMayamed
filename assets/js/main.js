@@ -79,7 +79,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           $('.formu').prop('disabled', true);
         },
         success: function(data) {
-          //alert("Recibido: "+data);
+          alert("Recibido: "+data);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
             $('#myModal').modal('hide');

@@ -12,16 +12,14 @@
     require_once('../modelo/modeloMayamed.php');
 
     #Se recuperan los datos
-    $nom      = $_POST['inputNombre'];
-    $ema      = $_POST['inputCorreo'];
-    $hab      = $_POST['inputTipoHab'];
-    $checkin  = $_POST['checkin'];
-    $checkout = $_POST['checkout'];
-    $perso    = $_POST['personas'];
+    $datos = array();
+    foreach ($_POST as $clave=>$valor) {
+      $datos[] = $valor;
+    }
 
     #Se genera un objeto del modelo y se ejecuta la funcion
     $objeto = new ModeloMayamed();
-    $mensaje = $objeto->insertar($nom,$ema,$hab,$perso,$checkin,$checkout);
-    $objeto->cerrar();  
+    $mensaje = $objeto->insertar($datos);
+    $objeto->cerrar();
 
 ?>
