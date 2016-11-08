@@ -182,6 +182,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   //Animación
   $('#inf-uno').css('opacity', 0);
   $('#inf-dos').css('opacity', 0);
+  $('#inf-tres').css('opacity', 0);
   $('#hab1').css('opacity', 0);
   $('#hab2').css('opacity', 0);
   $('#hab3').css('opacity', 0);
@@ -202,8 +203,9 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
   $(".informacion").waypoint(function() {
      $("#inf-uno").addClass('fadeInLeft');
-     $("#inf-dos").addClass('fadeInUp');
-  }, { offset: '80%'});
+     $("#inf-dos").addClass('fadeInRight');
+     $("#inf-tres").addClass('fadeInUp');
+  }, { offset: '75%'});
 
   $("#habitaciones").waypoint(function() {
      $("#hab1").addClass('fadeInLeft');
