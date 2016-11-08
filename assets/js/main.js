@@ -75,16 +75,15 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
         url: "assets/controlador/controlador-registrar.php",
         data: dataString,
         beforeSend: function() {
-          //alert("Enviando");
           $('.formu').prop('disabled', true);
         },
         success: function(data) {
-          alert("Recibido: "+data);
+          $('.formu').prop('disabled', false);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
             $('#myModal').modal('hide');
             swal({ 
-              title: "Registro correcto!", 
+              title: json.res, 
               text: "Te hemos enviado un email con los datos de tu reservación.", 
               type: "success"
             });
@@ -116,22 +115,22 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     },
     submitHandler: function (form) {
       var dataString = $(form).serialize();
-      alert(dataString);
+      //alert(dataString);
       $.ajax({
         type: "POST",
         url: "assets/controlador/controlador-contacto.php",
         data: dataString,
         beforeSend: function() {
           //alert("Enviando");
-          $('.formu').prop('disabled', true);
+          $('.inpu').prop('disabled', true);
         },
         success: function(data) {
-          //alert("Recibido: "+data);
+          $('.inpu').prop('disabled', false);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
-            $('#myModal').modal('hide');
+            $('.inpu').val('');
             swal({ 
-              title: "Mensaje enviado!", 
+              title: json.res, 
               text: "Gracias por tu mensaje.", 
               type: "success"
             });
