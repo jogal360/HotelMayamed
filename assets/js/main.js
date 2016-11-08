@@ -20,8 +20,11 @@ $.datepicker.regional['es'] = {
 };
 $.datepicker.setDefaults($.datepicker.regional['es']);
 
+
 (function($) {
   "use strict"; // Start of use strict
+
+  $('#scrollUp').css("display",'none');
 
   $.ajax({
     type: "POST",
@@ -72,16 +75,15 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
         url: "assets/controlador/controlador-registrar.php",
         data: dataString,
         beforeSend: function() {
-          //alert("Enviando");
           $('.formu').prop('disabled', true);
         },
         success: function(data) {
-          //alert("Recibido: "+data);
+          $('.formu').prop('disabled', false);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
             $('#myModal').modal('hide');
             swal({ 
-              title: "Registro correcto!", 
+              title: json.res, 
               text: "Te hemos enviado un email con los datos de tu reservación.", 
               type: "success"
             });
@@ -97,8 +99,55 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     }
   });
 
+  $('#frmContacto').validate({
+    errorElement: 'div',
+    rules: { 
+      inNombre: {required: true},
+      inEmail: {required: true},
+      inAsunto: {required: true},
+      inMensaje: {required: true}
+    },
+    messages: {
+      inNombre: {required: "Llena la información"},
+      inEmail: {required: "Llena el campo", email: "Introduce un correo válido"},
+      inAsunto: {required: "Llena la información"},
+      inMensaje: {required: "Llena la información"}
+    },
+    submitHandler: function (form) {
+      var dataString = $(form).serialize();
+      //alert(dataString);
+      $.ajax({
+        type: "POST",
+        url: "assets/controlador/controlador-contacto.php",
+        data: dataString,
+        beforeSend: function() {
+          //alert("Enviando");
+          $('.inpu').prop('disabled', true);
+        },
+        success: function(data) {
+          $('.inpu').prop('disabled', false);
+          var json=JSON.parse(data);
+          if(json.respuesta=='bien') {
+            $('.inpu').val('');
+            swal({ 
+              title: json.res, 
+              text: "Gracias por tu mensaje.", 
+              type: "success"
+            });
+          } else {
+            console.log("Error: "+json.error);
+          }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          alert(xhr.status);
+          alert(thrownError);
+        }
+      });
+    }
+  });
 
-  // jQuery for page scrolling feature - requires jQuery Easing plugin
+
+  // jQuery scroll
   $('a.page-scroll').bind('click', function(event) {
   	var $anchor = $(this);
     $('html, body').stop().animate({
@@ -112,19 +161,86 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   	var valor = 50;
     var targetOffset = $('.navbar').offset().top -valor;
     var tar = $('.logo-hotel');
+    var scrollUp = $('#scrollUp');
     var velocidad = 10;
     if(targetOffset >= valor) {
       $(tar).animate({
       	right: -40,
       	height: "70px",
       },velocidad);
+      $(scrollUp).css("display",'inline-block');
     } else {
     	$(tar).animate({
       	right: -80,
       	height: "140px",
       },velocidad);
+      $(scrollUp).css("display",'none');
     }
   });
+
+  //Animación
+  $('#inf-uno').css('opacity', 0);
+  $('#inf-dos').css('opacity', 0);
+  $('#inf-tres').css('opacity', 0);
+  $('#hab1').css('opacity', 0);
+  $('#hab2').css('opacity', 0);
+  $('#hab3').css('opacity', 0);
+  $('#svg-alberca').css('opacity', 0);
+  $('#svg-asoleadero').css('opacity', 0);
+  $('#svg-recepcion').css('opacity', 0);
+  $('#svg-aa').css('opacity', 0);
+  $('#svg-restaurante').css('opacity', 0);
+  $('#svg-tv').css('opacity', 0);
+  $('#svg-wifi').css('opacity', 0);
+  $('#svg-ventilador').css('opacity', 0);
+  $('#svg-estacionamiento').css('opacity', 0);
+  $('#svg-agua').css('opacity', 0);
+  $('#gal1').css('opacity', 0);
+  $('#gal2').css('opacity', 0);
+  $('#gal3').css('opacity', 0);
+  $('#contacto-uno').css('opacity', 0);
+  $('#contacto-dos').css('opacity', 0);
+  $('#map').css('opacity', 0);
+
+  $(".informacion").waypoint(function() {
+     $("#inf-uno").addClass('fadeInLeft');
+     $("#inf-dos").addClass('fadeInRight');
+     $("#inf-tres").addClass('fadeInUp');
+  }, { offset: '75%'});
+
+  $("#habitaciones").waypoint(function() {
+     $("#hab1").addClass('fadeInLeft');
+     $("#hab2").addClass('fadeInUp');
+     $("#hab3").addClass('fadeInRight');
+  }, { offset: '12%'});
+
+  $(".servicios").waypoint(function() {
+     $("#svg-alberca").addClass('fadeInLeft');
+     $("#svg-asoleadero").addClass('fadeInLeft');
+     $("#svg-recepcion").addClass('fadeInRight');
+     $("#svg-aa").addClass('fadeInRight');
+     $("#svg-restaurante").addClass('fadeInLeft');
+     $("#svg-tv").addClass('fadeInLeft');
+     $("#svg-wifi").addClass('fadeInRight');
+     $("#svg-ventilador").addClass('fadeInRight');
+     $("#svg-estacionamiento").addClass('fadeInUp');
+     $("#svg-agua").addClass('fadeInUp');
+  }, { offset: '15%'});
+
+  $(".galeria").waypoint(function() {
+    $('#gal1').addClass('fadeInLeft');
+    $('#gal2').addClass('fadeInUp');
+    $('#gal3').addClass('fadeInRight');
+  }, { offset: '50%'});
+
+  $(".contacto").waypoint(function() {
+    $('#contacto-dos').addClass('fadeInLeft');
+    $('#contacto-uno').addClass('fadeInRight');
+  }, { offset: '50%'});
+
+  $(".ubicacion").waypoint(function() {
+    $('#map').addClass('fadeInUp');
+  }, { offset: '40%'});
 
   // Para cerrar el menu al dar tap (Vista movil)
   $('.navbar-collapse ul li a').click(function() {

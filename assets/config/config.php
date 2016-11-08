@@ -14,10 +14,28 @@
   */
 
   #DATOS DE CONEXIÓN
-    DEFINE('SERVIDOR','localhost');
-    DEFINE('USUARIO','root');
-    DEFINE('PASSWORD','');
-    DEFINE('BASE','hotelmayamed');
+    // 1 = Localhost
+    // 2 = Servidor
+    /*Este switch lo que hace es que en un solo cambio de dígito, se especifique en que entorno se
+    está trabajando*/
+    $station = "1";
+    switch ($station) {
+      case '1':
+        //Local
+        DEFINE('SERVIDOR','localhost');
+        DEFINE('USUARIO','root');
+        DEFINE('PASSWORD','1234');
+        DEFINE('BASE','hotelmayamed');
+        break;
+
+      case '2':
+        //Servidor
+        DEFINE('SERVIDOR','mysql.hostinger.mx');
+        DEFINE('USUARIO','u891522738_hm');
+        DEFINE('PASSWORD','123456');
+        DEFINE('BASE','u891522738_hm');
+        break;
+    }
 
   #PRECIOS DE HABITACIONES
     DEFINE('A_A','150'); //Habitación sencilla - Temp. Alta
