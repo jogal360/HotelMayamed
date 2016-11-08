@@ -14,7 +14,11 @@
   */
 
   #DATOS DE CONEXIÓN
-    $station = "2";
+    // 1 = Localhost
+    // 2 = Servidor
+    /*Este switch lo que hace es que en un solo cambio de dígito, se especifique en que entorno se
+    está trabajando*/
+    $station = "1";
     switch ($station) {
       case '1':
         //Local
@@ -30,10 +34,6 @@
         DEFINE('USUARIO','u891522738_hm');
         DEFINE('PASSWORD','123456');
         DEFINE('BASE','u891522738_hm');
-        break;
-      
-      default:
-        # code...
         break;
     }
 

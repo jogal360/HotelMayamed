@@ -199,6 +199,8 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   $('#gal2').css('opacity', 0);
   $('#gal3').css('opacity', 0);
   $('#contacto-uno').css('opacity', 0);
+  $('#contacto-dos').css('opacity', 0);
+  $('#map').css('opacity', 0);
 
   $(".informacion").waypoint(function() {
      $("#inf-uno").addClass('fadeInLeft');
@@ -232,10 +234,13 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   }, { offset: '50%'});
 
   $(".contacto").waypoint(function() {
+    $('#contacto-dos').addClass('fadeInLeft');
     $('#contacto-uno').addClass('fadeInRight');
   }, { offset: '50%'});
 
-
+  $(".ubicacion").waypoint(function() {
+    $('#map').addClass('fadeInUp');
+  }, { offset: '40%'});
 
   // Para cerrar el menu al dar tap (Vista movil)
   $('.navbar-collapse ul li a').click(function() {
