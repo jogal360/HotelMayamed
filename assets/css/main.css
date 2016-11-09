@@ -41,20 +41,23 @@
   #cazza1 {
     height: 600px;
     background-image: url('/assets/img/carrusel/ca01.jpg');
-    background-position: center;
+    background-position: center center;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   #cazza2 {
     height: 600px;
     background-image: url('/assets/img/carrusel/ca02.jpg');
-    background-position: center;
+    background-position: center center;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   #cazza3 {
     height: 600px;
     background-image: url('/assets/img/carrusel/ca01.jpg');
-    background-position: center;
+    background-position: center center;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   /*colores background*/
