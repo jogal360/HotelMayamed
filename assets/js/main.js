@@ -212,7 +212,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
      $("#hab1").addClass('fadeInLeft');
      $("#hab2").addClass('fadeInUp');
      $("#hab3").addClass('fadeInRight');
-  }, { offset: '12%'});
+  }, { offset: '50%'});
 
   $(".servicios").waypoint(function() {
      $("#svg-alberca").addClass('fadeInLeft');
@@ -225,7 +225,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
      $("#svg-ventilador").addClass('fadeInRight');
      $("#svg-estacionamiento").addClass('fadeInUp');
      $("#svg-agua").addClass('fadeInUp');
-  }, { offset: '15%'});
+  }, { offset: '60%'});
 
   $(".galeria").waypoint(function() {
     $('#gal1').addClass('fadeInLeft');
@@ -236,11 +236,11 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   $(".contacto").waypoint(function() {
     $('#contacto-dos').addClass('fadeInLeft');
     $('#contacto-uno').addClass('fadeInRight');
-  }, { offset: '50%'});
+  }, { offset: '60%'});
 
   $(".ubicacion").waypoint(function() {
     $('#map').addClass('fadeInUp');
-  }, { offset: '40%'});
+  }, { offset: '60%'});
 
   // Para cerrar el menu al dar tap (Vista movil)
   $('.navbar-collapse ul li a').click(function() {
