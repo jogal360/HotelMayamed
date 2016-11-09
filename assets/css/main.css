@@ -34,6 +34,29 @@
    opacity: 0.9;
   }
 
+  /*Carrusel principal*/
+  #myCarousel {
+    min-height: 100%;
+  }
+  #cazza1 {
+    height: 600px;
+    background-image: url('/assets/img/carrusel/ca01.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+  #cazza2 {
+    height: 600px;
+    background-image: url('/assets/img/carrusel/ca02.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+  #cazza3 {
+    height: 600px;
+    background-image: url('/assets/img/carrusel/ca01.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+
   /*colores background*/
   .color-naranja {
     background-color: #f7b231;
@@ -129,12 +152,6 @@
   }
   .footer {
     padding: 100px;
-  }
-  .carousel-inner > .item > img.primerCarrusel,
-  .carousel-inner > .item > a > img.primerCarrusel {
-    width: 100%;
-    margin: auto;
-    height: 600px;
   }
   .carousel-inner > .item > img.segundoCarrusel,
   .carousel-inner > .item > a > img.segundoCarrusel {
@@ -270,24 +287,12 @@
       padding-left: 250px;
       padding-right: 250px;  
     }
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 600px;
-    }
   }
 
   @media (min-width: 1300px) {
     .car-atrac {
       padding-left: 250px;
       padding-right: 250px;  
-    }
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 650px;
     }
   }
 
@@ -296,24 +301,12 @@
       padding-left: 250px;
       padding-right: 250px;  
     }
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 700px;
-    }
   }
 
   @media (min-width: 1500px) {
     .car-atrac {
       padding-left: 250px;
       padding-right: 250px;  
-    }
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 750px;
     }
   }
 
@@ -332,36 +325,18 @@
       padding-left: 30px;
       padding-right: 30px;
     }
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 430px;
-    }
     .label {
       font-size-adjust: 0.90;
     }
   }
 
   @media (max-width: 700px) {
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 430px;
-    }
     .label {
       font-size-adjust: 0.80;
     }
   }
 
   @media (max-width: 650px) {
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 400px;
-    }
     .label {
       font-size-adjust: 0.80;
     }
@@ -373,12 +348,6 @@
   }
 
   @media (max-width: 600px) {
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 400px;
-    }
     .label {
       font-size-adjust: 0.80;
     }
@@ -393,12 +362,6 @@
   }
 
   @media (max-width: 550px) {
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 400px;
-    }
     .label {
       font-size-adjust: 0.80;
     }
@@ -419,12 +382,6 @@
     .txt-atrac-car {
       font-size: 20px;
     }
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 370px;
-    }
     .servicios {
       padding-right: 15px;
     }
@@ -441,12 +398,6 @@
     }
     .txt-atrac-car {
       font-size: 17px;
-    }
-    .carousel-inner > .item > img.primerCarrusel,
-    .carousel-inner > .item > a > img.primerCarrusel {
-      width: 100%;
-      margin: auto;
-      height: 300px;
     }
   }
 
