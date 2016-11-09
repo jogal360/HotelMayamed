@@ -96,6 +96,11 @@
   .servicios h2 {
     color: white; 
   }
+  /*#lb-alberca {
+    position: absolute;
+    top: 100px;
+    right: 45px;
+  }*/
   .galeria {
     background-color: #a7b38f;
     position: relative;
@@ -234,6 +239,22 @@
 
   }
 
+  @media (min-width: 800) {
+    #lb-alberca {
+      position: absolute;
+      top: 100px;
+      right: 45px;
+    }
+  }
+
+  @media (min-width: 900) {
+    #lb-alberca {
+      position: absolute;
+      top: 100px;
+      right: 45px;
+    }
+  }
+
   @media (min-width: 992px) {
     .car-atrac {
       padding-left: 100px;
@@ -299,6 +320,11 @@
     .label {
       font-size-adjust: 0.80;
     }
+    #lb-alberca {
+      position: absolute;
+      top: 105px;
+      right: 45px;
+    }
   }
 
   @media (max-width: 600px) {
@@ -313,6 +339,11 @@
     }
     .servicios {
       padding-right: 10px;
+    }
+    #lb-alberca {
+      position: absolute;
+      top: 105px;
+      right: 45px;
     }
   }
 
@@ -329,6 +360,11 @@
     .servicios {
       padding-right: 15px;
     }
+    #lb-alberca {
+      position: absolute;
+      top: 105px;
+      right: 40px;
+    }
   }
 
   @media (max-width: 500px) {
@@ -344,9 +380,13 @@
       margin: auto;
       height: 370px;
     }
-
     .servicios {
       padding-right: 15px;
+    }
+    #lb-alberca {
+      position: absolute;
+      top: 100px;
+      right: 45px;
     }
   }
 
