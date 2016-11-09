@@ -270,6 +270,51 @@
       padding-left: 250px;
       padding-right: 250px;  
     }
+    .carousel-inner > .item > img.primerCarrusel,
+    .carousel-inner > .item > a > img.primerCarrusel {
+      width: 100%;
+      margin: auto;
+      height: 600px;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    .car-atrac {
+      padding-left: 250px;
+      padding-right: 250px;  
+    }
+    .carousel-inner > .item > img.primerCarrusel,
+    .carousel-inner > .item > a > img.primerCarrusel {
+      width: 100%;
+      margin: auto;
+      height: 650px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .car-atrac {
+      padding-left: 250px;
+      padding-right: 250px;  
+    }
+    .carousel-inner > .item > img.primerCarrusel,
+    .carousel-inner > .item > a > img.primerCarrusel {
+      width: 100%;
+      margin: auto;
+      height: 700px;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    .car-atrac {
+      padding-left: 250px;
+      padding-right: 250px;  
+    }
+    .carousel-inner > .item > img.primerCarrusel,
+    .carousel-inner > .item > a > img.primerCarrusel {
+      width: 100%;
+      margin: auto;
+      height: 750px;
+    }
   }
 
   @media (max-width: 768px) {
