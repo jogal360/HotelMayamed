@@ -16,6 +16,7 @@
    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> 
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/css/formValidation.min.css">
    <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
   </head>
   <body>
     <div class="container-fluid">
@@ -99,17 +100,17 @@
         <h2 class="pad-bot-10">HABITACIONES</h2>
       </div>
       <div class="col-lg-12 col-md-12 text-center">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <h3>Sencilla</h3>
           <h3>$<span id="sen">000</span></h3>
           <button type="button" tipo="Sencilla" class="btn btn-primary btn-lg reserva">Reservar</button>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <h3>Doble</h3>
           <h3>$<span id="dob">000</span></h3>
           <button type="button" tipo="Doble" class="btn btn-primary btn-lg reserva">Reservar</button>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <h3>Triple</h3>
           <h3>$<span id="tri">000</span></h3>
           <button type="button" tipo="Triple" class="btn btn-primary btn-lg reserva">Reservar</button>
@@ -139,20 +140,20 @@
       <div class="row">
         <div class="col-lg-4 col-md-4"></div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center svg-container">
-          <svg class="animated" id="svg-alberca" width="100px" height="100px"></svg> 
-          <!-- <img src="/assets/img/servicios/iconos servicios-01.svg" class="img-responsive"> -->
+          <svg class="animated svg" id="svg-alberca" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+
           <label class="label" id="lb-alberca">Alberca</label>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-15">
-          <svg class="animated" id="svg-asoleadero" width="100px" height="100px"></svg> 
+          <svg class="animated" id="svg-asoleadero" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
           <label class="label">Asoleadero</label>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-15">
-          <svg class="animated" id="svg-recepcion" width="100px" height="100px"></svg> 
+          <svg class="animated" id="svg-recepcion" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
           <label class="label">Recepción <br>24 horas</label>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-15">
-          <svg class="animated" id="svg-aa" width="100px" height="100px"></svg> 
+          <svg class="animated" id="svg-aa" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
           <label class="label">Aire<br>Acondicionado</label>
         </div>
       </div>
@@ -161,19 +162,19 @@
         <div class="row">
         <div class="col-md-4"></div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-05">
-          <svg class="animated" id="svg-restaurante" width="100px" height="100px"></svg> 
+          <svg class="animated" id="svg-restaurante" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
           <label class="label">Restaurante</label>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-15">
-          <svg class="animated" id="svg-tv" width="100px" height="100px"></svg> 
+          <svg class="animated" id="svg-tv" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
           <label class="label">TV con cable</label>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-15">
-          <svg class="animated" id="svg-wifi" width="100px" height="100px"></svg> 
+          <svg class="animated" id="svg-wifi" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
           <label class="label">WiFi</label>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-md-offset-0 col-xs-3 text-center pad-bot-15">
-          <svg class="animated" id="svg-ventilador" width="100px" height="100px"></svg> 
+          <svg class="animated" id="svg-ventilador" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
           <label class="label">Ventilador</label>
         </div>
         </div>
@@ -182,11 +183,11 @@
         <div class="row">
         <div class="col-md-3"></div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 col-xs-offset-2 text-center pad-bot-15">
-          <svg class="animated" id="svg-estacionamiento" width="100px" height="100px"></svg> 
+          <svg class="animated" id="svg-estacionamiento" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
           <label class="label">Estacionamiento</label>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 col-xs-offset-2 text-center pad-bot-15">
-          <svg class="animated" id="svg-agua" width="100px" height="100px"></svg> 
+          <svg class="animated" id="svg-agua" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
           <label class="label">Agua caliente</label>
         </div>
         <div class="col-md-2"></div>

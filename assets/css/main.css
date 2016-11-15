@@ -17,6 +17,14 @@
   .opa {
     opacity: 0.8 !important;
   }
+  .pos-rel {
+    position: relative;
+  }
+  .abs {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
 
   /*Navbar*/
   .logo-nav {
@@ -40,21 +48,21 @@
   }
   #cazza1 {
     height: 600px;
-    background-image: url('/assets/img/carrusel/ca01.jpg');
+    background-image: url("../img/carrusel/ca01.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
   }
   #cazza2 {
     height: 600px;
-    background-image: url('/assets/img/carrusel/ca02.jpg');
+    background-image: url("../img/carrusel/ca02.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
   }
   #cazza3 {
     height: 600px;
-    background-image: url('/assets/img/carrusel/ca01.jpg');
+    background-image: url("../img/carrusel/ca01.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -122,21 +130,9 @@
   .servicios h2 {
     color: white; 
   }
-  /*#lb-alberca {
-    position: absolute;
-    top: 100px;
-    right: 45px;
-  }*/
   .galeria {
     background-color: #a7b38f;
     position: relative;
-  }
-  .abs {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
-  .atractivos {
-    position: static;
   }
   .car-atrac {
     padding-left: 60px;
@@ -374,7 +370,7 @@
     #lb-alberca {
       position: absolute;
       top: 105px;
-      right: 40px;
+      right: 25px;
     }
   }
 
@@ -388,10 +384,8 @@
     .servicios {
       padding-right: 15px;
     }
-    #lb-alberca {
-      position: absolute;
-      top: 100px;
-      right: 45px;
+    .seccion-servicios {
+      width: 90%;
     }
   }
 
@@ -401,6 +395,9 @@
     }
     .txt-atrac-car {
       font-size: 17px;
+    }
+    .svg {
+
     }
   }
 
