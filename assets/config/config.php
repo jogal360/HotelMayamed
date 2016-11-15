@@ -45,6 +45,13 @@
     DEFINE('C_A','350'); //Habitación triple   - Temp. Alta
     DEFINE('C_B','300'); //Habitación triple   - Temp. Baja
 
+  #DATOS DE CORREO
+    /*
+      La declaración de estos correos está en función de que sean utilizados en archivo del modelo.
+    */
+    DEFINE('CORREO_HOTEL','yeyden_13111992@hotmail.com');
+    DEFINE('CORREO_CONTACTO', 'axelmontes92@gmail.com');
+
   #DECLARACIÓN DE DÍAS DE TEMPORADA ALTA
   # --- --- ¡¡¡ATENCIÓN!!! --- --- #
   /*
