@@ -26,6 +26,16 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
   $('#scrollUp').css("display",'none');
 
+  //Obtencion de viewport
+  var w = $(window).width();
+  var h = $(window).height();
+  var n = h-50;
+  $('#myCarousel').css('height',n);
+  $('#myCarousel').css('width',w);
+  $('.img-car').css('height',n);
+  $('.img-car').css('width',w);
+
+
   $.ajax({
     type: "POST",
     url: "assets/controlador/controlador-precios.php",
