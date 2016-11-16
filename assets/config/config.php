@@ -9,8 +9,7 @@
 
   # --- --- ¡¡¡ATENCIÓN!!! --- --- #
   /*
-    El cambio de la información de este archivo
-    provocará que el sitio no funcione de manera óptima.
+    El cambio de la información de este archivo de manera irresponsable provocará que el sitio no funcione de manera óptima.
   */
 
   #DATOS DE CONEXIÓN
