@@ -18,7 +18,7 @@
     // 2 = Servidor
     /*Este switch lo que hace es que en un solo cambio de dígito, se especifique en que entorno se
     está trabajando*/
-    $station = "2";
+    $station = "1";
     switch ($station) {
       case '1':
         //Local

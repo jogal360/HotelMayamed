@@ -24,8 +24,6 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 (function($) {
   "use strict"; // Start of use strict
 
-  $('#scrollUp').css("display",'none');
-
   //Obtencion de viewport
   var w = $(window).width();
   var h = $(window).height();
@@ -35,12 +33,11 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   $('.img-car').css('height',n);
   $('.img-car').css('width',w);
 
-
+  //Obtención de los precios
   $.ajax({
     type: "POST",
     url: "assets/controlador/controlador-precios.php",
     success: function(datos) {
-      //alert(datos);
       var json=JSON.parse(datos);
       if(json.respuesta=='bien') {
         $('#sen').html(json.habSen);
