@@ -57,6 +57,13 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     "dd/mm/yyy"
   );
 
+  $.validator.addMethod(
+    "soloLetras",
+    function(value, element) {
+      return value.match(/^[a-zA-Z_áéíóúñ\s]*$/);
+    },"Sólo están permitidos letras"
+  );
+
   $('#myForm').validate({
     errorElement: 'div',
     rules: { 
@@ -85,6 +92,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           $('.formu').prop('disabled', true);
         },
         success: function(data) {
+          alert(data);
           $('.formu').prop('disabled', false);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
@@ -108,14 +116,15 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
   $('#frmContacto').validate({
     errorElement: 'div',
+    errorClass: 'inp-error',
     rules: { 
-      inNombre: {required: true},
+      inNombre: {required: true, soloLetras: true},
       inEmail: {required: true},
       inAsunto: {required: true},
       inMensaje: {required: true}
     },
     messages: {
-      inNombre: {required: "Llena la información"},
+      inNombre: {required: "Llena la información", soloLetras: "Introduce solo letras"},
       inEmail: {required: "Llena el campo", email: "Introduce un correo válido"},
       inAsunto: {required: "Llena la información"},
       inMensaje: {required: "Llena la información"}
@@ -132,6 +141,8 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           $('.inpu').prop('disabled', true);
         },
         success: function(data) {
+          console.log(data);
+          //alert("Recibiendo");
           $('.inpu').prop('disabled', false);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
@@ -142,7 +153,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
               type: "success"
             });
           } else {
-            console.log("Error: "+json.error);
+            console.log("Error: "+json.error+" | Data: "+data);
           }
         },
         error: function (xhr, ajaxOptions, thrownError) {

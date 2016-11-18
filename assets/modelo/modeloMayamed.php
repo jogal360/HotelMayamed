@@ -29,16 +29,30 @@
     }
     
     #Método para registrar reservaciones
-    public function insertar($datos) {
+    public function registrarReservacion($datos) {
+      //Se reemplazan caracteres especiales para evitar inyección SQL y código maligno
+      $datos = str_replace(array('<','>'), '', $datos);
+      //Se escapan los datos del array, para evitar inyección SQL
+      $datos = array_map( 'addslashes', $datos );
+      //
       $this->datos = $datos;
-      date_default_timezone_set("America/Mexico_City"); //Configuramos date() para México
-      header('Content-Type: text/html; charset=UTF-8'); //Usamos UTF-8
-      $fecha = date("d-m-Y"); //Obtención de la fecha actual.
-      $hora = date("H:i");  //Obtención de la hora actual.
-      $sql = "INSERT INTO t_reservacion VALUES (null,'$this->datos[0]','$this->datos[1]','$this->datos[2]','$this->datos[5]','$this->datos[3]','$this->datos[4]','$fecha','$hora')"; //Sentencia SQL para registrar la reservación
+      //Configuramos date() para México
+      date_default_timezone_set("America/Mexico_City"); 
+      //Usamos UTF-8
+      header('Content-Type: text/html; charset=UTF-8'); 
+      //Obtención de la fecha actual.
+      $fecha = date("d-m-Y"); 
+      //Obtención de la hora actual.
+      $hora = date("H:i");
+      //Obtención y formateo de datos del array para insertar  
+      $datosFormateados = implode("','", $this->datos); 
+      //Se crea la sentencia SQL para registrar la reservación
+      $sql = "INSERT INTO t_reservacion VALUES (null,'".$datosFormateados."','$fecha','$hora')";
+      //Se ejecuta la sentencia
       $res = $this->mysqli->query($sql);
-      if($res) { //Si el registro ha sido exitoso entonces se procede al envio de los correos.
-        //Funciones para cambiar diagonal por guion intermedio
+      //Si el registro ha sido exitoso entonces se procede al envio de los correos.
+      if($res) { 
+        /*//Funciones para cambiar diagonal por guion intermedio
         $fecI = str_replace("/", "-", $this->datos[3]);
         $fecF = str_replace("/", "-", $this->datos[4]);
         //Funcion para sacar los dias que se hospedará el cliente
@@ -184,10 +198,11 @@
         } else {
           $respuesta = array("respuesta" => 'mal', "res" => 'Envio de segundo correo no posible');
           echo json_encode($respuesta);
-        }
+        }*/
       } else {
-        $respuesta = array("respuesta" => 'mal', "res" => 'Registro no completado');
-        echo json_encode($respuesta);
+        echo "No";
+        /*$respuesta = array("respuesta" => 'mal', "res" => 'Registro no completado');
+        echo json_encode($respuesta);*/
       }
     }
 
@@ -349,7 +364,12 @@
 
     #Método para enviar correo por medio de contacto
     public function enviarCorreoContacto($datos) {
+      //Se reemplazan caracteres especiales para evitar inyección SQL y código maligno
+      $datos = str_replace(array('<','>'), '', $datos);
+      //Se escapan los datos del array, para evitar inyección SQL
+      $datos = array_map( 'addslashes', $datos );
       $this->datos = $datos;
+      //Comienza la creación del email
       $to = CORREO_CONTACTO; //Correo al cual llegará
       $subject = utf8_decode("Nuevo mensaje de contacto, Hotel Mayamed");
       $message = '

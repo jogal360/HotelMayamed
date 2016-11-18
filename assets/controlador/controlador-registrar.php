@@ -11,7 +11,7 @@
     #Se hace vínculo con el archivo del modelo
     require_once('../modelo/modeloMayamed.php');
 
-    #Se recuperan los datos
+    #Se recuperan los datos y se genera un array
     $datos = array();
     foreach ($_POST as $clave=>$valor) {
       $datos[] = $valor;
@@ -20,7 +20,7 @@
 
     #Se genera un objeto del modelo y se ejecuta la funcion
     $objeto = new ModeloMayamed();
-    $mensaje = $objeto->insertar($datos);
+    $mensaje = $objeto->registrarReservacion($datos);
     $objeto->cerrar();
 
 ?>

@@ -24,7 +24,9 @@
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
-
+  .inp-error {
+    border-color: red;
+  }
 
   /*Navbar*/
   .logo-nav {
