@@ -89,6 +89,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
         url: "assets/controlador/controlador-registrar.php",
         data: dataString,
         beforeSend: function() {
+          //alert("Enviado");
           $('.formu').prop('disabled', true);
         },
         success: function(data) {
