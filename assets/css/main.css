@@ -148,6 +148,9 @@
   .contacto {
     padding-bottom: 15px;
   }
+  .contacto-recuadro {
+    border: 2px solid red;
+  }
   footer {
     color: white;
     padding: 10px;
@@ -379,7 +382,7 @@
 
   @media (max-width: 500px) {
     .label {
-      font-size-adjust: 0.40;
+      font-size-adjust: 0.70;
     }
     .txt-atrac-car {
       font-size: 20px;
@@ -394,7 +397,7 @@
 
   @media (max-width: 400px) {
     .label {
-      font-size-adjust: 0.20;
+      /*font-size-adjust: 0.40;*/
     }
     .txt-atrac-car {
       font-size: 17px;
@@ -405,8 +408,7 @@
   }
 
   @media (max-width: 350px) {
-    .label {
-      font-size-adjust: 0.10;
+    .label {;
       padding-right: 6px !important;
     }
     .txt-atrac-car {

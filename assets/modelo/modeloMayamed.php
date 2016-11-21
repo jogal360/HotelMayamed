@@ -371,17 +371,18 @@
       $datos = str_replace(array('<','>'), '', $datos);
       //Se escapan los datos del array, para evitar inyección SQL
       $datos = array_map( 'addslashes', $datos );
+      //Enlazamos el puntero al array
       $this->datos = $datos;
       //Comienza la creación del email
       $to = CORREO_CONTACTO; //Correo al cual llegará
-      $subject = utf8_decode("Nuevo mensaje de contacto, Hotel Mayamed");
+      $subject = utf8_decode("Nuevo mensaje de contacto, Hotel Mayamed"); //Asunto
       $message = '
         Se ha recibido un nuevo mensaje de contacto<br>
         <b>Nombre:</b> '.$this->datos[0].'<br>
         <b>Correo:</b> '.$this->datos[1].'<br>
         <b>Asunto:</b> '.$this->datos[2].'<br>
         <b>Mensaje:</b> '.$this->datos[3].'<br>
-      ';
+      '; //Cuerpo del mensaje
       $headers = "MIME-Version: 1.0" . "\r\n";
       $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
       $headers .= "From: Hotel Mayamed <test@granteocalli.com.mx>";
