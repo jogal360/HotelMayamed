@@ -373,11 +373,11 @@
     .servicios {
       padding-right: 15px;
     }
-    #lb-alberca {
+    /*#lb-alberca {
       position: absolute;
       top: 105px;
       right: 25px;
-    }
+    }*/
   }
 
   @media (max-width: 500px) {
