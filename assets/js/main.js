@@ -184,13 +184,13 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     var velocidad = 10;
     if(targetOffset >= valor) {
       $(tar).animate({
-      	right: -40,
-      	height: "70px",
+      	right: -30,
+      	height: "75px",
       },velocidad);
       $(scrollUp).css("display",'inline-block');
     } else {
     	$(tar).animate({
-      	right: -80,
+      	right: -70,
       	height: "140px",
       },velocidad);
       $(scrollUp).css("display",'none');

@@ -24,7 +24,7 @@
   .logo-nav {
     height: 140px;
     position: absolute;
-    right: -80px; 
+    right: -70px; 
     top: -5px;
     opacity: 0.9;
   }
@@ -211,7 +211,7 @@
       margin: 0;
       padding: 0;
       position: relative;
-      left: 53%;
+      left: 52%;
       text-align: center;
     }
     .nav.navbar-nav > li {
@@ -225,10 +225,10 @@
       display: none !important;
     }
     .vamoIzquierda {
-      padding-right: 30px !important;
+      padding-right: 35px !important;
     }
     .vamoDerecha {
-      padding-left: 50px !important;
+      padding-left: 40px !important;
     }
     .car-atrac {
       padding-left: 10px;
