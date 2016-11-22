@@ -98,9 +98,6 @@
     color: white;
     padding: 10px;
   }
-  .informacion .blanco {
-    color: white;
-  }
   .habitaciones {
     background-color: white;
     padding-bottom: 10px;
@@ -234,39 +231,15 @@
       padding-left: 10px;
       padding-right: 10px;
     }
-    .responder {
-      width: 50%;
-    }
-    .label {
-      font-size: 1.4em;
-    }
 
   }
 
-  @media (min-width: 800) {
-    #lb-alberca {
-      position: absolute;
-      top: 100px;
-      right: 45px;
-    }
-  }
-
-  @media (min-width: 900) {
-    #lb-alberca {
-      position: absolute;
-      top: 100px;
-      right: 45px;
-    }
-  }
 
   @media (min-width: 992px) {
     .car-atrac {
       padding-left: 100px;
       padding-right: 100px;  
     }
-    /*.seccion-servicios {
-      width: 75%;
-    }*/
   }
 
   @media (min-width: 1200px) {
@@ -304,68 +277,25 @@
     .a-b {
       padding-bottom: 5px;
     }
-    .mar-sides-05 {
-      margin-left: 00px;
-      margin-right: 00px;
-    }
     .car-atrac {
       padding-left: 30px;
       padding-right: 30px;
     }
-    .label {
-      font-size-adjust: 0.90;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .label {
-      font-size-adjust: 0.80;
-    }
-  }
-
-  @media (max-width: 650px) {
-    .label {
-      font-size-adjust: 0.80;
-    }
-    #lb-alberca {
-      position: absolute;
-      top: 105px;
-      right: 45px;
-    }
   }
 
   @media (max-width: 600px) {
-    .label {
-      font-size-adjust: 0.80;
-    }
     .servicios {
       padding-right: 10px;
-    }
-    #lb-alberca {
-      position: absolute;
-      top: 105px;
-      right: 45px;
     }
   }
 
   @media (max-width: 550px) {
-    .label {
-      font-size-adjust: 0.80;
-    }
     .servicios {
       padding-right: 15px;
     }
-    /*#lb-alberca {
-      position: absolute;
-      top: 105px;
-      right: 25px;
-    }*/
   }
 
   @media (max-width: 500px) {
-    .label {
-      font-size-adjust: 0.70;
-    }
     .txt-atrac-car {
       font-size: 20px;
     }
@@ -378,21 +308,12 @@
   }
 
   @media (max-width: 400px) {
-    .label {
-      /*font-size-adjust: 0.40;*/
-    }
     .txt-atrac-car {
       font-size: 17px;
-    }
-    .svg {
-
     }
   }
 
   @media (max-width: 350px) {
-    .label {;
-      padding-right: 6px !important;
-    }
     .txt-atrac-car {
       font-size: 15px;
     }
