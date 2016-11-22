@@ -7,361 +7,369 @@
     <link rel="shortcut icon" href="favicon.ico">
     <!-- Vista -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Código CSS necesario -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Archivo main.css -->
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> 
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/css/formValidation.min.css">
-   <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
-   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/css/formValidation.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <!-- Fin código CSS -->
   </head>
   <body>
+    <!-- Inicio del contenedor -->
     <div class="container-fluid">
-    <!-- Inicio de barra de navegación -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand no-desktop" href="#top">Hotel Mayamed</a>     
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li class="navbar-left"><a class="page-scroll" href="#top">Inicio</a></li>
-          <li class="navbar-left"><a class="page-scroll" href="#habitaciones">Habitaciones</a></li>
-          <li class="navbar-left vamoIzquierda"><a class="page-scroll" href="#servicios">Servicios</a></li>
-          <li class="no-phone logo-mayamed"><a class="logo page-scroll" href="#top"><img class="logo-hotel logo-nav" src="assets/img/logo.png"></a></li>
-          <li class="navbar-right no-phone"><a class="page-scroll" href="#ubicacion">Ubicación</a></li>
-          <li class="navbar-right no-phone"><a class="page-scroll" href="#contacto">Contacto</a></li>
-          <li class="navbar-right no-phone vamoDerecha"><a class="page-scroll" href="#galeria">Galería</a></li>
-          <li class="no-desktop"><a class="page-scroll" href="#galeria">Galería</a></li>
-          <li class="no-desktop"><a class="page-scroll" href="#contacto">Contacto</a></li>
-          <li class="no-desktop"><a class="page-scroll" href="#ubicacion">Ubicación</a></li>
-        </ul>
-      </div>
-    </nav>
-      <!-- Inicio de carrusel -->
+      <!-- Inicio de barra de navegación -->
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand no-desktop" href="#top">Hotel Mayamed</a>     
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="navbar-left"><a class="page-scroll" href="#top">Inicio</a></li>
+            <li class="navbar-left"><a class="page-scroll" href="#habitaciones">Habitaciones</a></li>
+            <li class="navbar-left vamoIzquierda"><a class="page-scroll" href="#servicios">Servicios</a></li>
+            <li class="no-phone logo-mayamed"><a class="logo page-scroll" href="#top"><img class="logo-hotel logo-nav" src="assets/img/logo.png"></a></li>
+            <li class="navbar-right no-phone"><a class="page-scroll" href="#ubicacion">Ubicación</a></li>
+            <li class="navbar-right no-phone"><a class="page-scroll" href="#contacto">Contacto</a></li>
+            <li class="navbar-right no-phone vamoDerecha"><a class="page-scroll" href="#galeria">Galería</a></li>
+            <li class="no-desktop"><a class="page-scroll" href="#galeria">Galería</a></li>
+            <li class="no-desktop"><a class="page-scroll" href="#contacto">Contacto</a></li>
+            <li class="no-desktop"><a class="page-scroll" href="#ubicacion">Ubicación</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Inicio de sección carrusel -->
       <section id="top" class="carrusel row">
         <div class="col-lg-12 text-center carousel">
+          <!-- Div contenedor del carrusel -->
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
+            <!-- Indicadores -->
             <ol class="carousel-indicators">
               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
               <li data-target="#myCarousel" data-slide-to="1"></li>
               <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner" role="listbox">
-            <div id="cazza1" class="item active img-responsive img-car"></div>
-            <div id="cazza2" class="item img-responsive img-car"></div>
-            <div id="cazza3" class="item img-responsive img-car"></div>
+            <!-- Imagenes del carrusel -->
+            <div class="carousel-inner" role="listbox">
+              <div id="carru-img1" class="item active img-responsive img-car"></div>
+              <div id="carru-img2" class="item img-responsive img-car"></div>
+              <div id="carru-img3" class="item img-responsive img-car"></div>
+            </div>
+            <!-- Controles derecho e izquierdo -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
-          <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
         </div>
-      </div>
-    </section>
-    <!-- Fin de carrusel -->
-    <!-- Inicio de informacion básica -->
-    <section id="informacion" class="informacion row">
-      <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-        <h2 id="inf-tres" class="head cursiva animated ">Hotel Mayamed, un espacio en el paraíso de Tecolutla</h2>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 a-b recuadro">
-        <div id="inf-uno" class="col-lg-6 col-md-6 col-sm-6 text-center blanco pad-top-20 animated">
-          <label>Amplias habitaciones.</label><br>
-          <label>Calidad, atención y excelencia</label><br>
-          <label>43 habitaciones</label>
+      </section>
+      <!-- Fin de carrusel -->
+      <!-- Inicio de informacion básica -->
+      <section id="informacion" class="informacion row">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+          <h2 id="inf-tres" class="head cursiva animated ">Hotel Mayamed, un espacio en el paraíso de Tecolutla</h2>
         </div>
-        <div id="inf-dos" class="col-lg-6 col-md-6 col-sm-6 text-center recuadro animated">
-          <label>*Amplias y frescas habitaciones.</label><br>
-          <label>*Ubicación excelente</label><br>
-          <label>*Playa a 100 metros</label><br>
-          <label>*A 5 minutos del centro turístico</label>
+        <div class="col-lg-12 col-md-12 col-sm-12 a-b recuadro">
+          <div id="inf-uno" class="col-lg-6 col-md-6 col-sm-6 text-center blanco pad-top-20 animated">
+            <label>Amplias habitaciones.</label><br>
+            <label>Calidad, atención y excelencia</label><br>
+            <label>43 habitaciones</label>
+          </div>
+          <div id="inf-dos" class="col-lg-6 col-md-6 col-sm-6 text-center recuadro animated">
+            <label>*Amplias y frescas habitaciones.</label><br>
+            <label>*Ubicación excelente</label><br>
+            <label>*Playa a 100 metros</label><br>
+            <label>*A 5 minutos del centro turístico</label>
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- Fin  de informacion -->
-    <!-- Inicio de habitaciones -->
-    <section id="habitaciones" class="habitaciones row">
-      <div class="col-lg-12 col-md-12 col-sm-12 text-center color-naranja">
-        <h2 class="pad-bot-10">HABITACIONES</h2>
-      </div>
-      <div class="col-lg-12 col-md-12 text-center">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-          <h3>Sencilla</h3>
-          <h3>$<span id="sen">000</span></h3>
-          <button type="button" tipo="Sencilla" class="btn btn-primary btn-lg reserva">Reservar</button>
+      </section>
+      <!-- Fin  de informacion -->
+      <!-- Inicio de habitaciones -->
+      <section id="habitaciones" class="habitaciones row">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center color-naranja">
+          <h2 class="pad-bot-10">HABITACIONES</h2>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-          <h3>Doble</h3>
-          <h3>$<span id="dob">000</span></h3>
-          <button type="button" tipo="Doble" class="btn btn-primary btn-lg reserva">Reservar</button>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-          <h3>Triple</h3>
-          <h3>$<span id="tri">000</span></h3>
-          <button type="button" tipo="Triple" class="btn btn-primary btn-lg reserva">Reservar</button>
-        </div>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 imagenes">
-        <div class="row">
+        <div class="col-lg-12 col-md-12 text-center">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <img id="hab1" class="img-responsive animated" src="assets/img/habitaciones/hab1.jpg">
+            <h3>Sencilla</h3>
+            <h3>$<span id="sen">000</span></h3>
+            <button type="button" tipo="Sencilla" class="btn btn-primary btn-lg reserva">Reservar</button>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <img id="hab2" class="img-responsive animated" src="assets/img/habitaciones/hab2.jpg">
+            <h3>Doble</h3>
+            <h3>$<span id="dob">000</span></h3>
+            <button type="button" tipo="Doble" class="btn btn-primary btn-lg reserva">Reservar</button>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <img id="hab3" class="img-responsive animated" src="assets/img/habitaciones/hab3.jpg">
+            <h3>Triple</h3>
+            <h3>$<span id="tri">000</span></h3>
+            <button type="button" tipo="Triple" class="btn btn-primary btn-lg reserva">Reservar</button>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Fin de habitaciones -->
-    <!-- Inicio de servicios -->
-    <section id="servicios" class="servicios row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-        <h2 class="pad-bot-10">SERVICIOS</h2>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 seccion-servicios">
-        <div class="row">
-          <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2"></div>
-          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center ">
-            <svg class="animated svg" id="svg-alberca" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
-            <h4 class="" id="">Alberca</h4>
-          </div>
-          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
-            <svg class="animated" id="svg-asoleadero" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
-            <h4 class="">Asoleadero</h4>
-          </div>
-          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
-            <svg class="animated" id="svg-recepcion" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
-            <h4 class="">Recepción 24 horas</h4>
-          </div>
-          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
-            <svg class="animated" id="svg-aa" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
-            <h4 class="">Aire Acondicionado</h4>
-          </div>
-          <div class="col-xl-2 col-xl-offset-0 col-lg-2 col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 col-xs-6 text-center pad-bot-05">
-            <svg class="animated" id="svg-restaurante" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
-            <h4 class="">Restaurante</h4>
-          </div>
-          <div class="col-xl-2 col-xl-offset-1-5 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
-            <svg class="animated" id="svg-tv" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
-            <h4 class="">TV con cable</h4>
-          </div>
-          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
-            <svg class="animated" id="svg-wifi" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
-            <h4 class="">WiFi</h4>
-          </div>
-          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
-            <svg class="animated" id="svg-ventilador" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
-            <h4 class="">Ventilador</h4>
-          </div>
-          <div class="col-xl-2 col-xl-offset-0 col-lg-2 col-md-2 col-md-offset-4 col-sm-2 col-sm-offset-4 col-xs-6 text-center pad-bot-15">
-            <svg class="animated" id="svg-estacionamiento" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
-            <h4 class="">Estacionamiento</h4>
-          </div>
-          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
-            <svg class="animated" id="svg-agua" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
-            <h4 class="">Agua caliente</h4>
-          </div>
-          <div class="col-xl-1 col-lg-4 col-md-4 col-sm-2"></div>
-        </div>
-      </div>
-    </section>
-    <!-- Fin de servicios -->
-    <!-- Inicio de galeria -->
-    <section id="galeria" class="galeria row">
-      <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-        <h2 class="">GALERIA</h2>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-bot-20">
-        <div class="row no-gutter">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
-            <img id="gal1" class="img-responsive animated" src="assets/img/galeria/h1.jpg">
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
-            <img id="gal2" class="img-responsive animated" src="assets/img/galeria/h2.jpg">
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
-            <img id="gal3" class="img-responsive animated" src="assets/img/galeria/h3.jpg">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 imagenes">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <img id="hab1" class="img-responsive animated" src="assets/img/habitaciones/hab1.jpg">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <img id="hab2" class="img-responsive animated" src="assets/img/habitaciones/hab2.jpg">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <img id="hab3" class="img-responsive animated" src="assets/img/habitaciones/hab3.jpg">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-bot-20 color-adobe">
-        <div class="row">
-        <div class="text-center cursiva letra-blanco">
-          <h2>Atractivos turísticos de Tecolutla</h2>
+      </section>
+      <!-- Fin de habitaciones -->
+      <!-- Inicio de servicios -->
+      <section id="servicios" class="servicios row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+          <h2 class="pad-bot-10">SERVICIOS</h2>
         </div>
-        <div class="car-atrac">
-          <div id="myCarousel2" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner" role="listbox">
-            <div class="item active">
-              <img class="segundoCarrusel" src="assets/img/galeria/te1.jpg" alt="Chania">
-              <div class="carousel-caption">
-                <h2 class="txt-atrac-car">Feria del Coco</h2>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 seccion-servicios">
+          <div class="row">
+            <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center ">
+              <svg class="animated svg" id="svg-alberca" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+              <h4 class="" id="">Alberca</h4>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+              <svg class="animated" id="svg-asoleadero" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+              <h4 class="">Asoleadero</h4>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+              <svg class="animated" id="svg-recepcion" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+              <h4 class="">Recepción 24 horas</h4>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+              <svg class="animated" id="svg-aa" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+              <h4 class="">Aire Acondicionado</h4>
+            </div>
+            <div class="col-xl-2 col-xl-offset-0 col-lg-2 col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 col-xs-6 text-center pad-bot-05">
+              <svg class="animated" id="svg-restaurante" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+              <h4 class="">Restaurante</h4>
+            </div>
+            <div class="col-xl-2 col-xl-offset-1-5 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+              <svg class="animated" id="svg-tv" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+              <h4 class="">TV con cable</h4>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+              <svg class="animated" id="svg-wifi" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+              <h4 class="">WiFi</h4>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+              <svg class="animated" id="svg-ventilador" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+              <h4 class="">Ventilador</h4>
+            </div>
+            <div class="col-xl-2 col-xl-offset-0 col-lg-2 col-md-2 col-md-offset-4 col-sm-2 col-sm-offset-4 col-xs-6 text-center pad-bot-15">
+              <svg class="animated" id="svg-estacionamiento" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+              <h4 class="">Estacionamiento</h4>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+              <svg class="animated" id="svg-agua" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+              <h4 class="">Agua caliente</h4>
+            </div>
+            <div class="col-xl-1 col-lg-4 col-md-4 col-sm-2"></div>
+          </div>
+        </div>
+      </section>
+      <!-- Fin de servicios -->
+      <!-- Inicio de galeria -->
+      <section id="galeria" class="galeria row">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+          <h2 class="">GALERIA</h2>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-bot-20">
+          <div class="row no-gutter">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
+              <img id="gal1" class="img-responsive animated" src="assets/img/galeria/h1.jpg">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
+              <img id="gal2" class="img-responsive animated" src="assets/img/galeria/h2.jpg">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
+              <img id="gal3" class="img-responsive animated" src="assets/img/galeria/h3.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-bot-20 color-adobe">
+          <div class="row">
+            <div class="text-center cursiva letra-blanco">
+              <h2>Atractivos turísticos de Tecolutla</h2>
+            </div>
+            <div class="car-atrac">
+              <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                    <img class="segundoCarrusel" src="assets/img/galeria/te1.jpg" alt="Chania">
+                    <div class="carousel-caption">
+                      <h2 class="txt-atrac-car">Feria del Coco</h2>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img class="segundoCarrusel" src="assets/img/galeria/te2.jpg" alt="Chania" width="460" height="345">
+                    <div class="carousel-caption">
+                      <h2 class="txt-atrac-car">Fiestas Patronales de San Bartolomé</h2>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img class="segundoCarrusel" src="assets/img/galeria/te3.jpg" alt="Chania" width="460" height="345">
+                    <div class="carousel-caption">
+                      <h2 class="txt-atrac-car">Encuentro de motociclistas</h2>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img class="segundoCarrusel" src="assets/img/galeria/te4.jpg" alt="Chania" width="460" height="345">
+                    <div class="carousel-caption">
+                      <h2 class="txt-atrac-car">Manglares de Tecolutla</h2>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img class="segundoCarrusel" src="assets/img/galeria/te5.jpg" alt="Chania" width="460" height="345">
+                    <div class="carousel-caption">
+                      <h2 class="txt-atrac-car">Zona Arqueológica El Tajín</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Fin de galeria -->
+      <!-- Inicio de contacto -->
+      <section id="contacto" class="contacto row color-azul letra-blanco">
+        <div class="col-lg-12 text-center">
+          <h2>CONTACTO</h2>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contacto-recuadro">
+          <div class="col-lg-3 col-md-2 col-sm-1"></div>
+          <div id="contacto-dos" class="col-lg-4 col-md-5 col-sm-5 col-xs-12 pad-bot-10 animated">
+            <form role="form" id="frmContacto">
+              <div class="form-group">
+                <label for="ejemplo_email_1">Tu nombre</label>
+                <input type="text" class="form-control inpu" name="inNombre" placeholder="Introduce tu nombre" required>
               </div>
-            </div>
-            <div class="item">
-              <img class="segundoCarrusel" src="assets/img/galeria/te2.jpg" alt="Chania" width="460" height="345">
-              <div class="carousel-caption">
-                <h2 class="txt-atrac-car">Fiestas Patronales de San Bartolomé</h2>
+              <div class="form-group">
+                <label for="ejemplo_password_1">Tu email</label>
+                <input type="email" class="form-control inpu" name="inEmail" placeholder="Introduce tu email" required>
               </div>
-            </div>
-            <div class="item">
-              <img class="segundoCarrusel" src="assets/img/galeria/te3.jpg" alt="Chania" width="460" height="345">
-              <div class="carousel-caption">
-                <h2 class="txt-atrac-car">Encuentro de motociclistas</h2>
+              <div class="form-group">
+                <label for="ejemplo_password_1">Asunto</label>
+                <input type="text" class="form-control inpu" name="inAsunto" placeholder="Introduce el asunto">
               </div>
-            </div>
-            <div class="item">
-              <img class="segundoCarrusel" src="assets/img/galeria/te4.jpg" alt="Chania" width="460" height="345">
-              <div class="carousel-caption">
-                <h2 class="txt-atrac-car">Manglares de Tecolutla</h2>
+              <div class="form-group">
+                <label for="ejemplo_password_1">Mensaje</label>
+                <textarea class="form-control inpu" name="inMensaje" rows="5"></textarea>
               </div>
-            </div>
-            <div class="item">
-              <img class="segundoCarrusel" src="assets/img/galeria/te5.jpg" alt="Chania" width="460" height="345">
-              <div class="carousel-caption">
-                <h2 class="txt-atrac-car">Zona Arqueológica El Tajín</h2>
-              </div>
-            </div>
+              <button type="submit" class="btn btn-default">Enviar</button>
+            </form>
+          </div>
+          <div id="contacto-uno" class="col-lg-4 col-md-3 col-sm-5 col-xs-12 animated">
+            <label class="letra-naranja">Ubicado en: </label><br>
+            <label>Av. Juárez s/n esquina con calle 16 de septiembre, Tecolutla, Veracruz</label>
+            <br><br>
+            <label class="letra-naranja">Reservaciones:</label><br>
+            <label>-Tecolutla, Veracruz: 01 766 8460 476</label><br>
+            <label>-San Martín de las Pirámides: 01 594 9586 106</label><br>
+            <label>-México D.F.: 0155 55 353380, 55 1041 1697</label>
+            <br><br>
+            <label>Email:</label><br>
+            <label><a class="letra-naranja" href="mailto:hector@hotelmayamed.com.mx">hector@hotelmayamed.com.mx</a></label><br>
+            <label><a class="letra-naranja" href="mailto:hector@ruizmed.com.mx">hector@ruizmed.com.mx</a></label>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-1"></div>
         </div>
-        </div>  
+      </section>
+      <!-- Fin de contacto -->
+      <!-- Inicio de ubicación -->
+      <section id="ubicacion" class="ubicacion row">
+        <div class="col-lg-12 text-center">
+          <h2>UBICACIÓN</h2>
         </div>
-      </div>
-    </section>
-    <!-- Fin de galeria -->
-    <!-- Inicio de contacto -->
-    <section id="contacto" class="contacto row color-azul letra-blanco">
-      <div class="col-lg-12 text-center">
-        <h2>CONTACTO</h2>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contacto-recuadro">
-        <div class="col-lg-3 col-md-2 col-sm-1"></div>
-        <div id="contacto-dos" class="col-lg-4 col-md-5 col-sm-5 col-xs-12 pad-bot-10 animated">
-          <form role="form" id="frmContacto">
-            <div class="form-group">
-              <label for="ejemplo_email_1">Tu nombre</label>
-              <input type="text" class="form-control inpu" name="inNombre" placeholder="Introduce tu nombre" required>
-            </div>
-            <div class="form-group">
-              <label for="ejemplo_password_1">Tu email</label>
-              <input type="email" class="form-control inpu" name="inEmail" placeholder="Introduce tu email" required>
-            </div>
-            <div class="form-group">
-              <label for="ejemplo_password_1">Asunto</label>
-              <input type="text" class="form-control inpu" name="inAsunto" placeholder="Introduce el asunto">
-            </div>
-            <div class="form-group">
-              <label for="ejemplo_password_1">Mensaje</label>
-              <textarea class="form-control inpu" name="inMensaje" rows="5"></textarea>
-            </div>
-            <button type="submit" class="btn btn-default">Enviar</button>
-          </form>
-        </div>
-        <div id="contacto-uno" class="col-lg-4 col-md-3 col-sm-5 col-xs-12 animated">
-          <label class="letra-naranja">Ubicado en: </label><br>
-          <label>Av. Juárez s/n esquina con calle 16 de septiembre, Tecolutla, Veracruz</label>
-          <br><br>
-          <label class="letra-naranja">Reservaciones:</label><br>
-          <label>-Tecolutla, Veracruz: 01 766 8460 476</label><br>
-          <label>-San Martín de las Pirámides: 01 594 9586 106</label><br>
-          <label>-México D.F.: 0155 55 353380, 55 1041 1697</label>
-          <br><br>
-          <label>Email:</label><br>
-          <label><a class="letra-naranja" href="mailto:hector@hotelmayamed.com.mx">hector@hotelmayamed.com.mx</a></label><br>
-          <label><a class="letra-naranja" href="mailto:hector@ruizmed.com.mx">hector@ruizmed.com.mx</a></label>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-1"></div>
-      </div>
-    </section>
-    <!-- Fin de contacto -->
-    <!-- Inicio de ubicación -->
-    <section id="ubicacion" class="ubicacion row">
-      <div class="col-lg-12 text-center">
-        <h2>UBICACIÓN</h2>
-      </div>
         <div id="map" class="animated"></div>
-    </section>
-    <!-- Fin de ubicación -->
-    <footer class="row color-adobe">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="col-lg-7 col-md-7 col-sm-7">
-          <label>Dirección:</label> Av. Juárez s/n esquina con calle 16 de septiembre, Tecolutla, Veracruz
+      </section>
+      <!-- Fin de ubicación -->
+      <!-- Inicio de footer -->
+      <footer class="row color-adobe">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="col-lg-7 col-md-7 col-sm-7">
+            <label>Dirección:</label> Av. Juárez s/n esquina con calle 16 de septiembre, Tecolutla, Veracruz
+          </div>
+          <div class="col-lg-5 col-md-5 col-sm-5">
+            Hotel Mayamed &copy; | Todos los derechos reservados | Lee nuestro <a href="">Aviso de privacidad</a>
+          </div>
         </div>
-        <div class="col-lg-5 col-md-5 col-sm-5">
-          Hotel Mayamed &copy; | Todos los derechos reservados | Lee nuestro <a href="">Aviso de privacidad</a>
+      </footer>
+      <!-- Fin de Footer -->
+      <!-- Ventana modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Reservar habitación</h4>
+            </div>
+            <div class="modal-body">
+              <p>Por favor, introduzca la información necesaria para la reservación</p>
+              <form id="myForm" role="form" method="T">
+                <div class="form-group">
+                  <label for="inputName">Tu nombre</label>
+                  <input type="text" class="form-control formu" name="inputNombre" placeholder="Introduce tu nombre" required>
+                </div>
+                <div class="form-group">
+                  <label for="ejemplo_password_1">Tu email</label>
+                  <input type="email" class="form-control formu" name="inputCorreo" placeholder="Introduce tu email" required>
+                </div>
+                <div class="form-group">
+                  <input type="hidden" class="form-control" name="inputTipoHab" id="inputTipoHab" placeholder="" >
+                </div>
+                <div class="form-group">
+                  <label for="ejemplo_password_1">Fecha de llegada y salida</label>
+                  <input type="text" class="form-control datepicker formu" name="checkin" placeholder="" required>
+                </div>
+                <div class="form-group">
+                  <label>Fecha de salida</label>
+                  <input type="text" class="form-control datepicker-salida formu" name="checkout" placeholder="" required>
+                </div>
+                <div class="form-group">
+                  <label for="">Número de personas</label>
+                  <select id="personas" class="form-control formu" name="personas" required>
+                  </select>
+                </div>
+                <button type="submit" id="guardarReservacion" class="btn btn-default">Enviar</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Reservar habitación</h4>
-        </div>
-        <div class="modal-body">
-          <p>Por favor, introduzca la información necesaria para la reservación</p>
-          <form id="myForm" role="form" method="POST">
-            <div class="form-group">
-              <label for="inputName">Tu nombre</label>
-              <input type="text" class="form-control formu" name="inputNombre" placeholder="Introduce tu nombre" required>
-            </div>
-            <div class="form-group">
-              <label for="ejemplo_password_1">Tu email</label>
-              <input type="email" class="form-control formu" name="inputCorreo" placeholder="Introduce tu email" required>
-            </div>
-            <div class="form-group">
-              <input type="hidden" class="form-control" name="inputTipoHab" id="inputTipoHab" placeholder="" >
-            </div>
-            <div class="form-group">
-              <label for="ejemplo_password_1">Fecha de llegada y salida</label>
-              <input type="text" class="form-control datepicker formu" name="checkin" placeholder="" required>
-            </div>
-            <div class="form-group">
-              <label>Fecha de salida</label>
-              <input type="text" class="form-control datepicker-salida formu" name="checkout" placeholder="" required>
-            </div>
-            <div class="form-group">
-              <label for="">Número de personas</label>
-              <select id="personas" class="form-control formu" name="personas" required>
-              </select>
-            </div>
-            <button type="submit" id="guardarReservacion" class="btn btn-default">Enviar</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        </div>
-      </div>
-    </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+      <!-- Fin de la ventana modal -->
+    </div>
+    <!-- Fin del contenedor -->
+    <!-- ScrollUp -->
     <a class="page-scroll" href="#top" id="scrollUp"></a>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Fin -->
+    <!-- Archivos JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	  <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- API google maps -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM"></script>
     <script src="assets/js/snap.svg-min.js"></script>
-    <!-- Archivo JS principal -->
     <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.js"></script>
@@ -369,7 +377,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="assets/js/sweetalert.min.js"></script>
     <script src="assets/js/main.js"></script>
-    
     </div>
   </body>
 </html>
