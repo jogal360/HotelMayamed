@@ -3,27 +3,24 @@
   /*
     ARCHIVO: modeloMayamed.php
     CREACIÓN: 17/10/16
-    MODIFICACIÓN: 31/10/16
-    DESCRIPCIÓN: Modelo principal del sitio, donde se procesa el costo de las habitaciones y se registra las reservaciones.
+    MODIFICACIÓN: 21/11/16
+    DESCRIPCIÓN: Modelo principal del sitio, donde se procesa lo que el sitio necesita
   */
 
   #Se hace vínculo con el archivo de conexión
   require_once("../config/conexion.php");
 
-  class ModeloMayamed {
+  class ModeloMayamed extends Conexion {
   	/*Atributos*/
   	private $dbs;
   	private $mysqli;
-    private $personas;
-    private $nombre;
-    private $apellidos;
+    private $datos;
 
     /*Métodos*/
     #Método constructor
     public function __construct() {
     	$this->dbs = Conexion::getInstance();
     	$this->mysqli = $this->dbs->getConnection();
-      $this->personas = array();
     }
 
     #Método para cerrar la conexión
@@ -32,23 +29,42 @@
     }
     
     #Método para registrar reservaciones
-    public function insertar($nom,$ema,$hab,$perso,$checkin,$checkout) {
-      date_default_timezone_set("America/Mexico_City"); //Configuramos date() para México
-      header('Content-Type: text/html; charset=UTF-8'); //Usamos UTF-8
-      $fecha = date("d-m-Y"); //Obtención de la fecha actual.
-      $hora = date("h:i A");  //Obtención de la hora actual.
-      $sql = "INSERT INTO t_reservacion VALUES (null,'$nom','$ema','$hab','$perso','$checkin','$checkout','$fecha','$hora')"; //Sentencia SQL para registrar la reservación
+    public function registrarReservacion($datos) {
+      //Se reemplazan caracteres especiales para evitar inyección SQL y código maligno
+      $datos = str_replace(array('<','>'), '', $datos);
+      //Se escapan los datos del array, para evitar inyección SQL
+      $datos = array_map( 'addslashes', $datos );
+      //Asignamos el puntero al array
+      $this->datos = $datos;
+      //Configuramos date() para México
+      date_default_timezone_set("America/Mexico_City"); 
+      //Usamos UTF-8
+      header('Content-Type: text/html; charset=UTF-8'); 
+      //Obtención de la fecha y hora actual.
+      $fecha = date("d-m-Y"); 
+      $hora = date("H:i");
+      //Obtención y formateo de datos del array para insertar  
+      $nom      = $this->datos[0];
+      $ema      = $this->datos[1];
+      $hab      = $this->datos[2];
+      $checkin  = $this->datos[3];
+      $checkout = $this->datos[4];
+      $per      = $this->datos[5];
+      //Se crea la sentencia SQL para registrar la reservación
+      $sql = "INSERT INTO t_reservacion VALUES (null,'$nom','$ema','$hab','$per','$checkin','$checkout','$fecha','$hora')";
+      //Se ejecuta la sentencia
       $res = $this->mysqli->query($sql);
-      if($res) { //Si el registro ha sido exitoso entonces se procede al envio de los correos.
+      //Si el registro ha sido exitoso entonces se procede al envio de los correos.
+      if($res) { 
         //Funciones para cambiar diagonal por guion intermedio
-        $fecI = str_replace("/", "-", $checkin);
-        $fecF = str_replace("/", "-", $checkout);
+        $fecI = str_replace("/", "-", $this->datos[3]);
+        $fecF = str_replace("/", "-", $this->datos[4]);
         //Funcion para sacar los dias que se hospedará el cliente
         $dias = (strtotime($fecI)-strtotime($fecF))/86400;
-        $dias   = abs($dias); $dias = floor($dias);
+        $dias = abs($dias); $dias = floor($dias);
         //Abrimos una sesión y obtenemos el precio de la habitación (viene de la funcion de pŕecios)
         session_start();
-        switch ($hab) {
+        switch ($this->datos[2]) {
           case 'Sencilla':
             $costoUnitario = $_SESSION['sencilla'];
             break;
@@ -65,7 +81,7 @@
         //Generación del costo total.
         $costoTotal = ($dias*$costoUnitario);
         //Generación del correo del cliete
-        $to = $ema;
+        $to = $this->datos[1];
         $subject = utf8_decode('Reservación registrada, Hotel Mayamed');
         $message = '
           <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -92,7 +108,7 @@
                           <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
                             <td class="content-block" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
                               <h2 style="font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; box-sizing: border-box; font-size: 18px !important; color: #000; line-height: 1.2; font-weight: 600 !important; margin: 20px 0 5px; padding: 0;">Tu reservación está registrada.</h2>
-                              <h5>Entre los dias '.$checkin.' y '.$checkout.' te sentirás como en casa.</h5>
+                              <h5>Entre los dias '.$this->datos[3].' y '.$this->datos[4].' te sentirás como en casa.</h5>
                             </td>
                           </tr>
                           <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
@@ -100,17 +116,17 @@
                               <table class="invoice" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; text-align: left; width: 100% !important; margin: 40px auto; padding: 0;">
                                 <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
                                   <td style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">
-                                    <b>Cliente:</b> '.$nom.'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
-                                    <b>Correo:</b> '.$ema.'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
+                                    <b>Cliente:</b> '.$this->datos[0].'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
+                                    <b>Correo:</b> '.$this->datos[1].'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
                                     <b>Fecha:</b> '.$fecha.'<br style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;" />
-                                    <b>Personas:</b> '.$perso.'
+                                    <b>Personas:</b> '.$this->datos[5].'
                                   </td>
                                 </tr>
                                 <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
                                   <td style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">
                                     <table class="invoice-items" cellpadding="0" cellspacing="0" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; margin: 0; padding: 0;">
                                       <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
-                                        <td style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">Habitación '.$hab.'</td>
+                                        <td style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" valign="top">Habitación '.$this->datos[2].'</td>
                                         <td class="alignright" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;" align="right" valign="top">$ '.$costoUnitario.'</td>
                                       </tr>
                                       <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
@@ -129,7 +145,7 @@
                           </tr>
                           <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
                             <td class="content-block" style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
-                                Métodos y formas de pago
+                                Forma de pago: Pago en efectivo al arribar al hotel.
                             </td>
                           </tr>
                           <tr style="font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0;">
@@ -160,16 +176,16 @@
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= "From: Hotel Mayamed <test@granteocalli.com.mx>";
         if(mail($to,$subject,$message,$headers)) { //Si se envia, entonces pasamos al correo del lic
-          $to = "yeyden_13111992@hotmail.com"; //Correo al cual llegará una copia de la reservación 
+          $to = CORREO_HOTEL; //Correo al cual llegará una copia de la reservación 
           $subject = utf8_decode("Nueva reservación, Hotel Mayamed");
           $message = '
-            Se ha realizado una nueva reservación<br>
-            <b>Nombre:</b> '.$nom.'<br>
-            <b>Correo:</b> '.$ema.'<br>
-            <b>Tipo de habitación:</b> '.$hab.'<br>
-            <b>Personas:</b> '.$perso.'<br>
-            <b>Entrada:</b> '.$checkin.'<br>
-            <b>Salida:</b> '.$checkout.'<br>
+            Se ha realizado una nueva reservación el día '.$fecha.' a las '.$hora.' horas<br>
+            <b>Nombre:</b> '.$this->datos[0].'<br>
+            <b>Correo:</b> '.$this->datos[1].'<br>
+            <b>Tipo de habitación:</b> '.$this->datos[2].'<br>
+            <b>Personas:</b> '.$this->datos[5].'<br>
+            <b>Entrada:</b> '.$this->datos[3].'<br>
+            <b>Salida:</b> '.$this->datos[4].'<br>
             <b>Dias:</b> '.$dias.'<br>
             <b>Monto a pagar:</b> $'.$costoTotal.'
           ';
@@ -346,6 +362,36 @@
           $respuesta = array("respuesta" => 'bien', "habSen" => A_B, "habDob" => B_B, "habTri" => C_B);
           echo json_encode($respuesta);
           break;
+      }
+    }
+
+    #Método para enviar correo por medio de contacto
+    public function enviarCorreoContacto($datos) {
+      //Se reemplazan caracteres especiales para evitar inyección SQL y código maligno
+      $datos = str_replace(array('<','>'), '', $datos);
+      //Se escapan los datos del array, para evitar inyección SQL
+      $datos = array_map( 'addslashes', $datos );
+      //Enlazamos el puntero al array
+      $this->datos = $datos;
+      //Comienza la creación del email
+      $to = CORREO_CONTACTO; //Correo al cual llegará
+      $subject = utf8_decode("Nuevo mensaje de contacto, Hotel Mayamed"); //Asunto
+      $message = '
+        Se ha recibido un nuevo mensaje de contacto<br>
+        <b>Nombre:</b> '.$this->datos[0].'<br>
+        <b>Correo:</b> '.$this->datos[1].'<br>
+        <b>Asunto:</b> '.$this->datos[2].'<br>
+        <b>Mensaje:</b> '.$this->datos[3].'<br>
+      '; //Cuerpo del mensaje
+      $headers = "MIME-Version: 1.0" . "\r\n";
+      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+      $headers .= "From: Hotel Mayamed <test@granteocalli.com.mx>";
+      if(mail($to,$subject,$message,$headers)) {
+        $respuesta = array("respuesta" => 'bien', "res" => 'Mensaje enviado!');
+        echo json_encode($respuesta);
+      } else {
+        $respuesta = array("respuesta" => 'mal', "res" => 'Envio de segundo correo no posible');
+        echo json_encode($respuesta);
       }
     }
   }

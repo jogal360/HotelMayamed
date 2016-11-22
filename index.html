@@ -16,6 +16,7 @@
    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> 
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/css/formValidation.min.css">
    <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
   </head>
   <body>
     <div class="container-fluid">
@@ -53,25 +54,12 @@
               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
               <li data-target="#myCarousel" data-slide-to="1"></li>
               <li data-target="#myCarousel" data-slide-to="2"></li>
-              <li data-target="#myCarousel" data-slide-to="3"></li>
             </ol>
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <div class="item active">
-              <img src="assets/img/carrusel/ca1.jpg" alt="Chania" width="460" height="345">
-            </div>
-
-            <div class="item">
-              <img src="assets/img/carrusel/ca2.jpg" alt="Chania" width="460" height="345">
-            </div>
-    
-            <div class="item">
-              <img src="assets/img/carrusel/ca1.jpg" alt="Flower" width="460" height="345">
-            </div>
-
-            <div class="item">
-              <img src="assets/img/carrusel/ca2.jpg" alt="Flower" width="460" height="345">
-            </div>
+            <div id="cazza1" class="item active img-responsive img-car"></div>
+            <div id="cazza2" class="item img-responsive img-car"></div>
+            <div id="cazza3" class="item img-responsive img-car"></div>
           </div>
           <!-- Left and right controls -->
           <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -89,15 +77,15 @@
     <!-- Inicio de informacion básica -->
     <section id="informacion" class="informacion row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-        <h2 class="head cursiva animated fadeIn">Hotel Mayamed, un espacio en el paraíso de Tecolutla</h2>
+        <h2 id="inf-tres" class="head cursiva animated ">Hotel Mayamed, un espacio en el paraíso de Tecolutla</h2>
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 a-b recuadro">
-        <div class="col-lg-6 col-md-6 col-sm-6 text-center blanco pad-top-20">
+        <div id="inf-uno" class="col-lg-6 col-md-6 col-sm-6 text-center blanco pad-top-20 animated">
           <label>Amplias habitaciones.</label><br>
           <label>Calidad, atención y excelencia</label><br>
           <label>43 habitaciones</label>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 text-center recuadro">
+        <div id="inf-dos" class="col-lg-6 col-md-6 col-sm-6 text-center recuadro animated">
           <label>*Amplias y frescas habitaciones.</label><br>
           <label>*Ubicación excelente</label><br>
           <label>*Playa a 100 metros</label><br>
@@ -112,17 +100,17 @@
         <h2 class="pad-bot-10">HABITACIONES</h2>
       </div>
       <div class="col-lg-12 col-md-12 text-center">
-        <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <h3>Sencilla</h3>
           <h3>$<span id="sen">000</span></h3>
           <button type="button" tipo="Sencilla" class="btn btn-primary btn-lg reserva">Reservar</button>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <h3>Doble</h3>
           <h3>$<span id="dob">000</span></h3>
           <button type="button" tipo="Doble" class="btn btn-primary btn-lg reserva">Reservar</button>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <h3>Triple</h3>
           <h3>$<span id="tri">000</span></h3>
           <button type="button" tipo="Triple" class="btn btn-primary btn-lg reserva">Reservar</button>
@@ -131,13 +119,13 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 imagenes">
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <img class="img-responsive animated flipInX" src="assets/img/habitaciones/hab1.jpg">
+            <img id="hab1" class="img-responsive animated" src="assets/img/habitaciones/hab1.jpg">
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <img class="img-responsive" src="assets/img/habitaciones/hab2.jpg">
+            <img id="hab2" class="img-responsive animated" src="assets/img/habitaciones/hab2.jpg">
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <img class="img-responsive" src="assets/img/habitaciones/hab3.jpg">
+            <img id="hab3" class="img-responsive animated" src="assets/img/habitaciones/hab3.jpg">
           </div>
         </div>
       </div>
@@ -149,61 +137,49 @@
         <h2 class="pad-bot-10">SERVICIOS</h2>
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 seccion-servicios">
-      <div class="row">
-      <div class="col-md-4"></div>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center svg-container">
-          <svg class="" id="svg-alberca" width="100px" height="100px"></svg> 
-          <!-- <img src="/assets/img/servicios/iconos servicios-01.svg" class="img-responsive"> -->
-          <label class="label">Alberca</label>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-15">
-          <svg class="" id="svg-asoleadero" width="100px" height="100px"></svg> 
-          <label class="label">Asoleadero</label>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-15">
-          <svg class="" id="svg-recepcion" width="100px" height="100px"></svg> 
-          <label class="label">Recepción <br>24 horas</label>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-15">
-          <svg class="" id="svg-aa" width="100px" height="100px"></svg> 
-          <label class="label">A/A</label>
-        </div>
-        <div class="col-md-2"></div>
-        </div>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 seccion-servicios">
         <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-05">
-          <svg class="" id="svg-restaurante" width="100px" height="100px"></svg> 
-          <label class="label">Restaurante</label>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-15">
-          <svg class="" id="svg-tv" width="100px" height="100px"></svg> 
-          <label class="label">TV con cable</label>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 text-center pad-bot-15">
-          <svg class="" id="svg-wifi" width="100px" height="100px"></svg> 
-          <label class="label">WiFi</label>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-md-offset-0 col-xs-3 text-center pad-bot-15">
-          <svg class="" id="svg-ventilador" width="100px" height="100px"></svg> 
-          <label class="label">Ventilador</label>
-        </div>
-        </div>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-bot-05 seccion-servicios">
-        <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 col-xs-offset-2 text-center pad-bot-15">
-          <svg class="" id="svg-estacionamiento" width="100px" height="100px"></svg> 
-          <label class="label">Estacionamiento</label>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 col-xs-offset-2 text-center pad-bot-15">
-          <svg class="" id="svg-agua" width="100px" height="100px"></svg> 
-          <label class="label">Agua caliente</label>
-        </div>
-        <div class="col-md-2"></div>
+          <div class="col-xl-1 col-lg-2 col-md-2 col-sm-2"></div>
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center ">
+            <svg class="animated svg" id="svg-alberca" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+            <h4 class="" id="">Alberca</h4>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+            <svg class="animated" id="svg-asoleadero" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+            <h4 class="">Asoleadero</h4>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+            <svg class="animated" id="svg-recepcion" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+            <h4 class="">Recepción 24 horas</h4>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+            <svg class="animated" id="svg-aa" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+            <h4 class="">Aire Acondicionado</h4>
+          </div>
+          <div class="col-xl-2 col-xl-offset-0 col-lg-2 col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 col-xs-6 text-center pad-bot-05">
+            <svg class="animated" id="svg-restaurante" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+            <h4 class="">Restaurante</h4>
+          </div>
+          <div class="col-xl-2 col-xl-offset-1-5 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+            <svg class="animated" id="svg-tv" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+            <h4 class="">TV con cable</h4>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+            <svg class="animated" id="svg-wifi" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+            <h4 class="">WiFi</h4>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+            <svg class="animated" id="svg-ventilador" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+            <h4 class="">Ventilador</h4>
+          </div>
+          <div class="col-xl-2 col-xl-offset-0 col-lg-2 col-md-2 col-md-offset-4 col-sm-2 col-sm-offset-4 col-xs-6 text-center pad-bot-15">
+            <svg class="animated" id="svg-estacionamiento" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+            <h4 class="">Estacionamiento</h4>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 text-center pad-bot-15">
+            <svg class="animated" id="svg-agua" viewBox="0 0 110 110" width="100px" height="100px"></svg> 
+            <h4 class="">Agua caliente</h4>
+          </div>
+          <div class="col-xl-1 col-lg-4 col-md-4 col-sm-2"></div>
         </div>
       </div>
     </section>
@@ -216,13 +192,13 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-bot-20">
         <div class="row no-gutter">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
-            <img class="img-responsive" src="assets/img/galeria/h1.jpg">
+            <img id="gal1" class="img-responsive animated" src="assets/img/galeria/h1.jpg">
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
-            <img class="img-responsive" src="assets/img/galeria/h2.jpg">
+            <img id="gal2" class="img-responsive animated" src="assets/img/galeria/h2.jpg">
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
-            <img class="img-responsive" src="assets/img/galeria/h3.jpg">
+            <img id="gal3" class="img-responsive animated" src="assets/img/galeria/h3.jpg">
           </div>
         </div>
       </div>
@@ -233,45 +209,37 @@
         </div>
         <div class="car-atrac">
           <div id="myCarousel2" class="carousel slide" data-ride="carousel">
-            <!-- <ol class="carousel-indicators">
-              <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel2" data-slide-to="1"></li>
-              <li data-target="#myCarousel2" data-slide-to="2"></li>
-              <li data-target="#myCarousel2" data-slide-to="3"></li>
-              <li data-target="#myCarousel2" data-slide-to="4"></li>
-            </ol> -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <img src="assets/img/galeria/te1.jpg" alt="Chania" width="460" height="345">
+              <img class="segundoCarrusel" src="assets/img/galeria/te1.jpg" alt="Chania">
               <div class="carousel-caption">
                 <h2 class="txt-atrac-car">Feria del Coco</h2>
               </div>
             </div>
             <div class="item">
-              <img src="assets/img/galeria/te2.jpg" alt="Chania" width="460" height="345">
+              <img class="segundoCarrusel" src="assets/img/galeria/te2.jpg" alt="Chania" width="460" height="345">
               <div class="carousel-caption">
                 <h2 class="txt-atrac-car">Fiestas Patronales de San Bartolomé</h2>
               </div>
             </div>
             <div class="item">
-              <img src="assets/img/galeria/te3.jpg" alt="Chania" width="460" height="345">
+              <img class="segundoCarrusel" src="assets/img/galeria/te3.jpg" alt="Chania" width="460" height="345">
               <div class="carousel-caption">
                 <h2 class="txt-atrac-car">Encuentro de motociclistas</h2>
               </div>
             </div>
             <div class="item">
-              <img src="assets/img/galeria/te4.jpg" alt="Chania" width="460" height="345">
+              <img class="segundoCarrusel" src="assets/img/galeria/te4.jpg" alt="Chania" width="460" height="345">
               <div class="carousel-caption">
                 <h2 class="txt-atrac-car">Manglares de Tecolutla</h2>
               </div>
             </div>
             <div class="item">
-              <img src="assets/img/galeria/te5.jpg" alt="Chania" width="460" height="345">
+              <img class="segundoCarrusel" src="assets/img/galeria/te5.jpg" alt="Chania" width="460" height="345">
               <div class="carousel-caption">
                 <h2 class="txt-atrac-car">Zona Arqueológica El Tajín</h2>
               </div>
             </div>
-
         </div>
         </div>  
         </div>
@@ -283,30 +251,30 @@
       <div class="col-lg-12 text-center">
         <h2>CONTACTO</h2>
       </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="col-lg-2 col-md-2 col-sm-1"></div>
-        <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12 pad-bot-10">
-          <form role="form">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contacto-recuadro">
+        <div class="col-lg-3 col-md-2 col-sm-1"></div>
+        <div id="contacto-dos" class="col-lg-4 col-md-5 col-sm-5 col-xs-12 pad-bot-10 animated">
+          <form role="form" id="frmContacto">
             <div class="form-group">
               <label for="ejemplo_email_1">Tu nombre</label>
-              <input type="text" class="form-control" id="ejemplo_email_1" placeholder="Introduce tu nombre">
+              <input type="text" class="form-control inpu" name="inNombre" placeholder="Introduce tu nombre" required>
             </div>
             <div class="form-group">
               <label for="ejemplo_password_1">Tu email</label>
-              <input type="mail" class="form-control" id="ejemplo_password_1" placeholder="Introduce tu email">
+              <input type="email" class="form-control inpu" name="inEmail" placeholder="Introduce tu email" required>
             </div>
             <div class="form-group">
               <label for="ejemplo_password_1">Asunto</label>
-              <input type="mail" class="form-control" id="ejemplo_password_1" placeholder="Introduce el asunto">
+              <input type="text" class="form-control inpu" name="inAsunto" placeholder="Introduce el asunto">
             </div>
             <div class="form-group">
               <label for="ejemplo_password_1">Mensaje</label>
-              <textarea class="form-control" rows="5"></textarea>
+              <textarea class="form-control inpu" name="inMensaje" rows="5"></textarea>
             </div>
             <button type="submit" class="btn btn-default">Enviar</button>
           </form>
         </div>
-        <div class="col-lg-4 col-md-3 col-sm-5 col-xs-12">
+        <div id="contacto-uno" class="col-lg-4 col-md-3 col-sm-5 col-xs-12 animated">
           <label class="letra-naranja">Ubicado en: </label><br>
           <label>Av. Juárez s/n esquina con calle 16 de septiembre, Tecolutla, Veracruz</label>
           <br><br>
@@ -328,7 +296,7 @@
       <div class="col-lg-12 text-center">
         <h2>UBICACIÓN</h2>
       </div>
-        <div id="map"></div>
+        <div id="map" class="animated"></div>
     </section>
     <!-- Fin de ubicación -->
     <footer class="row color-adobe">
@@ -391,12 +359,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- API google maps -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM"></script>
-    <script src="https://github.com/adobe-webplatform/Snap.svg/raw/master/dist/snap.svg-min.js"></script>
+    <script src="assets/js/snap.svg-min.js"></script>
     <!-- Archivo JS principal -->
-    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="assets/js/sweetalert.min.js"></script>
     <script src="assets/js/main.js"></script>
     <a class="page-scroll" style="display: inline-block; position: fixed; z-index: 2147483647;" title="" href="#top" id="scrollUp"></a>

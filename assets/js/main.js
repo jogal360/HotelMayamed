@@ -20,14 +20,24 @@ $.datepicker.regional['es'] = {
 };
 $.datepicker.setDefaults($.datepicker.regional['es']);
 
+
 (function($) {
   "use strict"; // Start of use strict
 
+  //Obtencion de viewport
+  var w = $(window).width();
+  var h = $(window).height();
+  var n = h-50;
+  $('#myCarousel').css('height',n);
+  $('#myCarousel').css('width',w);
+  $('.img-car').css('height',n);
+  $('.img-car').css('width',w);
+
+  //Obtención de los precios
   $.ajax({
     type: "POST",
     url: "assets/controlador/controlador-precios.php",
     success: function(datos) {
-      //alert(datos);
       var json=JSON.parse(datos);
       if(json.respuesta=='bien') {
         $('#sen').html(json.habSen);
@@ -45,6 +55,13 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       return value.match(/^\d\d?\/\d\d?\/\d\d\d\d$/);
     },
     "dd/mm/yyy"
+  );
+
+  $.validator.addMethod(
+    "soloLetras",
+    function(value, element) {
+      return value.match(/^[a-zA-Z_áéíóúñ\s]*$/);
+    },"Sólo están permitidos letras"
   );
 
   $('#myForm').validate({
@@ -72,16 +89,17 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
         url: "assets/controlador/controlador-registrar.php",
         data: dataString,
         beforeSend: function() {
-          //alert("Enviando");
+          //alert("Enviado");
           $('.formu').prop('disabled', true);
         },
         success: function(data) {
-          //alert("Recibido: "+data);
+          alert(data);
+          $('.formu').prop('disabled', false);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
             $('#myModal').modal('hide');
             swal({ 
-              title: "Registro correcto!", 
+              title: json.res, 
               text: "Te hemos enviado un email con los datos de tu reservación.", 
               type: "success"
             });
@@ -97,8 +115,58 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     }
   });
 
+  $('#frmContacto').validate({
+    errorElement: 'div',
+    errorClass: 'inp-error',
+    rules: { 
+      inNombre: {required: true, soloLetras: true},
+      inEmail: {required: true},
+      inAsunto: {required: true},
+      inMensaje: {required: true}
+    },
+    messages: {
+      inNombre: {required: "Llena la información", soloLetras: "Introduce solo letras"},
+      inEmail: {required: "Llena el campo", email: "Introduce un correo válido"},
+      inAsunto: {required: "Llena la información"},
+      inMensaje: {required: "Llena la información"}
+    },
+    submitHandler: function (form) {
+      var dataString = $(form).serialize();
+      //alert(dataString);
+      $.ajax({
+        type: "POST",
+        url: "assets/controlador/controlador-contacto.php",
+        data: dataString,
+        beforeSend: function() {
+          //alert("Enviando");
+          $('.inpu').prop('disabled', true);
+        },
+        success: function(data) {
+          console.log(data);
+          //alert("Recibiendo");
+          $('.inpu').prop('disabled', false);
+          var json=JSON.parse(data);
+          if(json.respuesta=='bien') {
+            $('.inpu').val('');
+            swal({ 
+              title: json.res, 
+              text: "Gracias por tu mensaje.", 
+              type: "success"
+            });
+          } else {
+            console.log("Error: "+json.error+" | Data: "+data);
+          }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          alert(xhr.status);
+          alert(thrownError);
+        }
+      });
+    }
+  });
 
-  // jQuery for page scrolling feature - requires jQuery Easing plugin
+
+  // jQuery scroll
   $('a.page-scroll').bind('click', function(event) {
   	var $anchor = $(this);
     $('html, body').stop().animate({
@@ -112,19 +180,86 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   	var valor = 50;
     var targetOffset = $('.navbar').offset().top -valor;
     var tar = $('.logo-hotel');
+    var scrollUp = $('#scrollUp');
     var velocidad = 10;
     if(targetOffset >= valor) {
       $(tar).animate({
       	right: -40,
       	height: "70px",
       },velocidad);
+      $(scrollUp).css("display",'inline-block');
     } else {
     	$(tar).animate({
       	right: -80,
       	height: "140px",
       },velocidad);
+      $(scrollUp).css("display",'none');
     }
   });
+
+  //Animación
+  $('#inf-uno').css('opacity', 0);
+  $('#inf-dos').css('opacity', 0);
+  $('#inf-tres').css('opacity', 0);
+  $('#hab1').css('opacity', 0);
+  $('#hab2').css('opacity', 0);
+  $('#hab3').css('opacity', 0);
+  $('#svg-alberca').css('opacity', 0);
+  $('#svg-asoleadero').css('opacity', 0);
+  $('#svg-recepcion').css('opacity', 0);
+  $('#svg-aa').css('opacity', 0);
+  $('#svg-restaurante').css('opacity', 0);
+  $('#svg-tv').css('opacity', 0);
+  $('#svg-wifi').css('opacity', 0);
+  $('#svg-ventilador').css('opacity', 0);
+  $('#svg-estacionamiento').css('opacity', 0);
+  $('#svg-agua').css('opacity', 0);
+  $('#gal1').css('opacity', 0);
+  $('#gal2').css('opacity', 0);
+  $('#gal3').css('opacity', 0);
+  $('#contacto-uno').css('opacity', 0);
+  $('#contacto-dos').css('opacity', 0);
+  $('#map').css('opacity', 0);
+
+  $(".informacion").waypoint(function() {
+     $("#inf-uno").addClass('fadeInLeft');
+     $("#inf-dos").addClass('fadeInRight');
+     $("#inf-tres").addClass('fadeInUp');
+  }, { offset: '75%'});
+
+  $("#habitaciones").waypoint(function() {
+     $("#hab1").addClass('fadeInLeft');
+     $("#hab2").addClass('fadeInUp');
+     $("#hab3").addClass('fadeInRight');
+  }, { offset: '50%'});
+
+  $(".servicios").waypoint(function() {
+     $("#svg-alberca").addClass('fadeInLeft');
+     $("#svg-asoleadero").addClass('fadeInLeft');
+     $("#svg-recepcion").addClass('fadeInRight');
+     $("#svg-aa").addClass('fadeInRight');
+     $("#svg-restaurante").addClass('fadeInLeft');
+     $("#svg-tv").addClass('fadeInLeft');
+     $("#svg-wifi").addClass('fadeInRight');
+     $("#svg-ventilador").addClass('fadeInRight');
+     $("#svg-estacionamiento").addClass('fadeInUp');
+     $("#svg-agua").addClass('fadeInUp');
+  }, { offset: '60%'});
+
+  $(".galeria").waypoint(function() {
+    $('#gal1').addClass('fadeInLeft');
+    $('#gal2').addClass('fadeInUp');
+    $('#gal3').addClass('fadeInRight');
+  }, { offset: '50%'});
+
+  $(".contacto").waypoint(function() {
+    $('#contacto-dos').addClass('fadeInLeft');
+    $('#contacto-uno').addClass('fadeInRight');
+  }, { offset: '60%'});
+
+  $(".ubicacion").waypoint(function() {
+    $('#map').addClass('fadeInUp');
+  }, { offset: '60%'});
 
   // Para cerrar el menu al dar tap (Vista movil)
   $('.navbar-collapse ul li a').click(function() {
@@ -153,7 +288,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //Alberca
     var s = Snap("#svg-alberca");
     var g = s.group();
-    var tux = Snap.load("../assets/img/servicios/svg/iconos servicios-01.svg",
+    var tux = Snap.load("assets/img/servicios/svg/servicios-01.svg",
       function ( loadedFragment ) {
         g.append( loadedFragment );
         g.hover( hoverovers, hoverouts );
@@ -164,7 +299,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //Asoleadero
     var s2 = Snap("#svg-asoleadero");
     var g2 = s2.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-02.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-02.svg",
       function ( loadedFragment ) {
         g2.append( loadedFragment );
         g2.hover( hoverovers2, hoverouts2 );
@@ -175,7 +310,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //Recepcion
     var s3 = Snap("#svg-recepcion");
     var g3 = s3.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-03.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-03.svg",
       function ( loadedFragment ) {
         g3.append( loadedFragment );
         g3.hover( hoverovers3, hoverouts3 );
@@ -186,7 +321,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //A/A
     var s4 = Snap("#svg-aa");
     var g4 = s4.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-10.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-10.svg",
       function ( loadedFragment ) {
         g4.append( loadedFragment );
         g4.hover( hoverovers4, hoverouts4 );
@@ -197,7 +332,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //Restaurante
     var s5 = Snap("#svg-restaurante");
     var g5 = s5.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-05.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-05.svg",
       function ( loadedFragment ) {
         g5.append( loadedFragment );
         g5.hover( hoverovers5, hoverouts5 );
@@ -208,7 +343,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //TV
     var s6 = Snap("#svg-tv");
     var g6 = s6.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-06.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-06.svg",
       function ( loadedFragment ) {
         g6.append( loadedFragment );
         g6.hover( hoverovers6, hoverouts6 );
@@ -219,7 +354,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //WiFi
     var s7 = Snap("#svg-wifi");
     var g7 = s7.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-09.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-09.svg",
       function ( loadedFragment ) {
         g7.append( loadedFragment );
         g7.hover( hoverovers7, hoverouts7 );
@@ -230,7 +365,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //
     var s8 = Snap("#svg-ventilador");
     var g8 = s8.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-11.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-11.svg",
       function ( loadedFragment ) {
         g8.append( loadedFragment );
         g8.hover( hoverovers8, hoverouts8 );
@@ -241,7 +376,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //
     var s9 = Snap("#svg-estacionamiento");
     var g9 = s9.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-04.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-04.svg",
       function ( loadedFragment ) {
         g9.append( loadedFragment );
         g9.hover( hoverovers9, hoverouts9 );
@@ -252,7 +387,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     //Agua caliente
     var s10 = Snap("#svg-agua");
     var g10 = s10.group();
-    var aso = Snap.load("../assets/img/servicios/svg/iconos servicios-12.svg",
+    var aso = Snap.load("assets/img/servicios/svg/iconos servicios-12.svg",
       function ( loadedFragment ) {
         g10.append( loadedFragment );
         g10.hover( hoverovers10, hoverouts10 );
