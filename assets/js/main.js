@@ -24,13 +24,20 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 (function($) {
   "use strict"; // Start of use strict
 
-  $('#scrollUp').css("display",'none');
+  //Obtencion de viewport
+  var w = $(window).width();
+  var h = $(window).height();
+  var n = h-50;
+  $('#myCarousel').css('height',n);
+  $('#myCarousel').css('width',w);
+  $('.img-car').css('height',n);
+  $('.img-car').css('width',w);
 
+  //Obtención de los precios
   $.ajax({
     type: "POST",
     url: "assets/controlador/controlador-precios.php",
     success: function(datos) {
-      //alert(datos);
       var json=JSON.parse(datos);
       if(json.respuesta=='bien') {
         $('#sen').html(json.habSen);
@@ -48,6 +55,13 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       return value.match(/^\d\d?\/\d\d?\/\d\d\d\d$/);
     },
     "dd/mm/yyy"
+  );
+
+  $.validator.addMethod(
+    "soloLetras",
+    function(value, element) {
+      return value.match(/^[a-zA-Z_áéíóúñ\s]*$/);
+    },"Sólo están permitidos letras"
   );
 
   $('#myForm').validate({
@@ -75,9 +89,11 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
         url: "assets/controlador/controlador-registrar.php",
         data: dataString,
         beforeSend: function() {
+          //alert("Enviado");
           $('.formu').prop('disabled', true);
         },
         success: function(data) {
+          alert(data);
           $('.formu').prop('disabled', false);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
@@ -101,14 +117,15 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
   $('#frmContacto').validate({
     errorElement: 'div',
+    errorClass: 'inp-error',
     rules: { 
-      inNombre: {required: true},
+      inNombre: {required: true, soloLetras: true},
       inEmail: {required: true},
       inAsunto: {required: true},
       inMensaje: {required: true}
     },
     messages: {
-      inNombre: {required: "Llena la información"},
+      inNombre: {required: "Llena la información", soloLetras: "Introduce solo letras"},
       inEmail: {required: "Llena el campo", email: "Introduce un correo válido"},
       inAsunto: {required: "Llena la información"},
       inMensaje: {required: "Llena la información"}
@@ -125,6 +142,8 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
           $('.inpu').prop('disabled', true);
         },
         success: function(data) {
+          console.log(data);
+          //alert("Recibiendo");
           $('.inpu').prop('disabled', false);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
@@ -135,7 +154,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
               type: "success"
             });
           } else {
-            console.log("Error: "+json.error);
+            console.log("Error: "+json.error+" | Data: "+data);
           }
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -165,13 +184,13 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     var velocidad = 10;
     if(targetOffset >= valor) {
       $(tar).animate({
-      	right: -40,
-      	height: "70px",
+      	right: -30,
+      	height: "75px",
       },velocidad);
       $(scrollUp).css("display",'inline-block');
     } else {
     	$(tar).animate({
-      	right: -80,
+      	right: -70,
       	height: "140px",
       },velocidad);
       $(scrollUp).css("display",'none');

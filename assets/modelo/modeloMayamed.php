@@ -3,7 +3,7 @@
   /*
     ARCHIVO: modeloMayamed.php
     CREACIÓN: 17/10/16
-    MODIFICACIÓN: 08/11/16
+    MODIFICACIÓN: 21/11/16
     DESCRIPCIÓN: Modelo principal del sitio, donde se procesa lo que el sitio necesita
   */
 
@@ -29,21 +29,39 @@
     }
     
     #Método para registrar reservaciones
-    public function insertar($datos) {
+    public function registrarReservacion($datos) {
+      //Se reemplazan caracteres especiales para evitar inyección SQL y código maligno
+      $datos = str_replace(array('<','>'), '', $datos);
+      //Se escapan los datos del array, para evitar inyección SQL
+      $datos = array_map( 'addslashes', $datos );
+      //Asignamos el puntero al array
       $this->datos = $datos;
-      date_default_timezone_set("America/Mexico_City"); //Configuramos date() para México
-      header('Content-Type: text/html; charset=UTF-8'); //Usamos UTF-8
-      $fecha = date("d-m-Y"); //Obtención de la fecha actual.
-      $hora = date("H:i");  //Obtención de la hora actual.
-      $sql = "INSERT INTO t_reservacion VALUES (null,'$this->datos[0]','$this->datos[1]','$this->datos[2]','$this->datos[5]','$this->datos[3]','$this->datos[4]','$fecha','$hora')"; //Sentencia SQL para registrar la reservación
+      //Configuramos date() para México
+      date_default_timezone_set("America/Mexico_City"); 
+      //Usamos UTF-8
+      header('Content-Type: text/html; charset=UTF-8'); 
+      //Obtención de la fecha y hora actual.
+      $fecha = date("d-m-Y"); 
+      $hora = date("H:i");
+      //Obtención y formateo de datos del array para insertar  
+      $nom      = $this->datos[0];
+      $ema      = $this->datos[1];
+      $hab      = $this->datos[2];
+      $checkin  = $this->datos[3];
+      $checkout = $this->datos[4];
+      $per      = $this->datos[5];
+      //Se crea la sentencia SQL para registrar la reservación
+      $sql = "INSERT INTO t_reservacion VALUES (null,'$nom','$ema','$hab','$per','$checkin','$checkout','$fecha','$hora')";
+      //Se ejecuta la sentencia
       $res = $this->mysqli->query($sql);
-      if($res) { //Si el registro ha sido exitoso entonces se procede al envio de los correos.
+      //Si el registro ha sido exitoso entonces se procede al envio de los correos.
+      if($res) { 
         //Funciones para cambiar diagonal por guion intermedio
         $fecI = str_replace("/", "-", $this->datos[3]);
         $fecF = str_replace("/", "-", $this->datos[4]);
         //Funcion para sacar los dias que se hospedará el cliente
         $dias = (strtotime($fecI)-strtotime($fecF))/86400;
-        $dias   = abs($dias); $dias = floor($dias);
+        $dias = abs($dias); $dias = floor($dias);
         //Abrimos una sesión y obtenemos el precio de la habitación (viene de la funcion de pŕecios)
         session_start();
         switch ($this->datos[2]) {
@@ -349,16 +367,22 @@
 
     #Método para enviar correo por medio de contacto
     public function enviarCorreoContacto($datos) {
+      //Se reemplazan caracteres especiales para evitar inyección SQL y código maligno
+      $datos = str_replace(array('<','>'), '', $datos);
+      //Se escapan los datos del array, para evitar inyección SQL
+      $datos = array_map( 'addslashes', $datos );
+      //Enlazamos el puntero al array
       $this->datos = $datos;
+      //Comienza la creación del email
       $to = CORREO_CONTACTO; //Correo al cual llegará
-      $subject = utf8_decode("Nuevo mensaje de contacto, Hotel Mayamed");
+      $subject = utf8_decode("Nuevo mensaje de contacto, Hotel Mayamed"); //Asunto
       $message = '
         Se ha recibido un nuevo mensaje de contacto<br>
         <b>Nombre:</b> '.$this->datos[0].'<br>
         <b>Correo:</b> '.$this->datos[1].'<br>
         <b>Asunto:</b> '.$this->datos[2].'<br>
         <b>Mensaje:</b> '.$this->datos[3].'<br>
-      ';
+      '; //Cuerpo del mensaje
       $headers = "MIME-Version: 1.0" . "\r\n";
       $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
       $headers .= "From: Hotel Mayamed <test@granteocalli.com.mx>";
