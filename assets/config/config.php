@@ -24,7 +24,7 @@
         //Local
         DEFINE('SERVIDOR','localhost');
         DEFINE('USUARIO','root');
-        DEFINE('PASSWORD','1234');
+        DEFINE('PASSWORD','');
         DEFINE('BASE','hotelmayamed');
         break;
 
