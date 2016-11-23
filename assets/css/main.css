@@ -127,9 +127,6 @@
   .contacto {
     padding-bottom: 15px;
   }
-  .contacto-recuadro {
-    border: 2px solid red;
-  }
   footer {
     color: white;
     padding: 10px;
@@ -196,6 +193,11 @@
   
   /*Datepicker*/
   #ui-datepicker-div {z-index:9999 !important}
+
+  /*Efecto hover*/
+  .hvr:hover {
+    
+  }
 
   /*Media queries*/
   @media (min-width:768px) { 
