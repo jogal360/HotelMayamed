@@ -215,6 +215,9 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   $('#gal1').css('opacity', 0);
   $('#gal2').css('opacity', 0);
   $('#gal3').css('opacity', 0);
+  $('#gal4').css('opacity', 0);
+  $('#gal5').css('opacity', 0);
+  $('#gal6').css('opacity', 0);
   $('#contacto-uno').css('opacity', 0);
   $('#contacto-dos').css('opacity', 0);
   $('#map').css('opacity', 0);
@@ -246,8 +249,11 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
   $(".galeria").waypoint(function() {
     $('#gal1').addClass('fadeInLeft');
-    $('#gal2').addClass('fadeInUp');
+    $('#gal2').addClass('fadeInDown');
     $('#gal3').addClass('fadeInRight');
+    $('#gal4').addClass('fadeInLeft');
+    $('#gal5').addClass('fadeInUp');
+    $('#gal6').addClass('fadeInRight');
   }, { offset: '50%'});
 
   $(".contacto").waypoint(function() {
