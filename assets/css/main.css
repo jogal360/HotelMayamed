@@ -20,6 +20,15 @@
     /*JS*/
     border-color: red;
   }
+  .avisoPrivacidad {
+    color: #29aaca;
+  }
+  .avisoPrivacidad:hover {
+    color: #61c6df;
+  }
+  .email:hover {
+    color: #f9c462;
+  }
 
   /*Navbar*/
   .logo-nav {
