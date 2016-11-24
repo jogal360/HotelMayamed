@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/css/formValidation.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/imagehover.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
     <!-- Fin código CSS -->
   </head>
@@ -139,17 +140,39 @@
             <button type="button" tipo="Triple" class="btn btn-primary btn-lg reserva">Reservar</button>
           </div>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 imagenes pad-bot-15">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 imagenes pad-bot-15">
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <img id="hab1" class="img-responsive animated" src="assets/img/habitaciones/hab1.jpg">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <figure class="imghvr-slide-up">
+                <img id="hab1" class="img-responsive center-block animated" src="assets/img/habitaciones/hab1.jpg">
+                <figcaption class="alinear">
+                  <h3>La habitación cuenta con:</h3>
+                  <h4>*TV con cable</h4>
+                  <h4>*TV con cable</h4>
+                </figcaption>
+              </figure>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <img id="hab2" class="img-responsive center-block animated" src="assets/img/habitaciones/hab2.jpg">
+              <figure class="imghvr-fade">
+                <img id="hab2" class="img-responsive center-block animated" src="assets/img/habitaciones/hab2.jpg">
+                <figcaption>
+                  <h3>La habitación cuenta con:</h3>
+                  <h4>*TV con cable</h4>
+                  <h4>*TV con cable</h4>
+                </figcaption>
+              </figure>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <img id="hab3" class="img-responsive center-block animated" src="assets/img/habitaciones/hab3.jpg">
+              <figure class="imghvr-slide-up">
+                <img id="hab3" class="img-responsive center-block animated" src="assets/img/habitaciones/hab3.jpg">
+                <figcaption>
+                  <h3>La habitación cuenta con:</h3>
+                  <h4>*TV con cable</h4>
+                  <h4>*TV con cable</h4>
+                </figcaption>
+              </figure>
             </div>
+          </div>
         </div>
       </section>
       <!-- Fin de habitaciones -->
@@ -211,16 +234,25 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center">
           <h2 class="">GALERIA</h2>
         </div>
-        <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-bot-20">
-          <div class="row no-gutter">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-bot-20">
+          <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
               <img id="gal1" class="img-responsive animated" src="assets/img/galeria/h1.jpg">
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
               <img id="gal2" class="img-responsive animated" src="assets/img/galeria/h2.jpg">
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
               <img id="gal3" class="img-responsive animated" src="assets/img/galeria/h3.jpg">
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
+              <img id="gal4" class="img-responsive animated" src="assets/img/galeria/h4.jpg">
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
+              <img id="gal5" class="img-responsive animated" src="assets/img/galeria/h5.jpg">
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 abs">
+              <img id="gal6" class="img-responsive animated" src="assets/img/galeria/h4.jpg">
             </div>
           </div>
         </div>
@@ -274,8 +306,8 @@
         <div class="col-lg-12 text-center">
           <h2>CONTACTO</h2>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contacto-recuadro">
-          <div class="col-lg-3 col-md-2 col-sm-1"></div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="col-lg-2 col-md-2 col-sm-1"></div>
           <div id="contacto-dos" class="col-lg-4 col-md-5 col-sm-5 col-xs-12 pad-bot-10 animated">
             <form role="form" id="frmContacto">
               <div class="form-group">

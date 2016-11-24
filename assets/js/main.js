@@ -35,9 +35,9 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
   //Obtención de los precios
   $.ajax({
-    type: "POST",
-    url: "assets/controlador/controlador-precios.php",
-    success: function(datos) {
+    type    : "POST",
+    url     : "assets/controlador/controlador-precios.php",
+    success : function(datos) {
       var json=JSON.parse(datos);
       if(json.respuesta=='bien') {
         $('#sen').html(json.habSen);
@@ -61,39 +61,37 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
     "soloLetras",
     function(value, element) {
       return value.match(/^[a-zA-Z_áéíóúñ\s]*$/);
-    },"Sólo están permitidos letras"
+    },"Sólo están permitidas letras"
   );
 
   $('#myForm').validate({
     errorElement: 'div',
+    errorClass: 'inp-error',
     rules: { 
-      inputNombre: {required: true},
-      inputCorreo: {required: true},
+      inputNombre:  {required: true, soloLetras: true},
+      inputCorreo:  {required: true},
       inputTipoHab: {required: true},
-      checkin: {required: true, dateMex: true},
-      checkout: {required: true, dateMex: true},
-      personas: {required: true}
+      checkin:      {required: true, dateMex: true},
+      checkout:     {required: true, dateMex: true},
+      personas:     {required: true}
     },
     messages: {
       inputNombre: {required: "Llena la información"},
       inputCorreo: {required: "Llena el campo", email: "Introduce un correo válido"},
-      checkin: {required: "Llena el campo", dateMex: "Introduce una fecha válida"},
-      checkout: {required: "Llena el campo", dateMex: "Introduce una fecha válida"},
-      personas: {required: "Selecciona la cantidad de personas",}
+      checkin:     {required: "Llena el campo", dateMex: "Introduce una fecha válida"},
+      checkout:    {required: "Llena el campo", dateMex: "Introduce una fecha válida"},
+      personas:    {required: "Selecciona la cantidad de personas",}
     },
     submitHandler: function (form) {
       var dataString = $(form).serialize();
-      //alert(dataString);
       $.ajax({
-        type: "POST",
-        url: "assets/controlador/controlador-registrar.php",
-        data: dataString,
+        type      : "POST",
+        url       : "assets/controlador/controlador-registrar.php",
+        data      : dataString,
         beforeSend: function() {
-          //alert("Enviado");
           $('.formu').prop('disabled', true);
         },
-        success: function(data) {
-          alert(data);
+        success   : function(data) {
           $('.formu').prop('disabled', false);
           var json=JSON.parse(data);
           if(json.respuesta=='bien') {
@@ -217,6 +215,9 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
   $('#gal1').css('opacity', 0);
   $('#gal2').css('opacity', 0);
   $('#gal3').css('opacity', 0);
+  $('#gal4').css('opacity', 0);
+  $('#gal5').css('opacity', 0);
+  $('#gal6').css('opacity', 0);
   $('#contacto-uno').css('opacity', 0);
   $('#contacto-dos').css('opacity', 0);
   $('#map').css('opacity', 0);
@@ -248,8 +249,11 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 
   $(".galeria").waypoint(function() {
     $('#gal1').addClass('fadeInLeft');
-    $('#gal2').addClass('fadeInUp');
+    $('#gal2').addClass('fadeInDown');
     $('#gal3').addClass('fadeInRight');
+    $('#gal4').addClass('fadeInLeft');
+    $('#gal5').addClass('fadeInUp');
+    $('#gal6').addClass('fadeInRight');
   }, { offset: '50%'});
 
   $(".contacto").waypoint(function() {
@@ -451,6 +455,8 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
       .removeClass("has-error")
       .end();
     $('.form-group').removeClass('has-error has-danger');
+    $('.form-control').removeClass('inp-error');
+    $(".inp-error").remove();
     $('div.error').remove();
 
   });

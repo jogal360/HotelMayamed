@@ -14,6 +14,7 @@
   .abs {
     padding-left: 0px !important;
     padding-right: 0px !important;
+    margin: 0 !important;
   }
   .inp-error {
     /*JS*/
@@ -127,9 +128,6 @@
   .contacto {
     padding-bottom: 15px;
   }
-  .contacto-recuadro {
-    border: 2px solid red;
-  }
   footer {
     color: white;
     padding: 10px;
@@ -197,6 +195,7 @@
   /*Datepicker*/
   #ui-datepicker-div {z-index:9999 !important}
 
+
   /*Media queries*/
   @media (min-width:768px) { 
     .nav.navbar-nav {
@@ -208,7 +207,7 @@
       margin: 0;
       padding: 0;
       position: relative;
-      left: 52%;
+      left: 51%;
       text-align: center;
     }
     .nav.navbar-nav > li {
